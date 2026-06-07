@@ -1,6 +1,6 @@
 # State of ATS 2026 — Dataset
 
-[![npm version](https://img.shields.io/npm/v/@kayvan-zahiri/ats-data.svg)](https://www.npmjs.com/package/@kayvan-zahiri/ats-data)
+[![npm version](https://img.shields.io/npm/v/@withresumeai/ats-data.svg)](https://www.npmjs.com/package/@withresumeai/ats-data)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/Kayvan-Zahiri/state-of-ats-2026?style=social)](https://github.com/Kayvan-Zahiri/state-of-ats-2026)
 [![CI](https://github.com/Kayvan-Zahiri/state-of-ats-2026/actions/workflows/test.yml/badge.svg)](https://github.com/Kayvan-Zahiri/state-of-ats-2026/actions/workflows/test.yml)
@@ -36,7 +36,7 @@ any scraping.
 ## Install
 
 ```bash
-npm install @kayvan-zahiri/ats-data
+npm install @withresumeai/ats-data
 ```
 
 ```ts
@@ -47,7 +47,7 @@ import {
   getCompaniesByIndustry,
   atsDistribution,
   atsShare,
-} from "@kayvan-zahiri/ats-data";
+} from "@withresumeai/ats-data";
 
 console.log(companies.length); // 743
 
@@ -69,7 +69,7 @@ atsShare();
 Works the same in CommonJS:
 
 ```js
-const { getATSForCompany } = require("@kayvan-zahiri/ats-data");
+const { getATSForCompany } = require("@withresumeai/ats-data");
 ```
 
 ### Python (pandas)
@@ -81,7 +81,7 @@ directly from this repo or from the live API:
 import pandas as pd
 
 # Option A: install the npm package, then load from node_modules
-df = pd.read_csv("node_modules/@kayvan-zahiri/ats-data/data/companies.csv", comment="#")
+df = pd.read_csv("node_modules/@withresumeai/ats-data/data/companies.csv", comment="#")
 
 # Option B: download the canonical CSV from the published report
 df = pd.read_csv(

@@ -32,7 +32,7 @@ function resolveCsvPath(): string {
     typeof require === "function" ? require : undefined;
   if (req) {
     try {
-      const pkgPath = req.resolve("@kayvan-zahiri/ats-data/package.json");
+      const pkgPath = req.resolve("@withresumeai/ats-data/package.json");
       candidates.push(resolve(dirname(pkgPath), "data/companies.csv"));
     } catch {
       // Not installed under that name — we're running from source.
@@ -45,7 +45,7 @@ function resolveCsvPath(): string {
   for (let i = 0; i < 8; i++) {
     candidates.push(resolve(dir, "data/companies.csv"));
     candidates.push(
-      resolve(dir, "node_modules/@kayvan-zahiri/ats-data/data/companies.csv")
+      resolve(dir, "node_modules/@withresumeai/ats-data/data/companies.csv")
     );
     dir = resolve(dir, "..");
   }
@@ -59,7 +59,7 @@ function resolveCsvPath(): string {
     }
   }
   throw new Error(
-    "@kayvan-zahiri/ats-data: could not locate data/companies.csv on disk."
+    "@withresumeai/ats-data: could not locate data/companies.csv on disk."
   );
 }
 

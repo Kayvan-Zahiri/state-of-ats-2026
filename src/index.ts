@@ -1,5 +1,5 @@
 /**
- * @kayvan-zahiri/ats-data
+ * @withresumeai/ats-data
  *
  * 743 Fortune-500 / Global-2000 / late-stage-private employers and the
  * Applicant Tracking System (ATS) each one uses on their public careers

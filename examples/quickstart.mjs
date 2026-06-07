@@ -1,4 +1,4 @@
-// Quickstart for @kayvan-zahiri/ats-data.
+// Quickstart for @withresumeai/ats-data.
 // Run after `npm install && npm run build`:
 //     node examples/quickstart.mjs
 

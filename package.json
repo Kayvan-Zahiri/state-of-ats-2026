@@ -1,5 +1,5 @@
 {
-  "name": "@kayvan-zahiri/ats-data",
+  "name": "@withresumeai/ats-data",
   "version": "1.0.0",
   "description": "743 Fortune-500 employers and the ATS systems they use. Data from the State of ATS 2026 report.",
   "main": "dist/index.cjs",
