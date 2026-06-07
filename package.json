@@ -1,0 +1,60 @@
+{
+  "name": "@kayvan-zahiri/ats-data",
+  "version": "1.0.0",
+  "description": "743 Fortune-500 employers and the ATS systems they use. Data from the State of ATS 2026 report.",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./data/companies.csv": "./data/companies.csv",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "data",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "test": "node --test test/smoke.test.mjs",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kayvan-Zahiri/state-of-ats-2026.git"
+  },
+  "homepage": "https://withresumeai.com/reports/state-of-ats-2026",
+  "bugs": {
+    "url": "https://github.com/Kayvan-Zahiri/state-of-ats-2026/issues"
+  },
+  "keywords": [
+    "ats",
+    "applicant-tracking-system",
+    "resume",
+    "hiring",
+    "fortune-500",
+    "workday",
+    "greenhouse",
+    "lever",
+    "taleo",
+    "dataset",
+    "jobs",
+    "recruiting"
+  ],
+  "license": "MIT",
+  "author": "Kayvan Zahiri <kayvan@withresumeai.com>",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0"
+  }
+}
