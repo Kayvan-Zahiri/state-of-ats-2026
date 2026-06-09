@@ -9,7 +9,7 @@
 The 743-employer Applicant Tracking System dataset from the
 [**State of ATS 2026** report](https://withresumeai.com/reports/state-of-ats-2026).
 Workday now powers **75.4%** of Fortune-500 hiring. Greenhouse is the venture
-default at **16.7%**. The top three vendors together cover **93.7%** of the
+default at **16.7%**. The top three vendors together cover **93.5%** of the
 employers in the dataset. Published as a CSV + typed TypeScript wrapper so
 you can drop it into a notebook, a SQL warehouse, or your job board without
 any scraping.
@@ -27,7 +27,7 @@ any scraping.
 | Taleo        |        11 |             1.5% |
 | Lever        |        10 |             1.3% |
 
-> **Top 3 vendors (Workday + Greenhouse + Taleo) cover 93.7% of large
+> **Top 3 vendors (Workday + Greenhouse + Taleo) cover 93.5% of large
 > employers.** The remainder is a long tail of niche vendors and proprietary
 > internal systems (Amazon, Meta, Google, Microsoft).
 
