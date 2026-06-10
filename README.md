@@ -31,6 +31,11 @@ any scraping.
 > employers.** The remainder is a long tail of niche vendors and proprietary
 > internal systems (Amazon, Meta, Google, Microsoft).
 
+> **Job seeker?** The practical takeaway: the same resume is parsed
+> differently by each ATS, so it scores differently in Workday vs Greenhouse
+> vs Lever. The free [ResumeAI ATS checker](https://withresumeai.com/ats-checker)
+> scores yours against the specific parser your target employer uses.
+
 ---
 
 ## Install
