@@ -8,28 +8,51 @@
 
 The 743-employer Applicant Tracking System dataset from the
 [**State of ATS 2026** report](https://withresumeai.com/reports/state-of-ats-2026).
-Workday now powers **75.4%** of Fortune-500 hiring. Greenhouse is the venture
-default at **16.7%**. The top three vendors together cover **93.5%** of the
-employers in the dataset. Published as a CSV + typed TypeScript wrapper so
-you can drop it into a notebook, a SQL warehouse, or your job board without
-any scraping.
+Across the **337 employers verified against their live careers portals**,
+Workday leads at **40.9%** — common, but well short of a majority — and the
+market is far more fragmented than usually claimed: Greenhouse 16.9%, SAP
+SuccessFactors 7.1%, Oracle 6.8%, then a long tail of iCIMS, Eightfold, Taleo,
+SmartRecruiters, Avature, Lever, and Ashby. Published as a CSV + typed
+TypeScript wrapper so you can drop it into a notebook, a SQL warehouse, or your
+job board without any scraping.
+
+> ### ⚠️ Accuracy notice (June 2026)
+> An earlier version of this dataset reported Workday at 75.4% with a
+> "hand-verified" methodology. That was wrong: the original ATS attributions
+> were **compiled with AI from public information and were not individually
+> verified**. A portal-verification audit found them only ~52% accurate (the
+> model defaulted to "Workday" when unsure). We have since re-checked **337 of
+> the 743** employers against their live careers-portal apply-URL hosts. Those
+> rows now carry **`verified: true`** and the numbers above reflect ONLY that
+> verified subset. The remaining ~406 rows are `verified: false` — unconfirmed
+> prior estimates; treat them as leads, not facts. **For analysis, filter to
+> `verified === true`.**
 
 ---
 
 ## Headline numbers
 
-| ATS vendor   | Companies | Share of dataset |
-| ------------ | --------: | ---------------: |
-| Workday      |       560 |        **75.4%** |
-| Greenhouse   |       124 |        **16.7%** |
-| Internal ATS |        15 |             2.0% |
-| USAJobs      |        13 |             1.7% |
-| Taleo        |        11 |             1.5% |
-| Lever        |        10 |             1.3% |
+Share of the **337 portal-verified employers** (`verified === true`):
 
-> **Top 3 vendors (Workday + Greenhouse + Taleo) cover 93.5% of large
-> employers.** The remainder is a long tail of niche vendors and proprietary
-> internal systems (Amazon, Meta, Google, Microsoft).
+| ATS vendor        | Companies | Share (verified) |
+| ----------------- | --------: | ---------------: |
+| Workday           |       138 |        **40.9%** |
+| Greenhouse        |        57 |        **16.9%** |
+| SAP SuccessFactors|        24 |             7.1% |
+| Oracle Cloud HCM  |        23 |             6.8% |
+| Internal / proprietary | 18  |             5.3% |
+| iCIMS             |        15 |             4.5% |
+| Eightfold         |        14 |             4.2% |
+| Taleo             |        14 |             4.2% |
+| SmartRecruiters   |        11 |             3.3% |
+| Avature           |         8 |             2.4% |
+| Lever             |         7 |             2.1% |
+| Ashby             |         7 |             2.1% |
+
+> **The top 3 vendors (Workday + Greenhouse + SuccessFactors) cover ~65%** of
+> verified employers — not the "triopoly" often claimed. ~14 distinct ATS
+> vendors appear across the verified set, plus proprietary internal systems
+> (Amazon, Meta, Google, Microsoft run their own).
 
 > **Job seeker?** The practical takeaway: the same resume is parsed
 > differently by each ATS, so it scores differently in Workday vs Greenhouse
@@ -47,6 +70,7 @@ npm install @withresumeai/ats-data
 ```ts
 import {
   companies,
+  verifiedCompanies,
   getATSForCompany,
   getCompaniesByATS,
   getCompaniesByIndustry,
@@ -54,21 +78,23 @@ import {
   atsShare,
 } from "@withresumeai/ats-data";
 
-console.log(companies.length); // 743
+console.log(companies.length);          // 743 (all rows)
+console.log(verifiedCompanies.length);  // 337 (verified === true)
 
 getATSForCompany("apple");
-// → { company: "Apple", slug: "apple", atsSystem: "Workday", industry: "Technology", sourceUrl: "..." }
+// → { company: "Apple", slug: "apple", atsSystem: "Internal ATS", industry: "Technology", sourceUrl: "..." }
 
-getATSForCompany("Stripe");
-// → { company: "Stripe", ... atsSystem: "Greenhouse", ... }
+// Each row carries a `verified` flag — filter to it before trusting an attribution:
+companies.find((c) => c.slug === "apple")?.verified; // true
 
-getCompaniesByATS("Workday").length; // 560
-
+// atsDistribution()/atsShare() count the VERIFIED subset by default:
 atsDistribution();
-// → { Workday: 560, Greenhouse: 124, "Internal ATS": 15, USAJobs: 13, Taleo: 11, Lever: 10, ... }
+// → { Workday: 138, Greenhouse: 57, SuccessFactors: 24, "Oracle Cloud HCM": 23, "Internal ATS": 18, iCIMS: 15, ... }
 
 atsShare();
-// → { Workday: 75.37, Greenhouse: 16.69, ... }
+// → { Workday: 40.95, Greenhouse: 16.91, SuccessFactors: 7.12, ... }
+
+atsShare({ all: true }); // include unconfirmed rows (not recommended for analysis)
 ```
 
 Works the same in CommonJS:
@@ -94,14 +120,14 @@ df = pd.read_csv(
     comment="#",
 )
 
-df["ats_system"].value_counts().head(8)
+df[df["verified"]]["ats_system"].value_counts().head(12)  # verified rows only
 ```
 
 ### Raw CSV download
 
 - **GitHub:** [`data/companies.csv`](./data/companies.csv)
 - **Canonical URL:** <https://withresumeai.com/api/reports/state-of-ats-2026/csv>
-- **Schema:** `name, slug, industry, ats_system, hiring_volume_tier, top_roles, source_url`
+- **Schema:** `name, slug, industry, ats_system, hiring_volume_tier, top_roles, source_url, verified`
 
 ---
 
@@ -118,10 +144,13 @@ Each row is one employer with seven fields:
 | `hiring_volume_tier`  | `mega` &middot; `high` &middot; `mid`    |
 | `top_roles`           | `software-engineer\|product-manager\|data-analyst` |
 | `source_url`          | `https://withresumeai.com/ats-checker/apple` |
+| `verified`            | `true` (confirmed vs live portal) · `false` (unconfirmed) |
 
-743 rows in total. Coverage spans the Fortune 500, the Global 2000, and a
-curated set of high-growth private companies (Series C and later, $1B+
-valuation).
+743 rows in total — **337 with `verified=true`** (confirmed against the live
+careers portal in June 2026) and 406 with `verified=false` (unconfirmed prior
+estimates, pending re-verification). Coverage spans the Fortune 500, the Global
+2000, and a curated set of high-growth private companies (Series C and later,
+$1B+ valuation).
 
 ---
 
@@ -131,30 +160,35 @@ The dataset covers 743 large employers selected to maximize coverage of
 where U.S. and global job seekers actually apply — by hiring volume rather
 than headline market cap.
 
-For each employer, the ATS system was identified by **inspecting the
-public careers portal between April and June 2026**. We used three
-signals to attribute an ATS, in order:
+**Two-stage provenance (read this).** The company list and an initial ATS
+guess for each were **compiled with AI from public information** — fast, but
+not individually checked. That first pass was wrong often enough to matter (a
+later audit measured ~52% accuracy; it over-assigned "Workday" whenever the
+model was unsure). So in **June 2026 we re-verified 337 of the 743** employers
+the right way:
 
-1. The host or subdomain of the apply URL (e.g. `myworkdayjobs.com` for
-   Workday, `boards.greenhouse.io` for Greenhouse, `jobs.lever.co` for
-   Lever).
-2. DOM fingerprints in the apply-form HTML.
-3. The underlying form-submission endpoint observed via network inspection.
+- Open the employer's official careers/apply page and read the **apply-URL
+  host** — the ground truth. `*.myworkdayjobs.com` → Workday,
+  `boards.greenhouse.io` → Greenhouse, `jobs.lever.co` → Lever,
+  `*.icims.com` → iCIMS, `*.oraclecloud.com/hcmUI` → Oracle, `*.successfactors.*`
+  → SuccessFactors, `*.avature.net` → Avature, `jobs.ashbyhq.com` → Ashby,
+  proprietary host (e.g. `jobs.apple.com`) → Internal.
 
-Each company is tagged with three additional attributes: **industry** (71
-distinct industries, bucketed into 13 categories for cross-tabs),
-**hiring volume tier** (mega: 100k+ employees; high: Fortune 500 / major
-hirer; mid: mid-cap / growth-stage), and **top hiring roles** (1–3 role
-slugs that map to the dominant openings on the portal).
+Rows that passed that check have **`verified: true`**; the rest keep their
+unconfirmed first-pass estimate with **`verified: false`**. Every market-share
+number in this README and in `atsShare()` is computed over the verified subset
+only.
 
-**Limitations.** First, we only sampled public-facing careers portals —
-companies that route hiring through staffing firms or executive search are
-under-represented for those roles. Second, this is a point-in-time
-snapshot; mid-market companies churn ATSes more frequently than enterprises
-and a small share will have migrated since data collection. Third,
-"Internal ATS" is an umbrella for proprietary systems we could not
-attribute to a named vendor — most are custom builds on top of vendor
-cores (e.g. Amazon, Meta, and several large insurance carriers).
+Each company is also tagged with **industry**, a **hiring volume tier** (mega:
+100k+ employees; high: Fortune 500 / major hirer; mid: mid-cap / growth-stage),
+and **top hiring roles** (1–3 role slugs that map to the dominant openings).
+
+**Limitations.** (1) Only ~45% of rows are verified so far — the rest are
+estimates, flagged as such; filter to `verified` for anything load-bearing.
+(2) Point-in-time snapshot — mid-market employers change ATSes often, and some
+will have migrated since June 2026. (3) "Internal ATS" is an umbrella for
+proprietary systems with no third-party vendor host (e.g. Amazon, Meta, Apple,
+Google, Microsoft).
 
 The full methodology, vendor-by-vendor commentary, and cross-tabs by
 industry and seniority are in the

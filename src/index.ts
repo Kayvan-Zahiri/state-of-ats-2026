@@ -14,8 +14,15 @@ import { loadCompanies } from "./companies.js";
 
 export type { Company, ATSInfo, ATSSystem, HiringVolumeTier } from "./types.js";
 
-/** All 743 companies in the dataset. */
+/** All 743 companies in the dataset (verified + unverified). */
 export const companies: Company[] = loadCompanies();
+
+/**
+ * The subset whose ATS was confirmed against the company's LIVE careers portal
+ * in the June 2026 audit (337 of 743). Prefer this for any market-share
+ * analysis — the unverified remainder are unconfirmed prior estimates.
+ */
+export const verifiedCompanies: Company[] = companies.filter((c) => c.verified);
 
 /** Case-insensitive lookup by slug OR name. Returns null if no match. */
 export function getATSForCompany(slugOrName: string): ATSInfo | null {
@@ -49,13 +56,15 @@ export function getCompaniesByIndustry(industry: string): Company[] {
 /**
  * Returns the absolute count of companies per ATS vendor, sorted descending.
  *
- * Example: `{ Workday: 560, Greenhouse: 124, "Internal ATS": 15, ... }`
+ * Counts the PORTAL-VERIFIED subset by default (the honest basis for shares).
+ * Pass `{ all: true }` to count all 743 rows including unconfirmed estimates.
  *
- * Divide by `companies.length` (743) to get share-of-market percentages.
+ * Verified example: `{ Workday: 138, Greenhouse: 57, SuccessFactors: 24, ... }`
  */
-export function atsDistribution(): Record<string, number> {
+export function atsDistribution(opts: { all?: boolean } = {}): Record<string, number> {
+  const rows = opts.all ? companies : verifiedCompanies;
   const counts = new Map<string, number>();
-  for (const c of companies) {
+  for (const c of rows) {
     counts.set(c.atsSystem, (counts.get(c.atsSystem) || 0) + 1);
   }
   const sorted = [...counts.entries()].sort((a, b) => b[1] - a[1]);
@@ -65,12 +74,13 @@ export function atsDistribution(): Record<string, number> {
 }
 
 /**
- * Convenience: ATS share as a percentage, sorted descending.
- * Returns `{ Workday: 75.37, Greenhouse: 16.69, ... }`.
+ * Convenience: ATS share as a percentage, sorted descending. Computed over the
+ * PORTAL-VERIFIED subset by default. Pass `{ all: true }` for all 743 rows.
+ * Verified example: `{ Workday: 40.95, Greenhouse: 16.91, SuccessFactors: 7.12, ... }`.
  */
-export function atsShare(): Record<string, number> {
-  const dist = atsDistribution();
-  const total = companies.length;
+export function atsShare(opts: { all?: boolean } = {}): Record<string, number> {
+  const dist = atsDistribution(opts);
+  const total = (opts.all ? companies : verifiedCompanies).length;
   const out: Record<string, number> = {};
   for (const [k, v] of Object.entries(dist)) {
     out[k] = Math.round((v / total) * 10000) / 100;

@@ -18,9 +18,15 @@ export type ATSSystem =
   | "Taleo"
   | "Lever"
   | "USAJobs"
+  | "Oracle Cloud HCM"
   | "Oracle HCM (Taleo)"
   | "SuccessFactors"
   | "iCIMS"
+  | "Eightfold"
+  | "Avature"
+  | "SmartRecruiters"
+  | "Ashby"
+  | "Jobvite"
   | "Internal ATS"
   | "Internal (Google proprietary)"
   | "Internal (Microsoft Careers)"
@@ -39,6 +45,13 @@ export interface Company {
   industry: string;
   /** ATS vendor used on this company's public careers portal as of 2026. */
   atsSystem: ATSSystem;
+  /**
+   * True when `atsSystem` was confirmed by inspecting the company's LIVE
+   * careers-portal apply-URL host in the June 2026 verification audit. When
+   * false, the attribution is an unconfirmed prior estimate — treat it as a
+   * lead, not a fact, and prefer filtering to `verified === true` for analysis.
+   */
+  verified: boolean;
   /** mega = 100k+ employees; high = Fortune 500 / major hirer; mid = mid-cap. */
   hiringVolumeTier?: HiringVolumeTier;
   /** Up to 3 dominant hiring roles (slug form, e.g. "software-engineer"). */

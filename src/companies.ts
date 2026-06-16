@@ -126,6 +126,7 @@ export function loadCompanies(): Company[] {
   const iTier = col("hiring_volume_tier");
   const iRoles = col("top_roles");
   const iSrc = col("source_url");
+  const iVerified = col("verified");
 
   const rows: Company[] = [];
   for (let i = headerIdx + 1; i < lines.length; i++) {
@@ -142,6 +143,9 @@ export function loadCompanies(): Company[] {
       slug: cells[iSlug],
       industry: cells[iIndustry],
       atsSystem: cells[iAts] as ATSSystem,
+      // verified column added 2026-06-15. Default older/missing values to false
+      // so a consumer never mistakes an unconfirmed row for a verified one.
+      verified: iVerified >= 0 ? cells[iVerified] === "true" : false,
       hiringVolumeTier: isTier(tier) ? tier : undefined,
       topRoles: rolesRaw ? rolesRaw.split("|").filter(Boolean) : [],
       sourceUrl: cells[iSrc],
