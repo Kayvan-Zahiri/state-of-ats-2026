@@ -19,7 +19,7 @@ export const companies: Company[] = loadCompanies();
 
 /**
  * The subset whose ATS was confirmed against the company's LIVE careers portal
- * in the June 2026 audit (337 of 743). Prefer this for any market-share
+ * in the June 2026 audit (713 of 743). Prefer this for any market-share
  * analysis — the unverified remainder are unconfirmed prior estimates.
  */
 export const verifiedCompanies: Company[] = companies.filter((c) => c.verified);
@@ -76,7 +76,7 @@ export function atsDistribution(opts: { all?: boolean } = {}): Record<string, nu
 /**
  * Convenience: ATS share as a percentage, sorted descending. Computed over the
  * PORTAL-VERIFIED subset by default. Pass `{ all: true }` for all 743 rows.
- * Verified example: `{ Workday: 40.95, Greenhouse: 16.91, SuccessFactors: 7.12, ... }`.
+ * Verified example: `{ Workday: 38.57, Greenhouse: 13.32, SuccessFactors: 8.13, ... }`.
  */
 export function atsShare(opts: { all?: boolean } = {}): Record<string, number> {
   const dist = atsDistribution(opts);

@@ -79,7 +79,7 @@ import {
 } from "@withresumeai/ats-data";
 
 console.log(companies.length);          // 743 (all rows)
-console.log(verifiedCompanies.length);  // 337 (verified === true)
+console.log(verifiedCompanies.length);  // 713 (verified === true)
 
 getATSForCompany("apple");
 // → { company: "Apple", slug: "apple", atsSystem: "Internal ATS", industry: "Technology", sourceUrl: "..." }
@@ -92,7 +92,7 @@ atsDistribution();
 // → { Workday: 138, Greenhouse: 57, SuccessFactors: 24, "Oracle Cloud HCM": 23, "Internal ATS": 18, iCIMS: 15, ... }
 
 atsShare();
-// → { Workday: 40.95, Greenhouse: 16.91, SuccessFactors: 7.12, ... }
+// → { Workday: 38.57, Greenhouse: 13.32, SuccessFactors: 8.13, ... }
 
 atsShare({ all: true }); // include unconfirmed rows (not recommended for analysis)
 ```
@@ -146,7 +146,7 @@ Each row is one employer with seven fields:
 | `source_url`          | `https://withresumeai.com/ats-checker/apple` |
 | `verified`            | `true` (confirmed vs live portal) · `false` (unconfirmed) |
 
-743 rows in total — **337 with `verified=true`** (confirmed against the live
+743 rows in total — **713 with `verified=true`** (confirmed against the live
 careers portal in June 2026) and 406 with `verified=false` (unconfirmed prior
 estimates, pending re-verification). Coverage spans the Fortune 500, the Global
 2000, and a curated set of high-growth private companies (Series C and later,
@@ -164,7 +164,7 @@ than headline market cap.
 guess for each were **compiled with AI from public information** — fast, but
 not individually checked. That first pass was wrong often enough to matter (a
 later audit measured ~52% accuracy; it over-assigned "Workday" whenever the
-model was unsure). So in **June 2026 we re-verified 337 of the 743** employers
+model was unsure). So in **June 2026 we re-verified 713 of the 743** employers
 the right way:
 
 - Open the employer's official careers/apply page and read the **apply-URL
