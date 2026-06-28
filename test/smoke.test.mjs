@@ -26,8 +26,8 @@ test("every row has the required fields incl. a boolean `verified`", () => {
   }
 });
 
-test("337 employers are portal-verified", () => {
-  assert.equal(verifiedCompanies.length, 337);
+test("713 employers are portal-verified", () => {
+  assert.equal(verifiedCompanies.length, 713);
   assert.ok(verifiedCompanies.every((c) => c.verified === true));
 });
 
@@ -45,10 +45,10 @@ test("unknown company returns null", () => {
   assert.equal(getATSForCompany("not-a-real-company"), null);
 });
 
-test("Workday is the #1 ATS in the verified subset (~41%, not a majority)", () => {
+test("Workday is the #1 ATS in the verified subset (~39%, not a majority)", () => {
   const dist = atsDistribution(); // verified-only by default
   const share = atsShare();
-  assert.equal(dist.Workday, 138);
+  assert.equal(dist.Workday, 275);
   assert.ok(
     share.Workday > 38 && share.Workday < 44,
     `unexpected Workday share ${share.Workday}`
@@ -60,7 +60,7 @@ test("Workday is the #1 ATS in the verified subset (~41%, not a majority)", () =
 
 test("Greenhouse is the #2 ATS in the verified subset", () => {
   const dist = atsDistribution();
-  assert.equal(dist.Greenhouse, 57);
+  assert.equal(dist.Greenhouse, 95);
 });
 
 test("`{ all: true }` counts every row, default counts only verified", () => {

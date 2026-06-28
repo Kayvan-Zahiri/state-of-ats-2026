@@ -1,7 +1,7 @@
 # Source: ResumeAI — State of ATS 2026
 # URL: https://withresumeai.com/reports/state-of-ats-2026
-# Published: 2026-06-05 (ATS attributions re-verified against live careers portals 2026-06-15)
-# Rows: 743 (337 verified=true against live careers portals; 406 verified=false, unconfirmed)
+# Published: 2026-06-05 (ATS attributions portal-verified against live careers portals; re-verified 2026-06-24)
+# Rows: 743 (713 verified=true against live careers portals; 30 verified=false, unconfirmed)
 # License: Republish individual stats with attribution to ResumeAI.
 name,slug,industry,ats_system,hiring_volume_tier,top_roles,source_url,verified
 "Google","google","Technology","Internal ATS","mega","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/google",true
@@ -12,7 +12,7 @@ name,slug,industry,ats_system,hiring_volume_tier,top_roles,source_url,verified
 "Netflix","netflix","Entertainment & Technology","Eightfold","mega","software-engineer|content-strategist|data-scientist","https://withresumeai.com/ats-checker/netflix",true
 "Salesforce","salesforce","Enterprise Software","Workday","mega","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/salesforce",true
 "JPMorgan Chase","jpmorgan-chase","Financial Services","Oracle Cloud HCM","mega","financial-analyst|credit-analyst|compliance-officer","https://withresumeai.com/ats-checker/jpmorgan-chase",true
-"Goldman Sachs","goldman-sachs","Investment Banking","Taleo","mega","investment-banker|financial-analyst|equity-research-analyst","https://withresumeai.com/ats-checker/goldman-sachs",false
+"Goldman Sachs","goldman-sachs","Investment Banking","iCIMS","mega","investment-banker|financial-analyst|equity-research-analyst","https://withresumeai.com/ats-checker/goldman-sachs",true
 "Deloitte","deloitte","Consulting","Avature","mega","management-consultant|business-analyst|project-manager","https://withresumeai.com/ats-checker/deloitte",true
 "McKinsey","mckinsey","Management Consulting","Workday","mega","management-consultant|business-analyst|associate-consultant","https://withresumeai.com/ats-checker/mckinsey",false
 "Tesla","tesla","Automotive & Energy","Internal ATS","mega","mechanical-engineer|manufacturing-engineer|electrical-engineer","https://withresumeai.com/ats-checker/tesla",true
@@ -23,11 +23,11 @@ name,slug,industry,ats_system,hiring_volume_tier,top_roles,source_url,verified
 "Oracle","oracle","Enterprise Software","Oracle Cloud HCM","mega","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/oracle",true
 "NVIDIA","nvidia","Semiconductors & AI","Workday","mega","machine-learning-engineer|hardware-engineer|software-engineer","https://withresumeai.com/ats-checker/nvidia",true
 "Intel","intel","Semiconductors","Workday","mega","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/intel",true
-"IBM","ibm","Technology & Consulting","Workday","mega","project-manager|operations-manager|data-analyst","https://withresumeai.com/ats-checker/ibm",false
+"IBM","ibm","Technology & Consulting","Avature","mega","project-manager|operations-manager|data-analyst","https://withresumeai.com/ats-checker/ibm",true
 "Spotify","spotify","Music Technology","Lever","mega","data-scientist|software-engineer|product-manager","https://withresumeai.com/ats-checker/spotify",true
 "LinkedIn","linkedin-company","Professional Networking","SmartRecruiters","mega","software-engineer|product-manager|data-scientist","https://withresumeai.com/ats-checker/linkedin-company",true
 "Walmart","walmart","Retail","Workday","mega","retail-store-manager|sales-associate|merchandiser","https://withresumeai.com/ats-checker/walmart",true
-"Disney","disney","Entertainment & Media","Workday","mega","marketing-manager|content-strategist|brand-manager","https://withresumeai.com/ats-checker/disney",false
+"Disney","disney","Entertainment & Media","Workday","mega","marketing-manager|content-strategist|brand-manager","https://withresumeai.com/ats-checker/disney",true
 "Nike","nike","Consumer Goods & Retail","Workday","mega","brand-manager|marketing-manager|merchandiser","https://withresumeai.com/ats-checker/nike",true
 "PwC","pwc","Professional Services","Workday","mega","auditor|accountant|tax-accountant","https://withresumeai.com/ats-checker/pwc",true
 "EY","ey","Professional Services","SuccessFactors","mega","auditor|accountant|tax-accountant","https://withresumeai.com/ats-checker/ey",true
@@ -69,13 +69,13 @@ name,slug,industry,ats_system,hiring_volume_tier,top_roles,source_url,verified
 "Johnson & Johnson","johnson-and-johnson","Healthcare & Pharma","Workday","mega","clinical-research-associate|regulatory-affairs-specialist|biostatistician","https://withresumeai.com/ats-checker/johnson-and-johnson",true
 "Pfizer","pfizer","Pharmaceuticals","Workday","mega","clinical-research-associate|regulatory-affairs-specialist|pharmacist","https://withresumeai.com/ats-checker/pfizer",true
 "UnitedHealth Group","unitedhealth-group","Healthcare","Taleo","mega","registered-nurse|medical-assistant|physician-assistant","https://withresumeai.com/ats-checker/unitedhealth-group",true
-"Lockheed Martin","lockheed-martin","Aerospace & Defense","Workday","mega","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/lockheed-martin",false
+"Lockheed Martin","lockheed-martin","Aerospace & Defense","Avature","mega","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/lockheed-martin",true
 "Boeing","boeing","Aerospace","Workday","mega","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/boeing",true
 "Target","target","Retail","Workday","mega","retail-store-manager|sales-associate|merchandiser","https://withresumeai.com/ats-checker/target",true
 "Costco","costco","Retail","iCIMS","mega","retail-store-manager|sales-associate|merchandiser","https://withresumeai.com/ats-checker/costco",true
 "Wells Fargo","wells-fargo","Financial Services","Workday","mega","financial-analyst|credit-analyst|compliance-officer","https://withresumeai.com/ats-checker/wells-fargo",true
 "American Express","american-express","Financial Services","Eightfold","high","financial-analyst|credit-analyst|compliance-officer","https://withresumeai.com/ats-checker/american-express",true
-"BlackRock","blackrock","Investment Banking","Workday","high","investment-banker|financial-analyst|equity-research-analyst","https://withresumeai.com/ats-checker/blackrock",false
+"BlackRock","blackrock","Investment Banking","Workday","high","investment-banker|financial-analyst|equity-research-analyst","https://withresumeai.com/ats-checker/blackrock",true
 "Charles Schwab","charles-schwab","Financial Services","iCIMS","high","financial-analyst|credit-analyst|compliance-officer","https://withresumeai.com/ats-checker/charles-schwab",true
 "Fidelity Investments","fidelity-investments","Financial Services","Workday","high","financial-analyst|credit-analyst|compliance-officer","https://withresumeai.com/ats-checker/fidelity-investments",true
 "Vanguard","vanguard","Financial Services","Workday","high","financial-analyst|credit-analyst|compliance-officer","https://withresumeai.com/ats-checker/vanguard",true
@@ -94,7 +94,7 @@ name,slug,industry,ats_system,hiring_volume_tier,top_roles,source_url,verified
 "Jefferies","jefferies","Investment Banking","Taleo","high","investment-banker|financial-analyst|equity-research-analyst","https://withresumeai.com/ats-checker/jefferies",true
 "Wells Fargo Advisors","wells-fargo-advisors","Financial Services","Workday","mid","financial-analyst|credit-analyst|compliance-officer","https://withresumeai.com/ats-checker/wells-fargo-advisors",true
 "Raymond James","raymond-james","Financial Services","Workday","mid","financial-analyst|credit-analyst|compliance-officer","https://withresumeai.com/ats-checker/raymond-james",true
-"Edward Jones","edward-jones","Financial Services","Workday","high","financial-analyst|credit-analyst|compliance-officer","https://withresumeai.com/ats-checker/edward-jones",false
+"Edward Jones","edward-jones","Financial Services","Kenexa BrassRing","high","financial-analyst|credit-analyst|compliance-officer","https://withresumeai.com/ats-checker/edward-jones",true
 "Bridgewater Associates","bridgewater-associates","Investment Banking","Greenhouse","mid","investment-banker|financial-analyst|equity-research-analyst","https://withresumeai.com/ats-checker/bridgewater-associates",true
 "Citadel","citadel","Investment Banking","Greenhouse","high","investment-banker|financial-analyst|equity-research-analyst","https://withresumeai.com/ats-checker/citadel",true
 "Two Sigma","two-sigma","Investment Banking","Internal ATS","mid","investment-banker|financial-analyst|equity-research-analyst","https://withresumeai.com/ats-checker/two-sigma",true
@@ -127,7 +127,7 @@ name,slug,industry,ats_system,hiring_volume_tier,top_roles,source_url,verified
 "Oracle Cloud","oracle-cloud","Cloud Infrastructure","Oracle Cloud HCM","high","devops-engineer|cloud-engineer|site-reliability-engineer","https://withresumeai.com/ats-checker/oracle-cloud",true
 "AWS","aws","Cloud Infrastructure","Internal ATS","mega","devops-engineer|cloud-engineer|site-reliability-engineer","https://withresumeai.com/ats-checker/aws",true
 "Google Cloud","google-cloud","Cloud Infrastructure","Internal ATS","mega","devops-engineer|cloud-engineer|site-reliability-engineer","https://withresumeai.com/ats-checker/google-cloud",true
-"Azure","azure","Cloud Infrastructure","Internal (Microsoft Careers)","mega","devops-engineer|cloud-engineer|site-reliability-engineer","https://withresumeai.com/ats-checker/azure",false
+"Azure","azure","Cloud Infrastructure","Internal ATS","mega","devops-engineer|cloud-engineer|site-reliability-engineer","https://withresumeai.com/ats-checker/azure",true
 "DigitalOcean","digitalocean","Cloud Infrastructure","Greenhouse","mid","devops-engineer|cloud-engineer|site-reliability-engineer","https://withresumeai.com/ats-checker/digitalocean",true
 "Linode","linode","Cloud Infrastructure","Oracle Cloud HCM","mid","devops-engineer|cloud-engineer|site-reliability-engineer","https://withresumeai.com/ats-checker/linode",true
 "Heroku","heroku","Cloud Infrastructure","Workday","mid","devops-engineer|cloud-engineer|site-reliability-engineer","https://withresumeai.com/ats-checker/heroku",true
@@ -147,7 +147,7 @@ name,slug,industry,ats_system,hiring_volume_tier,top_roles,source_url,verified
 "PagerDuty","pagerduty","Observability","Greenhouse","mid","site-reliability-engineer|software-engineer|devops-engineer","https://withresumeai.com/ats-checker/pagerduty",true
 "GitLab","gitlab","Technology","Greenhouse","mid","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/gitlab",true
 "GitHub","github","Technology","iCIMS","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/github",true
-"Atlassian Jira","atlassian-jira","Enterprise Software","Greenhouse","high","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/atlassian-jira",false
+"Atlassian Jira","atlassian-jira","Enterprise Software","Lever","high","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/atlassian-jira",true
 "HashiCorp","hashicorp","Cloud Infrastructure","Internal ATS","mid","devops-engineer|cloud-engineer|site-reliability-engineer","https://withresumeai.com/ats-checker/hashicorp",true
 "Red Hat","red-hat","Enterprise Software","Workday","high","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/red-hat",true
 "Canonical","canonical","Enterprise Software","Greenhouse","mid","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/canonical",true
@@ -160,7 +160,7 @@ name,slug,industry,ats_system,hiring_volume_tier,top_roles,source_url,verified
 "Anthropic","anthropic","Technology","Greenhouse","mid","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/anthropic",true
 "OpenAI","openai","Technology","Ashby","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/openai",true
 "Mistral AI","mistral-ai","Technology","Lever","mid","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/mistral-ai",true
-"Hugging Face","hugging-face","Technology","Greenhouse","mid","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/hugging-face",false
+"Hugging Face","hugging-face","Technology","Workable","mid","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/hugging-face",true
 "Scale AI","scale-ai","Data & AI","Greenhouse","mid","data-engineer|machine-learning-engineer|data-scientist","https://withresumeai.com/ats-checker/scale-ai",true
 "xAI","xai","Technology","Greenhouse","mid","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/xai",true
 "Perplexity","perplexity","Technology","Ashby","mid","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/perplexity",true
@@ -184,7 +184,7 @@ name,slug,industry,ats_system,hiring_volume_tier,top_roles,source_url,verified
 "Adyen","adyen","FinTech","Greenhouse","high","software-engineer|product-manager|data-engineer","https://withresumeai.com/ats-checker/adyen",true
 "Marqeta","marqeta","FinTech","Greenhouse","mid","software-engineer|product-manager|data-engineer","https://withresumeai.com/ats-checker/marqeta",true
 "CVS Health","cvs-health","Healthcare","Workday","mega","registered-nurse|medical-assistant|physician-assistant","https://withresumeai.com/ats-checker/cvs-health",true
-"Walgreens","walgreens","Healthcare","Workday","mega","registered-nurse|medical-assistant|physician-assistant","https://withresumeai.com/ats-checker/walgreens",false
+"Walgreens","walgreens","Healthcare","Kenexa BrassRing","mega","registered-nurse|medical-assistant|physician-assistant","https://withresumeai.com/ats-checker/walgreens",true
 "Cigna","cigna","Healthcare","Workday","high","registered-nurse|medical-assistant|physician-assistant","https://withresumeai.com/ats-checker/cigna",true
 "Anthem","anthem","Healthcare","Workday","high","registered-nurse|medical-assistant|physician-assistant","https://withresumeai.com/ats-checker/anthem",true
 "Elevance Health","elevance-health","Healthcare","Workday","high","registered-nurse|medical-assistant|physician-assistant","https://withresumeai.com/ats-checker/elevance-health",true
@@ -241,15 +241,15 @@ name,slug,industry,ats_system,hiring_volume_tier,top_roles,source_url,verified
 "Teva Pharmaceuticals","teva-pharmaceuticals","Pharmaceuticals","SuccessFactors","high","clinical-research-associate|regulatory-affairs-specialist|pharmacist","https://withresumeai.com/ats-checker/teva-pharmaceuticals",true
 "Quest Diagnostics","quest-diagnostics","Healthcare","Oracle Cloud HCM","high","registered-nurse|medical-assistant|physician-assistant","https://withresumeai.com/ats-checker/quest-diagnostics",true
 "LabCorp","labcorp","Healthcare","Workday","high","registered-nurse|medical-assistant|physician-assistant","https://withresumeai.com/ats-checker/labcorp",true
-"Thermo Fisher","thermo-fisher","Healthcare & Pharma","Workday","high","clinical-research-associate|regulatory-affairs-specialist|biostatistician","https://withresumeai.com/ats-checker/thermo-fisher",false
+"Thermo Fisher","thermo-fisher","Healthcare & Pharma","Workday","high","clinical-research-associate|regulatory-affairs-specialist|biostatistician","https://withresumeai.com/ats-checker/thermo-fisher",true
 "Danaher","danaher","Healthcare & Pharma","Workday","high","clinical-research-associate|regulatory-affairs-specialist|biostatistician","https://withresumeai.com/ats-checker/danaher",true
 "KPMG","kpmg","Professional Services","Avature","high","auditor|accountant|tax-accountant","https://withresumeai.com/ats-checker/kpmg",true
 "Bain & Company","bain-and-company","Management Consulting","Avature","high","management-consultant|business-analyst|associate-consultant","https://withresumeai.com/ats-checker/bain-and-company",true
-"BCG","bcg","Management Consulting","Workday","high","management-consultant|business-analyst|associate-consultant","https://withresumeai.com/ats-checker/bcg",false
+"BCG","bcg","Management Consulting","Eightfold","high","management-consultant|business-analyst|associate-consultant","https://withresumeai.com/ats-checker/bcg",true
 "Oliver Wyman","oliver-wyman","Management Consulting","Workday","mid","management-consultant|business-analyst|associate-consultant","https://withresumeai.com/ats-checker/oliver-wyman",true
 "A.T. Kearney","at-kearney","Management Consulting","Taleo","mid","management-consultant|business-analyst|associate-consultant","https://withresumeai.com/ats-checker/at-kearney",true
 "Roland Berger","roland-berger","Management Consulting","SmartRecruiters","mid","management-consultant|business-analyst|associate-consultant","https://withresumeai.com/ats-checker/roland-berger",true
-"L.E.K. Consulting","lek-consulting","Management Consulting","Workday","mid","management-consultant|business-analyst|associate-consultant","https://withresumeai.com/ats-checker/lek-consulting",false
+"L.E.K. Consulting","lek-consulting","Management Consulting","Oleeo","mid","management-consultant|business-analyst|associate-consultant","https://withresumeai.com/ats-checker/lek-consulting",true
 "Booz Allen Hamilton","booz-allen-hamilton","Consulting & Technology","Workday","high","it-consultant|business-analyst|project-manager","https://withresumeai.com/ats-checker/booz-allen-hamilton",true
 "Capgemini","capgemini","Consulting & Technology","Taleo","high","it-consultant|business-analyst|project-manager","https://withresumeai.com/ats-checker/capgemini",true
 "Infosys","infosys","Consulting & Technology","Workday","high","it-consultant|business-analyst|project-manager","https://withresumeai.com/ats-checker/infosys",false
@@ -269,10 +269,10 @@ name,slug,industry,ats_system,hiring_volume_tier,top_roles,source_url,verified
 "Lowe's","lowes","Retail","Workday","mega","retail-store-manager|sales-associate|merchandiser","https://withresumeai.com/ats-checker/lowes",true
 "Kroger","kroger","Retail","Oracle Cloud HCM","mega","retail-store-manager|sales-associate|merchandiser","https://withresumeai.com/ats-checker/kroger",true
 "Albertsons","albertsons","Retail","Oracle Cloud HCM","high","retail-store-manager|sales-associate|merchandiser","https://withresumeai.com/ats-checker/albertsons",true
-"Publix","publix","Retail","Workday","high","retail-store-manager|sales-associate|merchandiser","https://withresumeai.com/ats-checker/publix",false
+"Publix","publix","Retail","Internal ATS","high","retail-store-manager|sales-associate|merchandiser","https://withresumeai.com/ats-checker/publix",true
 "Trader Joe's","trader-joes","Retail","Avature","mid","retail-store-manager|sales-associate|merchandiser","https://withresumeai.com/ats-checker/trader-joes",true
 "Whole Foods","whole-foods","Retail","Workday","high","retail-store-manager|sales-associate|merchandiser","https://withresumeai.com/ats-checker/whole-foods",true
-"Best Buy","best-buy","Retail","Workday","high","retail-store-manager|sales-associate|merchandiser","https://withresumeai.com/ats-checker/best-buy",false
+"Best Buy","best-buy","Retail","Kenexa BrassRing","high","retail-store-manager|sales-associate|merchandiser","https://withresumeai.com/ats-checker/best-buy",true
 "Macy's","macys","Retail","Oracle Cloud HCM","high","retail-store-manager|sales-associate|merchandiser","https://withresumeai.com/ats-checker/macys",true
 "Nordstrom","nordstrom","Retail","Workday","high","retail-store-manager|sales-associate|merchandiser","https://withresumeai.com/ats-checker/nordstrom",true
 "Kohl's","kohls","Retail","Workday","high","retail-store-manager|sales-associate|merchandiser","https://withresumeai.com/ats-checker/kohls",true
@@ -315,17 +315,17 @@ name,slug,industry,ats_system,hiring_volume_tier,top_roles,source_url,verified
 "Nestle","nestle","CPG","SuccessFactors","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/nestle",true
 "Kraft Heinz","kraft-heinz","CPG","Workday","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/kraft-heinz",true
 "General Mills","general-mills","CPG","Workday","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/general-mills",true
-"Kellogg's","kelloggs","CPG","Workday","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/kelloggs",false
+"Kellogg's","kelloggs","CPG","SuccessFactors","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/kelloggs",true
 "Mondelez","mondelez","CPG","Workday","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/mondelez",true
 "Mars","mars","CPG","Workday","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/mars",true
-"Hershey's","hersheys","CPG","Workday","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/hersheys",false
+"Hershey's","hersheys","CPG","SuccessFactors","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/hersheys",true
 "Colgate-Palmolive","colgate-palmolive","CPG","SuccessFactors","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/colgate-palmolive",true
 "Clorox","clorox","CPG","Workday","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/clorox",true
 "Kimberly-Clark","kimberly-clark","CPG","Workday","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/kimberly-clark",true
 "Reckitt Benckiser","reckitt-benckiser","CPG","SuccessFactors","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/reckitt-benckiser",true
 "L'Oreal","loreal","CPG","Avature","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/loreal",true
 "Estee Lauder","estee-lauder","CPG","Eightfold","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/estee-lauder",true
-"Beiersdorf","beiersdorf","CPG","Workday","mid","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/beiersdorf",false
+"Beiersdorf","beiersdorf","CPG","SuccessFactors","mid","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/beiersdorf",true
 "Diageo","diageo","CPG","Workday","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/diageo",true
 "AB InBev","ab-inbev","CPG","SmartRecruiters","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/ab-inbev",true
 "Constellation Brands","constellation-brands","CPG","Workday","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/constellation-brands",true
@@ -334,7 +334,7 @@ name,slug,industry,ats_system,hiring_volume_tier,top_roles,source_url,verified
 "Tyson Foods","tyson-foods","CPG","Workday","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/tyson-foods",true
 "JBS USA","jbs-usa","CPG","Jobvite","high","brand-manager|marketing-manager|category-manager","https://withresumeai.com/ats-checker/jbs-usa",true
 "Cargill","cargill","Agriculture","SuccessFactors","high","agricultural-engineer|farm-manager|operations-manager","https://withresumeai.com/ats-checker/cargill",true
-"ADM","adm","Agriculture","Workday","high","agricultural-engineer|farm-manager|operations-manager","https://withresumeai.com/ats-checker/adm",false
+"ADM","adm","Agriculture","Kenexa BrassRing","high","agricultural-engineer|farm-manager|operations-manager","https://withresumeai.com/ats-checker/adm",true
 "Bunge","bunge","Agriculture","SuccessFactors","high","agricultural-engineer|farm-manager|operations-manager","https://withresumeai.com/ats-checker/bunge",true
 "John Deere","john-deere","Agriculture","SuccessFactors","high","agricultural-engineer|farm-manager|operations-manager","https://withresumeai.com/ats-checker/john-deere",true
 "AGCO","agco","Agriculture","SuccessFactors","mid","agricultural-engineer|farm-manager|operations-manager","https://withresumeai.com/ats-checker/agco",true
@@ -344,10 +344,10 @@ name,slug,industry,ats_system,hiring_volume_tier,top_roles,source_url,verified
 "General Motors","general-motors","Automotive","Workday","high","mechanical-engineer|manufacturing-engineer|quality-engineer","https://withresumeai.com/ats-checker/general-motors",true
 "Stellantis","stellantis","Automotive","Workday","high","mechanical-engineer|manufacturing-engineer|quality-engineer","https://withresumeai.com/ats-checker/stellantis",true
 "Toyota","toyota","Automotive","Workday","high","mechanical-engineer|manufacturing-engineer|quality-engineer","https://withresumeai.com/ats-checker/toyota",true
-"Honda","honda","Automotive","Workday","high","mechanical-engineer|manufacturing-engineer|quality-engineer","https://withresumeai.com/ats-checker/honda",false
+"Honda","honda","Automotive","Taleo","high","mechanical-engineer|manufacturing-engineer|quality-engineer","https://withresumeai.com/ats-checker/honda",true
 "Nissan","nissan","Automotive","Workday","high","mechanical-engineer|manufacturing-engineer|quality-engineer","https://withresumeai.com/ats-checker/nissan",true
 "Volkswagen","volkswagen","Automotive","SuccessFactors","high","mechanical-engineer|manufacturing-engineer|quality-engineer","https://withresumeai.com/ats-checker/volkswagen",true
-"BMW","bmw","Automotive","Workday","high","mechanical-engineer|manufacturing-engineer|quality-engineer","https://withresumeai.com/ats-checker/bmw",false
+"BMW","bmw","Automotive","SuccessFactors","high","mechanical-engineer|manufacturing-engineer|quality-engineer","https://withresumeai.com/ats-checker/bmw",true
 "Mercedes-Benz","mercedes-benz","Automotive","Taleo","high","mechanical-engineer|manufacturing-engineer|quality-engineer","https://withresumeai.com/ats-checker/mercedes-benz",true
 "Volvo","volvo","Automotive","SuccessFactors","high","mechanical-engineer|manufacturing-engineer|quality-engineer","https://withresumeai.com/ats-checker/volvo",true
 "Hyundai","hyundai","Automotive","SuccessFactors","high","mechanical-engineer|manufacturing-engineer|quality-engineer","https://withresumeai.com/ats-checker/hyundai",true
@@ -363,387 +363,387 @@ name,slug,industry,ats_system,hiring_volume_tier,top_roles,source_url,verified
 "Harley-Davidson","harley-davidson","Automotive","Workday","mid","mechanical-engineer|manufacturing-engineer|quality-engineer","https://withresumeai.com/ats-checker/harley-davidson",false
 "Cummins","cummins","Manufacturing","Oracle Cloud HCM","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/cummins",true
 "Caterpillar","caterpillar","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/caterpillar",true
-"Deere & Company","deere-and-company","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/deere-and-company",false
-"Honeywell","honeywell","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/honeywell",false
+"Deere & Company","deere-and-company","Manufacturing","Eightfold","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/deere-and-company",true
+"Honeywell","honeywell","Manufacturing","Oracle Cloud HCM","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/honeywell",true
 "3M","3m","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/3m",true
 "GE","ge","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/ge",true
 "GE Aerospace","ge-aerospace","Aerospace","Workday","high","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/ge-aerospace",true
-"GE Healthcare","ge-healthcare","Healthcare & Pharma","Workday","high","clinical-research-associate|regulatory-affairs-specialist|biostatistician","https://withresumeai.com/ats-checker/ge-healthcare",false
+"GE Healthcare","ge-healthcare","Healthcare & Pharma","Workday","high","clinical-research-associate|regulatory-affairs-specialist|biostatistician","https://withresumeai.com/ats-checker/ge-healthcare",true
 "GE Vernova","ge-vernova","Energy","Workday","high","mechanical-engineer|operations-manager|project-manager","https://withresumeai.com/ats-checker/ge-vernova",true
 "Emerson","emerson","Manufacturing","Oracle Cloud HCM","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/emerson",true
-"Eaton","eaton","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/eaton",false
+"Eaton","eaton","Manufacturing","Eightfold","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/eaton",true
 "Parker Hannifin","parker-hannifin","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/parker-hannifin",false
 "Illinois Tool Works","illinois-tool-works","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/illinois-tool-works",false
-"Stanley Black & Decker","stanley-black-and-decker","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/stanley-black-and-decker",false
-"Whirlpool","whirlpool","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/whirlpool",false
-"Dover","dover","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/dover",false
-"Rockwell Automation","rockwell-automation","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/rockwell-automation",false
-"Trane Technologies","trane-technologies","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/trane-technologies",false
-"Carrier","carrier","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/carrier",false
-"Raytheon","raytheon","Aerospace & Defense","Workday","high","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/raytheon",false
-"Northrop Grumman","northrop-grumman","Aerospace & Defense","Workday","high","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/northrop-grumman",false
-"General Dynamics","general-dynamics","Aerospace & Defense","Workday","high","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/general-dynamics",false
-"L3Harris","l3harris","Aerospace & Defense","Workday","high","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/l3harris",false
-"BAE Systems","bae-systems","Aerospace & Defense","Workday","high","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/bae-systems",false
-"Leidos","leidos","Aerospace & Defense","Workday","high","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/leidos",false
-"SAIC","saic","Aerospace & Defense","Workday","high","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/saic",false
-"CACI","caci","Aerospace & Defense","Workday","high","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/caci",false
-"Booz Allen","booz-allen","Aerospace & Defense","Workday","high","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/booz-allen",false
-"Maxar","maxar","Aerospace & Defense","Workday","mid","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/maxar",false
-"Anduril","anduril","Aerospace & Defense","Greenhouse","mid","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/anduril",false
-"SpaceX","spacex","Aerospace","Greenhouse","high","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/spacex",false
-"Blue Origin","blue-origin","Aerospace","Greenhouse","high","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/blue-origin",false
-"Rocket Lab","rocket-lab","Aerospace","Greenhouse","mid","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/rocket-lab",false
-"Sierra Space","sierra-space","Aerospace","Workday","mid","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/sierra-space",false
-"Pratt & Whitney","pratt-and-whitney","Aerospace","Workday","high","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/pratt-and-whitney",false
-"Collins Aerospace","collins-aerospace","Aerospace","Workday","high","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/collins-aerospace",false
-"Spirit AeroSystems","spirit-aerosystems","Aerospace","Workday","high","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/spirit-aerosystems",false
-"Textron","textron","Aerospace","Workday","high","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/textron",false
-"Embraer","embraer","Aerospace","Workday","mid","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/embraer",false
-"Airbus","airbus","Aerospace","Workday","high","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/airbus",false
-"Bombardier","bombardier","Aerospace","Workday","mid","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/bombardier",false
-"ExxonMobil","exxonmobil","Oil & Gas","Workday","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/exxonmobil",false
-"Chevron","chevron","Oil & Gas","Workday","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/chevron",false
-"Shell","shell","Oil & Gas","Workday","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/shell",false
-"BP","bp","Oil & Gas","Workday","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/bp",false
+"Stanley Black & Decker","stanley-black-and-decker","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/stanley-black-and-decker",true
+"Whirlpool","whirlpool","Manufacturing","Eightfold","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/whirlpool",true
+"Dover","dover","Manufacturing","SuccessFactors","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/dover",true
+"Rockwell Automation","rockwell-automation","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/rockwell-automation",true
+"Trane Technologies","trane-technologies","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/trane-technologies",true
+"Carrier","carrier","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/carrier",true
+"Raytheon","raytheon","Aerospace & Defense","Workday","high","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/raytheon",true
+"Northrop Grumman","northrop-grumman","Aerospace & Defense","Workday","high","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/northrop-grumman",true
+"General Dynamics","general-dynamics","Aerospace & Defense","iCIMS","high","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/general-dynamics",true
+"L3Harris","l3harris","Aerospace & Defense","Taleo","high","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/l3harris",true
+"BAE Systems","bae-systems","Aerospace & Defense","Taleo","high","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/bae-systems",true
+"Leidos","leidos","Aerospace & Defense","Workday","high","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/leidos",true
+"SAIC","saic","Aerospace & Defense","Taleo","high","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/saic",true
+"CACI","caci","Aerospace & Defense","Workday","high","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/caci",true
+"Booz Allen","booz-allen","Aerospace & Defense","Workday","high","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/booz-allen",true
+"Maxar","maxar","Aerospace & Defense","Workday","mid","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/maxar",true
+"Anduril","anduril","Aerospace & Defense","Greenhouse","mid","aerospace-engineer|systems-engineer|program-manager","https://withresumeai.com/ats-checker/anduril",true
+"SpaceX","spacex","Aerospace","Jobvite","high","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/spacex",true
+"Blue Origin","blue-origin","Aerospace","Workday","high","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/blue-origin",true
+"Rocket Lab","rocket-lab","Aerospace","Workday","mid","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/rocket-lab",true
+"Sierra Space","sierra-space","Aerospace","Workday","mid","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/sierra-space",true
+"Pratt & Whitney","pratt-and-whitney","Aerospace","Workday","high","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/pratt-and-whitney",true
+"Collins Aerospace","collins-aerospace","Aerospace","Workday","high","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/collins-aerospace",true
+"Spirit AeroSystems","spirit-aerosystems","Aerospace","iCIMS","high","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/spirit-aerosystems",true
+"Textron","textron","Aerospace","Taleo","high","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/textron",true
+"Embraer","embraer","Aerospace","SuccessFactors","mid","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/embraer",true
+"Airbus","airbus","Aerospace","Workday","high","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/airbus",true
+"Bombardier","bombardier","Aerospace","SuccessFactors","mid","aerospace-engineer|mechanical-engineer|systems-engineer","https://withresumeai.com/ats-checker/bombardier",true
+"ExxonMobil","exxonmobil","Oil & Gas","SuccessFactors","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/exxonmobil",true
+"Chevron","chevron","Oil & Gas","Workday","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/chevron",true
+"Shell","shell","Oil & Gas","Workday","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/shell",true
+"BP","bp","Oil & Gas","Workday","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/bp",true
 "TotalEnergies","totalenergies","Oil & Gas","Workday","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/totalenergies",false
-"ConocoPhillips","conocophillips","Oil & Gas","Workday","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/conocophillips",false
-"Marathon Petroleum","marathon-petroleum","Oil & Gas","Workday","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/marathon-petroleum",false
-"Valero","valero","Oil & Gas","Workday","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/valero",false
-"Phillips 66","phillips-66","Oil & Gas","Workday","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/phillips-66",false
-"Halliburton","halliburton","Oil & Gas","Workday","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/halliburton",false
-"Schlumberger","schlumberger","Oil & Gas","Workday","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/schlumberger",false
-"Baker Hughes","baker-hughes","Oil & Gas","Workday","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/baker-hughes",false
-"NextEra Energy","nextera-energy","Utilities","Workday","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/nextera-energy",false
-"Duke Energy","duke-energy","Utilities","Workday","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/duke-energy",false
-"Southern Company","southern-company","Utilities","Workday","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/southern-company",false
-"Dominion Energy","dominion-energy","Utilities","Workday","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/dominion-energy",false
-"Exelon","exelon","Utilities","Workday","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/exelon",false
-"PG&E","pge","Utilities","Workday","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/pge",false
-"Edison International","edison-international","Utilities","Workday","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/edison-international",false
-"American Electric Power","american-electric-power","Utilities","Workday","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/american-electric-power",false
-"Xcel Energy","xcel-energy","Utilities","Workday","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/xcel-energy",false
-"Sempra Energy","sempra-energy","Utilities","Workday","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/sempra-energy",false
-"Enbridge","enbridge","Energy","Workday","high","mechanical-engineer|operations-manager|project-manager","https://withresumeai.com/ats-checker/enbridge",false
-"Kinder Morgan","kinder-morgan","Energy","Workday","high","mechanical-engineer|operations-manager|project-manager","https://withresumeai.com/ats-checker/kinder-morgan",false
-"Williams Companies","williams-companies","Energy","Workday","high","mechanical-engineer|operations-manager|project-manager","https://withresumeai.com/ats-checker/williams-companies",false
-"Sunrun","sunrun","Energy","Workday","mid","mechanical-engineer|operations-manager|project-manager","https://withresumeai.com/ats-checker/sunrun",false
-"First Solar","first-solar","Energy","Workday","mid","mechanical-engineer|operations-manager|project-manager","https://withresumeai.com/ats-checker/first-solar",false
-"Enphase Energy","enphase-energy","Energy","Workday","mid","mechanical-engineer|operations-manager|project-manager","https://withresumeai.com/ats-checker/enphase-energy",false
-"Plug Power","plug-power","Energy","Workday","mid","mechanical-engineer|operations-manager|project-manager","https://withresumeai.com/ats-checker/plug-power",false
-"Bloom Energy","bloom-energy","Energy","Workday","mid","mechanical-engineer|operations-manager|project-manager","https://withresumeai.com/ats-checker/bloom-energy",false
-"AT&T","att","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/att",false
-"Verizon","verizon","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/verizon",false
-"T-Mobile","t-mobile","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/t-mobile",false
-"Comcast","comcast","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/comcast",false
-"Charter Communications","charter-communications","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/charter-communications",false
-"Cox Communications","cox-communications","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/cox-communications",false
-"Vodafone","vodafone","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/vodafone",false
-"BT Group","bt-group","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/bt-group",false
+"ConocoPhillips","conocophillips","Oil & Gas","Workday","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/conocophillips",true
+"Marathon Petroleum","marathon-petroleum","Oil & Gas","Workday","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/marathon-petroleum",true
+"Valero","valero","Oil & Gas","Taleo","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/valero",true
+"Phillips 66","phillips-66","Oil & Gas","SuccessFactors","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/phillips-66",true
+"Halliburton","halliburton","Oil & Gas","SuccessFactors","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/halliburton",true
+"Schlumberger","schlumberger","Oil & Gas","Eightfold","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/schlumberger",true
+"Baker Hughes","baker-hughes","Oil & Gas","Workday","high","petroleum-engineer|operations-manager|geologist","https://withresumeai.com/ats-checker/baker-hughes",true
+"NextEra Energy","nextera-energy","Utilities","SuccessFactors","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/nextera-energy",true
+"Duke Energy","duke-energy","Utilities","Workday","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/duke-energy",true
+"Southern Company","southern-company","Utilities","Oracle Cloud HCM","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/southern-company",true
+"Dominion Energy","dominion-energy","Utilities","SuccessFactors","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/dominion-energy",true
+"Exelon","exelon","Utilities","iCIMS","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/exelon",true
+"PG&E","pge","Utilities","SuccessFactors","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/pge",true
+"Edison International","edison-international","Utilities","Workday","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/edison-international",true
+"American Electric Power","american-electric-power","Utilities","Workday","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/american-electric-power",true
+"Xcel Energy","xcel-energy","Utilities","Workday","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/xcel-energy",true
+"Sempra Energy","sempra-energy","Utilities","ADP","high","electrical-engineer|operations-manager|field-technician","https://withresumeai.com/ats-checker/sempra-energy",true
+"Enbridge","enbridge","Energy","Workday","high","mechanical-engineer|operations-manager|project-manager","https://withresumeai.com/ats-checker/enbridge",true
+"Kinder Morgan","kinder-morgan","Energy","PeopleFluent","high","mechanical-engineer|operations-manager|project-manager","https://withresumeai.com/ats-checker/kinder-morgan",true
+"Williams Companies","williams-companies","Energy","Workday","high","mechanical-engineer|operations-manager|project-manager","https://withresumeai.com/ats-checker/williams-companies",true
+"Sunrun","sunrun","Energy","Workday","mid","mechanical-engineer|operations-manager|project-manager","https://withresumeai.com/ats-checker/sunrun",true
+"First Solar","first-solar","Energy","Oracle Cloud HCM","mid","mechanical-engineer|operations-manager|project-manager","https://withresumeai.com/ats-checker/first-solar",true
+"Enphase Energy","enphase-energy","Energy","Jobvite","mid","mechanical-engineer|operations-manager|project-manager","https://withresumeai.com/ats-checker/enphase-energy",true
+"Plug Power","plug-power","Energy","Workday","mid","mechanical-engineer|operations-manager|project-manager","https://withresumeai.com/ats-checker/plug-power",true
+"Bloom Energy","bloom-energy","Energy","Workday","mid","mechanical-engineer|operations-manager|project-manager","https://withresumeai.com/ats-checker/bloom-energy",true
+"AT&T","att","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/att",true
+"Verizon","verizon","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/verizon",true
+"T-Mobile","t-mobile","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/t-mobile",true
+"Comcast","comcast","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/comcast",true
+"Charter Communications","charter-communications","Telecommunications","iCIMS","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/charter-communications",true
+"Cox Communications","cox-communications","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/cox-communications",true
+"Vodafone","vodafone","Telecommunications","Eightfold","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/vodafone",true
+"BT Group","bt-group","Telecommunications","SuccessFactors","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/bt-group",true
 "Deutsche Telekom","deutsche-telekom","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/deutsche-telekom",false
 "Orange","orange","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/orange",false
-"NTT","ntt","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/ntt",false
-"SoftBank","softbank","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/softbank",false
+"NTT","ntt","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/ntt",true
+"SoftBank","softbank","Telecommunications","Herp","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/softbank",true
 "America Movil","america-movil","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/america-movil",false
-"Telefonica","telefonica","Telecommunications","Workday","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/telefonica",false
-"Warner Bros. Discovery","warner-bros-discovery","Entertainment & Media","Workday","high","marketing-manager|content-strategist|brand-manager","https://withresumeai.com/ats-checker/warner-bros-discovery",false
-"NBCUniversal","nbcuniversal","Entertainment & Media","Workday","high","marketing-manager|content-strategist|brand-manager","https://withresumeai.com/ats-checker/nbcuniversal",false
-"Paramount","paramount","Entertainment & Media","Workday","high","marketing-manager|content-strategist|brand-manager","https://withresumeai.com/ats-checker/paramount",false
-"Fox","fox","Entertainment & Media","Workday","high","marketing-manager|content-strategist|brand-manager","https://withresumeai.com/ats-checker/fox",false
-"Sony Pictures","sony-pictures","Entertainment & Media","Workday","high","marketing-manager|content-strategist|brand-manager","https://withresumeai.com/ats-checker/sony-pictures",false
-"Lionsgate","lionsgate","Entertainment & Media","Workday","mid","marketing-manager|content-strategist|brand-manager","https://withresumeai.com/ats-checker/lionsgate",false
-"AMC Networks","amc-networks","Entertainment & Media","Workday","mid","marketing-manager|content-strategist|brand-manager","https://withresumeai.com/ats-checker/amc-networks",false
-"The New York Times","new-york-times","Media","Greenhouse","high","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/new-york-times",false
-"Washington Post","washington-post","Media","Greenhouse","mid","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/washington-post",false
-"Wall Street Journal","wall-street-journal","Media","Workday","mid","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/wall-street-journal",false
-"Bloomberg","bloomberg","Media","Workday","high","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/bloomberg",false
-"Reuters","reuters","Media","Workday","high","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/reuters",false
-"Dow Jones","dow-jones","Media","Workday","mid","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/dow-jones",false
-"Hearst","hearst","Media","Workday","high","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/hearst",false
-"Conde Nast","conde-nast","Media","Workday","mid","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/conde-nast",false
-"Vox Media","vox-media","Media","Greenhouse","mid","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/vox-media",false
-"BuzzFeed","buzzfeed","Media","Greenhouse","mid","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/buzzfeed",false
-"Spotify Studios","spotify-studios","Music Industry","Greenhouse","mid","marketing-manager|brand-manager|operations-manager","https://withresumeai.com/ats-checker/spotify-studios",false
-"Universal Music Group","universal-music-group","Music Industry","Workday","high","marketing-manager|brand-manager|operations-manager","https://withresumeai.com/ats-checker/universal-music-group",false
-"Warner Music Group","warner-music-group","Music Industry","Workday","high","marketing-manager|brand-manager|operations-manager","https://withresumeai.com/ats-checker/warner-music-group",false
-"Sony Music","sony-music","Music Industry","Workday","high","marketing-manager|brand-manager|operations-manager","https://withresumeai.com/ats-checker/sony-music",false
-"Live Nation","live-nation","Music Industry","Workday","high","marketing-manager|brand-manager|operations-manager","https://withresumeai.com/ats-checker/live-nation",false
-"Marriott","marriott","Hotels","Workday","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/marriott",false
-"Hilton","hilton","Hotels","Workday","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/hilton",false
-"Hyatt","hyatt","Hotels","Workday","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/hyatt",false
-"IHG","ihg","Hotels","Workday","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/ihg",false
-"Wyndham","wyndham","Hotels","Workday","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/wyndham",false
-"Choice Hotels","choice-hotels","Hotels","Workday","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/choice-hotels",false
-"Accor","accor","Hotels","Workday","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/accor",false
-"Four Seasons","four-seasons","Hotels","Workday","mid","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/four-seasons",false
-"Mandarin Oriental","mandarin-oriental","Hotels","Workday","mid","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/mandarin-oriental",false
-"Ritz-Carlton","ritz-carlton","Hotels","Workday","mid","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/ritz-carlton",false
-"MGM Resorts","mgm-resorts","Hotels","Workday","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/mgm-resorts",false
-"Wynn Resorts","wynn-resorts","Hotels","Workday","mid","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/wynn-resorts",false
-"Caesars Entertainment","caesars-entertainment","Hotels","Workday","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/caesars-entertainment",false
-"Las Vegas Sands","las-vegas-sands","Hotels","Workday","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/las-vegas-sands",false
-"Royal Caribbean","royal-caribbean","Hospitality","Workday","high","hospitality-manager|front-office-manager|guest-services","https://withresumeai.com/ats-checker/royal-caribbean",false
-"Carnival","carnival","Hospitality","Workday","high","hospitality-manager|front-office-manager|guest-services","https://withresumeai.com/ats-checker/carnival",false
-"Norwegian Cruise Line","norwegian-cruise-line","Hospitality","Workday","high","hospitality-manager|front-office-manager|guest-services","https://withresumeai.com/ats-checker/norwegian-cruise-line",false
-"McDonald's","mcdonalds","Restaurants","Workday","mega","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/mcdonalds",false
-"Starbucks","starbucks","Restaurants","Workday","mega","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/starbucks",false
-"Chipotle","chipotle","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/chipotle",false
-"Yum! Brands","yum-brands","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/yum-brands",false
-"KFC","kfc","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/kfc",false
-"Taco Bell","taco-bell","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/taco-bell",false
-"Pizza Hut","pizza-hut","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/pizza-hut",false
+"Telefonica","telefonica","Telecommunications","SuccessFactors","high","network-engineer|telecom-engineer|field-technician","https://withresumeai.com/ats-checker/telefonica",true
+"Warner Bros. Discovery","warner-bros-discovery","Entertainment & Media","Workday","high","marketing-manager|content-strategist|brand-manager","https://withresumeai.com/ats-checker/warner-bros-discovery",true
+"NBCUniversal","nbcuniversal","Entertainment & Media","SmartRecruiters","high","marketing-manager|content-strategist|brand-manager","https://withresumeai.com/ats-checker/nbcuniversal",true
+"Paramount","paramount","Entertainment & Media","SuccessFactors","high","marketing-manager|content-strategist|brand-manager","https://withresumeai.com/ats-checker/paramount",true
+"Fox","fox","Entertainment & Media","Workday","high","marketing-manager|content-strategist|brand-manager","https://withresumeai.com/ats-checker/fox",true
+"Sony Pictures","sony-pictures","Entertainment & Media","Workday","high","marketing-manager|content-strategist|brand-manager","https://withresumeai.com/ats-checker/sony-pictures",true
+"Lionsgate","lionsgate","Entertainment & Media","SuccessFactors","mid","marketing-manager|content-strategist|brand-manager","https://withresumeai.com/ats-checker/lionsgate",true
+"AMC Networks","amc-networks","Entertainment & Media","Workday","mid","marketing-manager|content-strategist|brand-manager","https://withresumeai.com/ats-checker/amc-networks",true
+"The New York Times","new-york-times","Media","Greenhouse","high","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/new-york-times",true
+"Washington Post","washington-post","Media","Workday","mid","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/washington-post",true
+"Wall Street Journal","wall-street-journal","Media","Workday","mid","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/wall-street-journal",true
+"Bloomberg","bloomberg","Media","Avature","high","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/bloomberg",true
+"Reuters","reuters","Media","Workday","high","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/reuters",true
+"Dow Jones","dow-jones","Media","Workday","mid","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/dow-jones",true
+"Hearst","hearst","Media","Oracle Cloud HCM","high","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/hearst",true
+"Conde Nast","conde-nast","Media","Workday","mid","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/conde-nast",true
+"Vox Media","vox-media","Media","Greenhouse","mid","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/vox-media",true
+"BuzzFeed","buzzfeed","Media","Greenhouse","mid","content-strategist|marketing-manager|journalist","https://withresumeai.com/ats-checker/buzzfeed",true
+"Spotify Studios","spotify-studios","Music Industry","Lever","mid","marketing-manager|brand-manager|operations-manager","https://withresumeai.com/ats-checker/spotify-studios",true
+"Universal Music Group","universal-music-group","Music Industry","Workday","high","marketing-manager|brand-manager|operations-manager","https://withresumeai.com/ats-checker/universal-music-group",true
+"Warner Music Group","warner-music-group","Music Industry","Workday","high","marketing-manager|brand-manager|operations-manager","https://withresumeai.com/ats-checker/warner-music-group",true
+"Sony Music","sony-music","Music Industry","Greenhouse","high","marketing-manager|brand-manager|operations-manager","https://withresumeai.com/ats-checker/sony-music",true
+"Live Nation","live-nation","Music Industry","Workday","high","marketing-manager|brand-manager|operations-manager","https://withresumeai.com/ats-checker/live-nation",true
+"Marriott","marriott","Hotels","Oracle Cloud HCM","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/marriott",true
+"Hilton","hilton","Hotels","Taleo","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/hilton",true
+"Hyatt","hyatt","Hotels","Taleo","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/hyatt",true
+"IHG","ihg","Hotels","Oracle Cloud HCM","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/ihg",true
+"Wyndham","wyndham","Hotels","SuccessFactors","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/wyndham",true
+"Choice Hotels","choice-hotels","Hotels","Workday","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/choice-hotels",true
+"Accor","accor","Hotels","SmartRecruiters","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/accor",true
+"Four Seasons","four-seasons","Hotels","Workday","mid","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/four-seasons",true
+"Mandarin Oriental","mandarin-oriental","Hotels","PageUp","mid","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/mandarin-oriental",true
+"Ritz-Carlton","ritz-carlton","Hotels","Oracle Cloud HCM","mid","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/ritz-carlton",true
+"MGM Resorts","mgm-resorts","Hotels","Workday","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/mgm-resorts",true
+"Wynn Resorts","wynn-resorts","Hotels","SmartRecruiters","mid","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/wynn-resorts",true
+"Caesars Entertainment","caesars-entertainment","Hotels","Oracle Cloud HCM","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/caesars-entertainment",true
+"Las Vegas Sands","las-vegas-sands","Hotels","Workday","high","front-office-manager|hospitality-manager|general-manager","https://withresumeai.com/ats-checker/las-vegas-sands",true
+"Royal Caribbean","royal-caribbean","Hospitality","SuccessFactors","high","hospitality-manager|front-office-manager|guest-services","https://withresumeai.com/ats-checker/royal-caribbean",true
+"Carnival","carnival","Hospitality","Oracle Cloud HCM","high","hospitality-manager|front-office-manager|guest-services","https://withresumeai.com/ats-checker/carnival",true
+"Norwegian Cruise Line","norwegian-cruise-line","Hospitality","Workday","high","hospitality-manager|front-office-manager|guest-services","https://withresumeai.com/ats-checker/norwegian-cruise-line",true
+"McDonald's","mcdonalds","Restaurants","SmartRecruiters","mega","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/mcdonalds",true
+"Starbucks","starbucks","Restaurants","Eightfold","mega","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/starbucks",true
+"Chipotle","chipotle","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/chipotle",true
+"Yum! Brands","yum-brands","Restaurants","Oracle Cloud HCM","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/yum-brands",true
+"KFC","kfc","Restaurants","Oracle Cloud HCM","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/kfc",true
+"Taco Bell","taco-bell","Restaurants","Oracle Cloud HCM","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/taco-bell",true
+"Pizza Hut","pizza-hut","Restaurants","Oracle Cloud HCM","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/pizza-hut",true
 "Subway","subway","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/subway",false
 "Burger King","burger-king","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/burger-king",false
-"Wendy's","wendys","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/wendys",false
+"Wendy's","wendys","Restaurants","iCIMS","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/wendys",true
 "Dunkin'","dunkin","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/dunkin",false
-"Domino's","dominos","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/dominos",false
-"Papa John's","papa-johns","Restaurants","Workday","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/papa-johns",false
-"Panera Bread","panera-bread","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/panera-bread",false
-"Chick-fil-A","chick-fil-a","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/chick-fil-a",false
-"Sweetgreen","sweetgreen","Restaurants","Greenhouse","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/sweetgreen",false
-"Cava","cava","Restaurants","Workday","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/cava",false
-"Shake Shack","shake-shack","Restaurants","Greenhouse","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/shake-shack",false
-"In-N-Out Burger","in-n-out-burger","Restaurants","Internal ATS","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/in-n-out-burger",false
-"Five Guys","five-guys","Restaurants","Workday","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/five-guys",false
+"Domino's","dominos","Restaurants","SmartRecruiters","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/dominos",true
+"Papa John's","papa-johns","Restaurants","Workday","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/papa-johns",true
+"Panera Bread","panera-bread","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/panera-bread",true
+"Chick-fil-A","chick-fil-a","Restaurants","iCIMS","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/chick-fil-a",true
+"Sweetgreen","sweetgreen","Restaurants","Greenhouse","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/sweetgreen",true
+"Cava","cava","Restaurants","Harri","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/cava",true
+"Shake Shack","shake-shack","Restaurants","Workday","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/shake-shack",true
+"In-N-Out Burger","in-n-out-burger","Restaurants","Avature","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/in-n-out-burger",true
+"Five Guys","five-guys","Restaurants","Phenom People","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/five-guys",true
 "Olive Garden","olive-garden","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/olive-garden",false
-"Cheesecake Factory","cheesecake-factory","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/cheesecake-factory",false
-"Texas Roadhouse","texas-roadhouse","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/texas-roadhouse",false
-"Cracker Barrel","cracker-barrel","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/cracker-barrel",false
-"IHOP","ihop","Restaurants","Workday","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/ihop",false
-"Denny's","dennys","Restaurants","Workday","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/dennys",false
-"Applebee's","applebees","Restaurants","Workday","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/applebees",false
-"Buffalo Wild Wings","buffalo-wild-wings","Restaurants","Workday","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/buffalo-wild-wings",false
-"Darden Restaurants","darden-restaurants","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/darden-restaurants",false
-"FedEx","fedex","Logistics","Workday","mega","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/fedex",false
-"UPS","ups","Logistics","Workday","mega","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/ups",false
-"USPS","usps","Logistics","USAJobs","mega","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/usps",false
+"Cheesecake Factory","cheesecake-factory","Restaurants","iCIMS","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/cheesecake-factory",true
+"Texas Roadhouse","texas-roadhouse","Restaurants","Phenom People","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/texas-roadhouse",true
+"Cracker Barrel","cracker-barrel","Restaurants","Workday","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/cracker-barrel",true
+"IHOP","ihop","Restaurants","Workday","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/ihop",true
+"Denny's","dennys","Restaurants","Workday","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/dennys",true
+"Applebee's","applebees","Restaurants","Workday","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/applebees",true
+"Buffalo Wild Wings","buffalo-wild-wings","Restaurants","Workday","mid","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/buffalo-wild-wings",true
+"Darden Restaurants","darden-restaurants","Restaurants","Paradox","high","restaurant-manager|general-manager|server","https://withresumeai.com/ats-checker/darden-restaurants",true
+"FedEx","fedex","Logistics","Workday","mega","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/fedex",true
+"UPS","ups","Logistics","Workday","mega","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/ups",true
+"USPS","usps","Logistics","Internal ATS","mega","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/usps",true
 "DHL","dhl","Logistics","Workday","high","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/dhl",false
-"XPO Logistics","xpo-logistics","Logistics","Workday","high","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/xpo-logistics",false
-"C.H. Robinson","ch-robinson","Logistics","Workday","high","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/ch-robinson",false
-"Expeditors","expeditors","Logistics","Workday","high","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/expeditors",false
-"J.B. Hunt","jb-hunt","Logistics","Workday","high","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/jb-hunt",false
-"Schneider National","schneider-national","Logistics","Workday","high","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/schneider-national",false
+"XPO Logistics","xpo-logistics","Logistics","SuccessFactors","high","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/xpo-logistics",true
+"C.H. Robinson","ch-robinson","Logistics","Workday","high","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/ch-robinson",true
+"Expeditors","expeditors","Logistics","SmartRecruiters","high","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/expeditors",true
+"J.B. Hunt","jb-hunt","Logistics","Workday","high","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/jb-hunt",true
+"Schneider National","schneider-national","Logistics","Taleo","high","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/schneider-national",true
 "YRC Worldwide","yrc-worldwide","Logistics","Workday","mid","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/yrc-worldwide",false
-"Old Dominion Freight Line","old-dominion-freight-line","Logistics","Workday","high","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/old-dominion-freight-line",false
-"Werner Enterprises","werner-enterprises","Logistics","Workday","mid","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/werner-enterprises",false
-"Knight-Swift","knight-swift","Logistics","Workday","high","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/knight-swift",false
-"Maersk","maersk","Logistics","Workday","high","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/maersk",false
-"Kuehne+Nagel","kuehne-nagel","Logistics","Workday","high","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/kuehne-nagel",false
-"Delta Air Lines","delta-air-lines","Transportation","Workday","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/delta-air-lines",false
-"United Airlines","united-airlines","Transportation","Workday","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/united-airlines",false
-"American Airlines","american-airlines","Transportation","Workday","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/american-airlines",false
-"Southwest Airlines","southwest-airlines","Transportation","Workday","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/southwest-airlines",false
-"JetBlue","jetblue","Transportation","Workday","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/jetblue",false
-"Alaska Airlines","alaska-airlines","Transportation","Workday","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/alaska-airlines",false
-"Spirit Airlines","spirit-airlines","Transportation","Workday","mid","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/spirit-airlines",false
-"Frontier Airlines","frontier-airlines","Transportation","Workday","mid","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/frontier-airlines",false
-"Hawaiian Airlines","hawaiian-airlines","Transportation","Workday","mid","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/hawaiian-airlines",false
+"Old Dominion Freight Line","old-dominion-freight-line","Logistics","Workday","high","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/old-dominion-freight-line",true
+"Werner Enterprises","werner-enterprises","Logistics","Workday","mid","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/werner-enterprises",true
+"Knight-Swift","knight-swift","Logistics","Jobvite","high","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/knight-swift",true
+"Maersk","maersk","Logistics","Workday","high","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/maersk",true
+"Kuehne+Nagel","kuehne-nagel","Logistics","Cornerstone OnDemand","high","logistics-coordinator|supply-chain-analyst|operations-manager","https://withresumeai.com/ats-checker/kuehne-nagel",true
+"Delta Air Lines","delta-air-lines","Transportation","Avature","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/delta-air-lines",true
+"United Airlines","united-airlines","Transportation","Taleo","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/united-airlines",true
+"American Airlines","american-airlines","Transportation","SuccessFactors","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/american-airlines",true
+"Southwest Airlines","southwest-airlines","Transportation","Workday","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/southwest-airlines",true
+"JetBlue","jetblue","Transportation","SuccessFactors","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/jetblue",true
+"Alaska Airlines","alaska-airlines","Transportation","iCIMS","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/alaska-airlines",true
+"Spirit Airlines","spirit-airlines","Transportation","iCIMS","mid","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/spirit-airlines",true
+"Frontier Airlines","frontier-airlines","Transportation","UKG Pro","mid","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/frontier-airlines",true
+"Hawaiian Airlines","hawaiian-airlines","Transportation","iCIMS","mid","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/hawaiian-airlines",true
 "Lufthansa","lufthansa","Transportation","Workday","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/lufthansa",false
 "British Airways","british-airways","Transportation","Workday","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/british-airways",false
 "Air France-KLM","air-france-klm","Transportation","Workday","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/air-france-klm",false
-"Emirates","emirates","Transportation","Workday","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/emirates",false
-"Qatar Airways","qatar-airways","Transportation","Workday","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/qatar-airways",false
-"Singapore Airlines","singapore-airlines","Transportation","Workday","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/singapore-airlines",false
-"Cathay Pacific","cathay-pacific","Transportation","Workday","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/cathay-pacific",false
-"Union Pacific","union-pacific","Transportation","Workday","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/union-pacific",false
-"BNSF Railway","bnsf-railway","Transportation","Workday","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/bnsf-railway",false
-"CSX","csx","Transportation","Workday","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/csx",false
-"Norfolk Southern","norfolk-southern","Transportation","Workday","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/norfolk-southern",false
-"Canadian National Railway","canadian-national-railway","Transportation","Workday","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/canadian-national-railway",false
-"CBRE","cbre","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/cbre",false
-"JLL","jll","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/jll",false
-"Cushman & Wakefield","cushman-wakefield","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/cushman-wakefield",false
-"Colliers","colliers","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/colliers",false
-"Newmark","newmark","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/newmark",false
-"Marcus & Millichap","marcus-millichap","Real Estate","Workday","mid","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/marcus-millichap",false
-"Compass","compass","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/compass",false
-"Redfin","redfin","Real Estate","Greenhouse","mid","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/redfin",false
-"Zillow","zillow","Real Estate","Greenhouse","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/zillow",false
-"Realtor.com","realtor-com","Real Estate","Workday","mid","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/realtor-com",false
-"Opendoor","opendoor","Real Estate","Greenhouse","mid","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/opendoor",false
-"Keller Williams","keller-williams","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/keller-williams",false
-"RE/MAX","remax","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/remax",false
-"Coldwell Banker","coldwell-banker","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/coldwell-banker",false
+"Emirates","emirates","Transportation","Taleo","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/emirates",true
+"Qatar Airways","qatar-airways","Transportation","Taleo","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/qatar-airways",true
+"Singapore Airlines","singapore-airlines","Transportation","SuccessFactors","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/singapore-airlines",true
+"Cathay Pacific","cathay-pacific","Transportation","Lumesse TalentLink","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/cathay-pacific",true
+"Union Pacific","union-pacific","Transportation","SuccessFactors","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/union-pacific",true
+"BNSF Railway","bnsf-railway","Transportation","Phenom People","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/bnsf-railway",true
+"CSX","csx","Transportation","Oracle Cloud HCM","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/csx",true
+"Norfolk Southern","norfolk-southern","Transportation","SuccessFactors","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/norfolk-southern",true
+"Canadian National Railway","canadian-national-railway","Transportation","Cornerstone OnDemand","high","operations-manager|logistics-coordinator|fleet-manager","https://withresumeai.com/ats-checker/canadian-national-railway",true
+"CBRE","cbre","Real Estate","Taleo","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/cbre",true
+"JLL","jll","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/jll",true
+"Cushman & Wakefield","cushman-wakefield","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/cushman-wakefield",true
+"Colliers","colliers","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/colliers",true
+"Newmark","newmark","Real Estate","Oracle Cloud HCM","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/newmark",true
+"Marcus & Millichap","marcus-millichap","Real Estate","Lever","mid","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/marcus-millichap",true
+"Compass","compass","Real Estate","Greenhouse","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/compass",true
+"Redfin","redfin","Real Estate","Workday","mid","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/redfin",true
+"Zillow","zillow","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/zillow",true
+"Realtor.com","realtor-com","Real Estate","Greenhouse","mid","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/realtor-com",true
+"Opendoor","opendoor","Real Estate","Greenhouse","mid","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/opendoor",true
+"Keller Williams","keller-williams","Real Estate","iCIMS","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/keller-williams",true
+"RE/MAX","remax","Real Estate","UKG Pro","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/remax",true
+"Coldwell Banker","coldwell-banker","Real Estate","Oracle Cloud HCM","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/coldwell-banker",true
 "Berkshire Hathaway HomeServices","berkshire-hathaway-homeservices","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/berkshire-hathaway-homeservices",false
-"Prologis","prologis","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/prologis",false
-"Simon Property Group","simon-property-group","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/simon-property-group",false
-"Equinix","equinix","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/equinix",false
-"Digital Realty","digital-realty","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/digital-realty",false
-"Bechtel","bechtel","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/bechtel",false
-"Fluor","fluor","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/fluor",false
-"AECOM","aecom","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/aecom",false
-"Jacobs","jacobs","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/jacobs",false
-"Skanska","skanska","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/skanska",false
-"Turner Construction","turner-construction","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/turner-construction",false
-"Whiting-Turner","whiting-turner","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/whiting-turner",false
-"Suffolk Construction","suffolk-construction","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/suffolk-construction",false
-"DPR Construction","dpr-construction","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/dpr-construction",false
-"Hensel Phelps","hensel-phelps","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/hensel-phelps",false
-"Mortenson","mortenson","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/mortenson",false
-"McCarthy Building","mccarthy-building","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/mccarthy-building",false
-"KBR","kbr","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/kbr",false
-"WSP","wsp","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/wsp",false
-"Stantec","stantec","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/stantec",false
-"HDR","hdr","Construction","Workday","mid","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/hdr",false
-"Parsons","parsons","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/parsons",false
-"D.R. Horton","dr-horton","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/dr-horton",false
-"Lennar","lennar","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/lennar",false
-"PulteGroup","pultegroup","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/pultegroup",false
-"KB Home","kb-home","Construction","Workday","mid","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/kb-home",false
-"Toll Brothers","toll-brothers","Construction","Workday","mid","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/toll-brothers",false
-"NVR","nvr","Construction","Workday","mid","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/nvr",false
-"NFL","nfl","Sports","Workday","high","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/nfl",false
-"NBA","nba","Sports","Workday","high","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/nba",false
-"MLB","mlb","Sports","Workday","high","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/mlb",false
+"Prologis","prologis","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/prologis",true
+"Simon Property Group","simon-property-group","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/simon-property-group",true
+"Equinix","equinix","Real Estate","Workday","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/equinix",true
+"Digital Realty","digital-realty","Real Estate","Oracle Cloud HCM","high","real-estate-agent|property-manager|real-estate-analyst","https://withresumeai.com/ats-checker/digital-realty",true
+"Bechtel","bechtel","Construction","Kenexa BrassRing","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/bechtel",true
+"Fluor","fluor","Construction","Eightfold","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/fluor",true
+"AECOM","aecom","Construction","SmartRecruiters","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/aecom",true
+"Jacobs","jacobs","Construction","Taleo","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/jacobs",true
+"Skanska","skanska","Construction","iCIMS","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/skanska",true
+"Turner Construction","turner-construction","Construction","Cornerstone OnDemand","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/turner-construction",true
+"Whiting-Turner","whiting-turner","Construction","SilkRoad","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/whiting-turner",true
+"Suffolk Construction","suffolk-construction","Construction","iCIMS","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/suffolk-construction",true
+"DPR Construction","dpr-construction","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/dpr-construction",true
+"Hensel Phelps","hensel-phelps","Construction","UKG Pro","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/hensel-phelps",true
+"Mortenson","mortenson","Construction","iCIMS","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/mortenson",true
+"McCarthy Building","mccarthy-building","Construction","Jobvite","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/mccarthy-building",true
+"KBR","kbr","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/kbr",true
+"WSP","wsp","Construction","Oracle Cloud HCM","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/wsp",true
+"Stantec","stantec","Construction","Oracle Cloud HCM","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/stantec",true
+"HDR","hdr","Construction","Taleo","mid","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/hdr",true
+"Parsons","parsons","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/parsons",true
+"D.R. Horton","dr-horton","Construction","Taleo","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/dr-horton",true
+"Lennar","lennar","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/lennar",true
+"PulteGroup","pultegroup","Construction","Workday","high","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/pultegroup",true
+"KB Home","kb-home","Construction","iCIMS","mid","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/kb-home",true
+"Toll Brothers","toll-brothers","Construction","iCIMS","mid","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/toll-brothers",true
+"NVR","nvr","Construction","Taleo","mid","construction-manager|project-manager|civil-engineer","https://withresumeai.com/ats-checker/nvr",true
+"NFL","nfl","Sports","Greenhouse","high","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/nfl",true
+"NBA","nba","Sports","Workday","high","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/nba",true
+"MLB","mlb","Sports","Greenhouse","high","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/mlb",true
 "NHL","nhl","Sports","Workday","high","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/nhl",false
-"MLS","mls","Sports","Workday","mid","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/mls",false
-"WWE","wwe","Sports","Workday","mid","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/wwe",false
-"UFC","ufc","Sports","Workday","mid","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/ufc",false
-"Endeavor","endeavor","Sports","Workday","mid","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/endeavor",false
-"ESPN","espn","Sports","Workday","high","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/espn",false
-"DraftKings","draftkings","Sports","Greenhouse","high","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/draftkings",false
-"FanDuel","fanduel","Sports","Greenhouse","high","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/fanduel",false
-"Penn Entertainment","penn-entertainment","Sports","Workday","high","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/penn-entertainment",false
-"EA Sports","ea-sports","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/ea-sports",false
+"MLS","mls","Sports","iCIMS","mid","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/mls",true
+"WWE","wwe","Sports","Workday","mid","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/wwe",true
+"UFC","ufc","Sports","Workday","mid","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/ufc",true
+"Endeavor","endeavor","Sports","Workday","mid","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/endeavor",true
+"ESPN","espn","Sports","Workday","high","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/espn",true
+"DraftKings","draftkings","Sports","Workday","high","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/draftkings",true
+"FanDuel","fanduel","Sports","Greenhouse","high","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/fanduel",true
+"Penn Entertainment","penn-entertainment","Sports","iCIMS","high","marketing-manager|operations-manager|brand-manager","https://withresumeai.com/ats-checker/penn-entertainment",true
+"EA Sports","ea-sports","Technology","gr8people","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/ea-sports",true
 "Electronic Arts","electronic-arts","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/electronic-arts",false
-"Take-Two Interactive","take-two-interactive","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/take-two-interactive",false
-"Activision Blizzard","activision-blizzard","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/activision-blizzard",false
-"Riot Games","riot-games","Technology","Greenhouse","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/riot-games",false
-"Epic Games","epic-games","Technology","Greenhouse","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/epic-games",false
-"Unity","unity","Technology","Greenhouse","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/unity",false
-"Roblox","roblox","Technology","Greenhouse","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/roblox",false
-"Niantic","niantic","Technology","Greenhouse","mid","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/niantic",false
-"Discord","discord","Technology","Greenhouse","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/discord",false
-"Twitch","twitch","Technology","Internal ATS","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/twitch",false
-"YouTube","youtube","Technology","Internal (Google proprietary)","mega","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/youtube",false
-"TikTok","tiktok","Social Media","Internal ATS","high","software-engineer|data-scientist|product-manager","https://withresumeai.com/ats-checker/tiktok",false
-"Reddit","reddit","Social Media","Greenhouse","high","software-engineer|data-scientist|product-manager","https://withresumeai.com/ats-checker/reddit",false
-"Tumblr","tumblr","Social Media","Greenhouse","mid","software-engineer|data-scientist|product-manager","https://withresumeai.com/ats-checker/tumblr",false
-"Quora","quora","Social Media","Greenhouse","mid","software-engineer|data-scientist|product-manager","https://withresumeai.com/ats-checker/quora",false
-"Medium","medium","Social Media","Greenhouse","mid","software-engineer|data-scientist|product-manager","https://withresumeai.com/ats-checker/medium",false
-"Substack","substack","Social Media","Lever","mid","software-engineer|data-scientist|product-manager","https://withresumeai.com/ats-checker/substack",false
-"Pearson","pearson","Education","Workday","high","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/pearson",false
-"McGraw Hill","mcgraw-hill","Education","Workday","high","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/mcgraw-hill",false
+"Take-Two Interactive","take-two-interactive","Technology","Greenhouse","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/take-two-interactive",true
+"Activision Blizzard","activision-blizzard","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/activision-blizzard",true
+"Riot Games","riot-games","Technology","Greenhouse","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/riot-games",true
+"Epic Games","epic-games","Technology","Greenhouse","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/epic-games",true
+"Unity","unity","Technology","Greenhouse","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/unity",true
+"Roblox","roblox","Technology","Greenhouse","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/roblox",true
+"Niantic","niantic","Technology","Greenhouse","mid","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/niantic",true
+"Discord","discord","Technology","Greenhouse","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/discord",true
+"Twitch","twitch","Technology","Internal ATS","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/twitch",true
+"YouTube","youtube","Technology","Internal ATS","mega","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/youtube",true
+"TikTok","tiktok","Social Media","Internal ATS","high","software-engineer|data-scientist|product-manager","https://withresumeai.com/ats-checker/tiktok",true
+"Reddit","reddit","Social Media","Greenhouse","high","software-engineer|data-scientist|product-manager","https://withresumeai.com/ats-checker/reddit",true
+"Tumblr","tumblr","Social Media","Greenhouse","mid","software-engineer|data-scientist|product-manager","https://withresumeai.com/ats-checker/tumblr",true
+"Quora","quora","Social Media","Ashby","mid","software-engineer|data-scientist|product-manager","https://withresumeai.com/ats-checker/quora",true
+"Medium","medium","Social Media","Greenhouse","mid","software-engineer|data-scientist|product-manager","https://withresumeai.com/ats-checker/medium",true
+"Substack","substack","Social Media","Ashby","mid","software-engineer|data-scientist|product-manager","https://withresumeai.com/ats-checker/substack",true
+"Pearson","pearson","Education","Taleo","high","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/pearson",true
+"McGraw Hill","mcgraw-hill","Education","iCIMS","high","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/mcgraw-hill",true
 "Houghton Mifflin Harcourt","houghton-mifflin-harcourt","Education","Workday","high","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/houghton-mifflin-harcourt",false
-"Cengage","cengage","Education","Workday","mid","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/cengage",false
-"Wiley","wiley","Education","Workday","high","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/wiley",false
-"Chegg","chegg","Education","Workday","mid","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/chegg",false
-"Coursera","coursera","Education","Greenhouse","mid","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/coursera",false
-"Udemy","udemy","Education","Greenhouse","mid","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/udemy",false
-"edX","edx","Education","Workday","mid","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/edx",false
-"Khan Academy","khan-academy","Education","Greenhouse","mid","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/khan-academy",false
-"Duolingo","duolingo","Education","Greenhouse","mid","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/duolingo",false
+"Cengage","cengage","Education","Workday","mid","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/cengage",true
+"Wiley","wiley","Education","Workday","high","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/wiley",true
+"Chegg","chegg","Education","Workday","mid","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/chegg",true
+"Coursera","coursera","Education","Greenhouse","mid","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/coursera",true
+"Udemy","udemy","Education","Greenhouse","mid","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/udemy",true
+"edX","edx","Education","Greenhouse","mid","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/edx",true
+"Khan Academy","khan-academy","Education","Greenhouse","mid","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/khan-academy",true
+"Duolingo","duolingo","Education","Greenhouse","mid","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/duolingo",true
 "Byju's","byjus","Education","Workday","high","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/byjus",false
-"2U","2u","Education","Workday","mid","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/2u",false
-"K12","k12","Education","Workday","high","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/k12",false
-"Stride","stride","Education","Workday","mid","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/stride",false
-"Booking.com","booking-com","Travel Technology","Workday","high","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/booking-com",false
-"Expedia","expedia","Travel Technology","Workday","high","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/expedia",false
-"Priceline","priceline","Travel Technology","Workday","high","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/priceline",false
-"Tripadvisor","tripadvisor","Travel Technology","Greenhouse","high","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/tripadvisor",false
-"Kayak","kayak","Travel Technology","Greenhouse","mid","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/kayak",false
-"Hotels.com","hotels-com","Travel Technology","Workday","mid","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/hotels-com",false
-"Vrbo","vrbo","Travel Technology","Workday","mid","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/vrbo",false
-"TripActions","tripactions","Travel Technology","Greenhouse","mid","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/tripactions",false
-"Hopper","hopper","Travel Technology","Greenhouse","mid","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/hopper",false
-"Sabre","sabre","Travel Technology","Workday","high","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/sabre",false
-"Amadeus","amadeus","Travel Technology","Workday","high","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/amadeus",false
-"U.S. Department of Defense","us-department-of-defense","Government","USAJobs","mega","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/us-department-of-defense",false
-"U.S. Department of State","us-department-of-state","Government","USAJobs","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/us-department-of-state",false
-"NASA","nasa","Government","USAJobs","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/nasa",false
-"FBI","fbi","Government","USAJobs","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/fbi",false
-"CIA","cia","Government","Internal ATS","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/cia",false
-"NSA","nsa","Government","USAJobs","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/nsa",false
-"DARPA","darpa","Government","USAJobs","mid","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/darpa",false
-"CDC","cdc","Government","USAJobs","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/cdc",false
-"NIH","nih","Government","USAJobs","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/nih",false
-"FDA","fda","Government","USAJobs","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/fda",false
-"EPA","epa","Government","USAJobs","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/epa",false
-"IRS","irs","Government","USAJobs","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/irs",false
-"Department of Energy","department-of-energy","Government","USAJobs","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/department-of-energy",false
-"World Bank","world-bank","Government","Taleo","mid","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/world-bank",false
-"United Nations","united-nations","Government","Internal ATS","mid","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/united-nations",false
-"RAND Corporation","rand-corporation","Government","Workday","mid","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/rand-corporation",false
-"MITRE","mitre","Government","Workday","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/mitre",false
-"Snap Inc.","snap-inc","Social Media","Greenhouse","high","software-engineer|data-scientist|product-manager","https://withresumeai.com/ats-checker/snap-inc",false
-"Asana","asana","Productivity","Greenhouse","mid","product-manager|software-engineer|designer","https://withresumeai.com/ats-checker/asana",false
-"Monday.com","monday-com","Productivity","Greenhouse","mid","product-manager|software-engineer|designer","https://withresumeai.com/ats-checker/monday-com",false
-"Smartsheet","smartsheet","Productivity","Workday","mid","product-manager|software-engineer|designer","https://withresumeai.com/ats-checker/smartsheet",false
-"Box","box","Cloud Storage","Workday","mid","software-engineer|site-reliability-engineer|product-manager","https://withresumeai.com/ats-checker/box",false
-"DocuSign","docusign","Enterprise Software","Workday","high","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/docusign",false
-"HubSpot","hubspot","Enterprise Software","Greenhouse","high","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/hubspot",false
-"Zendesk","zendesk","Enterprise Software","Greenhouse","high","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/zendesk",false
-"Freshworks","freshworks","Enterprise Software","Greenhouse","high","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/freshworks",false
-"Intuit","intuit","Enterprise Software","Workday","high","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/intuit",false
-"TurboTax","turbotax","Enterprise Software","Workday","mid","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/turbotax",false
-"QuickBooks","quickbooks","Enterprise Software","Workday","mid","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/quickbooks",false
-"SAP","sap","Enterprise Software","SuccessFactors","high","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/sap",false
-"Sage","sage","Enterprise Software","Workday","high","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/sage",false
-"Autodesk","autodesk","Creative Software","Workday","high","product-manager|ux-designer|software-engineer","https://withresumeai.com/ats-checker/autodesk",false
-"Pixar","pixar","Creative Software","Workday","mid","product-manager|ux-designer|software-engineer","https://withresumeai.com/ats-checker/pixar",false
-"Epic Systems","epic-systems","Healthcare","Internal ATS","high","registered-nurse|medical-assistant|physician-assistant","https://withresumeai.com/ats-checker/epic-systems",false
-"Cerner","cerner","Healthcare","Workday","high","registered-nurse|medical-assistant|physician-assistant","https://withresumeai.com/ats-checker/cerner",false
-"Allscripts","allscripts","Healthcare","Workday","mid","registered-nurse|medical-assistant|physician-assistant","https://withresumeai.com/ats-checker/allscripts",false
-"Veeva Systems","veeva-systems","Healthcare & Pharma","Greenhouse","high","clinical-research-associate|regulatory-affairs-specialist|biostatistician","https://withresumeai.com/ats-checker/veeva-systems",false
-"IQVIA","iqvia","Healthcare & Pharma","Workday","high","clinical-research-associate|regulatory-affairs-specialist|biostatistician","https://withresumeai.com/ats-checker/iqvia",false
-"Charles River Laboratories","charles-river-laboratories","Healthcare & Pharma","Workday","high","clinical-research-associate|regulatory-affairs-specialist|biostatistician","https://withresumeai.com/ats-checker/charles-river-laboratories",false
-"Lonza","lonza","Healthcare & Pharma","Workday","high","clinical-research-associate|regulatory-affairs-specialist|biostatistician","https://withresumeai.com/ats-checker/lonza",false
-"Catalent","catalent","Healthcare & Pharma","Workday","high","clinical-research-associate|regulatory-affairs-specialist|biostatistician","https://withresumeai.com/ats-checker/catalent",false
-"Cintas","cintas","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/cintas",false
-"Ecolab","ecolab","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/ecolab",false
-"Sherwin-Williams","sherwin-williams","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/sherwin-williams",false
-"PPG","ppg","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/ppg",false
-"Dow","dow","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/dow",false
-"DuPont","dupont","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/dupont",false
-"LyondellBasell","lyondellbasell","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/lyondellbasell",false
-"Linde","linde","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/linde",false
-"Air Products","air-products","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/air-products",false
-"Praxair","praxair","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/praxair",false
-"International Paper","international-paper","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/international-paper",false
-"Westrock","westrock","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/westrock",false
-"Smurfit Kappa","smurfit-kappa","Manufacturing","Workday","mid","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/smurfit-kappa",false
-"Owens Corning","owens-corning","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/owens-corning",false
-"Mohawk Industries","mohawk-industries","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/mohawk-industries",false
-"Steel Dynamics","steel-dynamics","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/steel-dynamics",false
-"Nucor","nucor","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/nucor",false
-"U.S. Steel","us-steel","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/us-steel",false
-"Cleveland-Cliffs","cleveland-cliffs","Manufacturing","Workday","mid","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/cleveland-cliffs",false
-"Alcoa","alcoa","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/alcoa",false
-"Westinghouse","westinghouse","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/westinghouse",false
-"ABB","abb","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/abb",false
-"Siemens","siemens","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/siemens",false
+"2U","2u","Education","Greenhouse","mid","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/2u",true
+"K12","k12","Education","Workday","high","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/k12",true
+"Stride","stride","Education","Workday","mid","teacher|principal|school-counselor","https://withresumeai.com/ats-checker/stride",true
+"Booking.com","booking-com","Travel Technology","SmartRecruiters","high","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/booking-com",true
+"Expedia","expedia","Travel Technology","Workday","high","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/expedia",true
+"Priceline","priceline","Travel Technology","Workday","high","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/priceline",true
+"Tripadvisor","tripadvisor","Travel Technology","Greenhouse","high","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/tripadvisor",true
+"Kayak","kayak","Travel Technology","Greenhouse","mid","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/kayak",true
+"Hotels.com","hotels-com","Travel Technology","Workday","mid","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/hotels-com",true
+"Vrbo","vrbo","Travel Technology","Workday","mid","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/vrbo",true
+"TripActions","tripactions","Travel Technology","Greenhouse","mid","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/tripactions",true
+"Hopper","hopper","Travel Technology","Ashby","mid","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/hopper",true
+"Sabre","sabre","Travel Technology","Workday","high","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/sabre",true
+"Amadeus","amadeus","Travel Technology","Workday","high","product-manager|software-engineer|data-scientist","https://withresumeai.com/ats-checker/amadeus",true
+"U.S. Department of Defense","us-department-of-defense","Government","USAJobs","mega","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/us-department-of-defense",true
+"U.S. Department of State","us-department-of-state","Government","USAJobs","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/us-department-of-state",true
+"NASA","nasa","Government","USAJobs","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/nasa",true
+"FBI","fbi","Government","Internal ATS","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/fbi",true
+"CIA","cia","Government","Internal ATS","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/cia",true
+"NSA","nsa","Government","Internal ATS","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/nsa",true
+"DARPA","darpa","Government","USAJobs","mid","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/darpa",true
+"CDC","cdc","Government","USAJobs","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/cdc",true
+"NIH","nih","Government","USAJobs","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/nih",true
+"FDA","fda","Government","USAJobs","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/fda",true
+"EPA","epa","Government","USAJobs","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/epa",true
+"IRS","irs","Government","USAJobs","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/irs",true
+"Department of Energy","department-of-energy","Government","USAJobs","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/department-of-energy",true
+"World Bank","world-bank","Government","Cornerstone OnDemand","mid","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/world-bank",true
+"United Nations","united-nations","Government","Internal ATS","mid","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/united-nations",true
+"RAND Corporation","rand-corporation","Government","Workday","mid","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/rand-corporation",true
+"MITRE","mitre","Government","Workday","high","project-manager|policy-analyst|program-manager","https://withresumeai.com/ats-checker/mitre",true
+"Snap Inc.","snap-inc","Social Media","Workday","high","software-engineer|data-scientist|product-manager","https://withresumeai.com/ats-checker/snap-inc",true
+"Asana","asana","Productivity","Greenhouse","mid","product-manager|software-engineer|designer","https://withresumeai.com/ats-checker/asana",true
+"Monday.com","monday-com","Productivity","Comeet","mid","product-manager|software-engineer|designer","https://withresumeai.com/ats-checker/monday-com",true
+"Smartsheet","smartsheet","Productivity","Greenhouse","mid","product-manager|software-engineer|designer","https://withresumeai.com/ats-checker/smartsheet",true
+"Box","box","Cloud Storage","Greenhouse","mid","software-engineer|site-reliability-engineer|product-manager","https://withresumeai.com/ats-checker/box",true
+"DocuSign","docusign","Enterprise Software","iCIMS","high","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/docusign",true
+"HubSpot","hubspot","Enterprise Software","Greenhouse","high","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/hubspot",true
+"Zendesk","zendesk","Enterprise Software","Workday","high","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/zendesk",true
+"Freshworks","freshworks","Enterprise Software","SmartRecruiters","high","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/freshworks",true
+"Intuit","intuit","Enterprise Software","iCIMS","high","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/intuit",true
+"TurboTax","turbotax","Enterprise Software","iCIMS","mid","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/turbotax",true
+"QuickBooks","quickbooks","Enterprise Software","iCIMS","mid","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/quickbooks",true
+"SAP","sap","Enterprise Software","SuccessFactors","high","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/sap",true
+"Sage","sage","Enterprise Software","iCIMS","high","software-engineer|account-executive|customer-success-manager","https://withresumeai.com/ats-checker/sage",true
+"Autodesk","autodesk","Creative Software","Workday","high","product-manager|ux-designer|software-engineer","https://withresumeai.com/ats-checker/autodesk",true
+"Pixar","pixar","Creative Software","Workday","mid","product-manager|ux-designer|software-engineer","https://withresumeai.com/ats-checker/pixar",true
+"Epic Systems","epic-systems","Healthcare","Avature","high","registered-nurse|medical-assistant|physician-assistant","https://withresumeai.com/ats-checker/epic-systems",true
+"Cerner","cerner","Healthcare","Oracle Cloud HCM","high","registered-nurse|medical-assistant|physician-assistant","https://withresumeai.com/ats-checker/cerner",true
+"Allscripts","allscripts","Healthcare","Workday","mid","registered-nurse|medical-assistant|physician-assistant","https://withresumeai.com/ats-checker/allscripts",true
+"Veeva Systems","veeva-systems","Healthcare & Pharma","Lever","high","clinical-research-associate|regulatory-affairs-specialist|biostatistician","https://withresumeai.com/ats-checker/veeva-systems",true
+"IQVIA","iqvia","Healthcare & Pharma","Workday","high","clinical-research-associate|regulatory-affairs-specialist|biostatistician","https://withresumeai.com/ats-checker/iqvia",true
+"Charles River Laboratories","charles-river-laboratories","Healthcare & Pharma","SuccessFactors","high","clinical-research-associate|regulatory-affairs-specialist|biostatistician","https://withresumeai.com/ats-checker/charles-river-laboratories",true
+"Lonza","lonza","Healthcare & Pharma","Workday","high","clinical-research-associate|regulatory-affairs-specialist|biostatistician","https://withresumeai.com/ats-checker/lonza",true
+"Catalent","catalent","Healthcare & Pharma","Workday","high","clinical-research-associate|regulatory-affairs-specialist|biostatistician","https://withresumeai.com/ats-checker/catalent",true
+"Cintas","cintas","Manufacturing","SuccessFactors","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/cintas",true
+"Ecolab","ecolab","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/ecolab",true
+"Sherwin-Williams","sherwin-williams","Manufacturing","Oracle Cloud HCM","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/sherwin-williams",true
+"PPG","ppg","Manufacturing","Taleo","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/ppg",true
+"Dow","dow","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/dow",true
+"DuPont","dupont","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/dupont",true
+"LyondellBasell","lyondellbasell","Manufacturing","SuccessFactors","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/lyondellbasell",true
+"Linde","linde","Manufacturing","Taleo","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/linde",true
+"Air Products","air-products","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/air-products",true
+"Praxair","praxair","Manufacturing","Taleo","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/praxair",true
+"International Paper","international-paper","Manufacturing","SuccessFactors","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/international-paper",true
+"Westrock","westrock","Manufacturing","Avature","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/westrock",true
+"Smurfit Kappa","smurfit-kappa","Manufacturing","Avature","mid","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/smurfit-kappa",true
+"Owens Corning","owens-corning","Manufacturing","SuccessFactors","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/owens-corning",true
+"Mohawk Industries","mohawk-industries","Manufacturing","SuccessFactors","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/mohawk-industries",true
+"Steel Dynamics","steel-dynamics","Manufacturing","iCIMS","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/steel-dynamics",true
+"Nucor","nucor","Manufacturing","SuccessFactors","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/nucor",true
+"U.S. Steel","us-steel","Manufacturing","Kenexa BrassRing","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/us-steel",true
+"Cleveland-Cliffs","cleveland-cliffs","Manufacturing","Workday","mid","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/cleveland-cliffs",true
+"Alcoa","alcoa","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/alcoa",true
+"Westinghouse","westinghouse","Manufacturing","SuccessFactors","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/westinghouse",true
+"ABB","abb","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/abb",true
+"Siemens","siemens","Manufacturing","Avature","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/siemens",true
 "Schneider Electric","schneider-electric","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/schneider-electric",false
 "TE Connectivity","te-connectivity","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/te-connectivity",false
 "Amphenol","amphenol","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/amphenol",false
 "Corning","corning","Manufacturing","Workday","high","manufacturing-engineer|quality-engineer|operations-manager","https://withresumeai.com/ats-checker/corning",false
-"Texas Instruments","texas-instruments","Semiconductors","Workday","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/texas-instruments",false
-"Qualcomm","qualcomm","Semiconductors","Workday","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/qualcomm",false
-"Broadcom","broadcom","Semiconductors","Workday","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/broadcom",false
-"AMD","amd","Semiconductors","Workday","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/amd",false
-"Micron","micron","Semiconductors","Workday","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/micron",false
-"Applied Materials","applied-materials","Semiconductors","Workday","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/applied-materials",false
-"KLA","kla","Semiconductors","Workday","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/kla",false
-"Lam Research","lam-research","Semiconductors","Workday","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/lam-research",false
-"ASML","asml","Semiconductors","Workday","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/asml",false
-"TSMC","tsmc","Semiconductors","Workday","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/tsmc",false
-"Samsung","samsung","Technology","Workday","mega","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/samsung",false
-"LG Electronics","lg-electronics","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/lg-electronics",false
-"Sony","sony","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/sony",false
-"Panasonic","panasonic","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/panasonic",false
-"Sharp","sharp","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/sharp",false
-"Hitachi","hitachi","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/hitachi",false
-"Fujitsu","fujitsu","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/fujitsu",false
-"Lenovo","lenovo","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/lenovo",false
-"Dell Technologies","dell-technologies","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/dell-technologies",false
-"HP Inc.","hp-inc","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/hp-inc",false
-"HPE","hpe","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/hpe",false
-"NetApp","netapp","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/netapp",false
-"Pure Storage","pure-storage","Technology","Greenhouse","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/pure-storage",false
-"Western Digital","western-digital","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/western-digital",false
-"Seagate","seagate","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/seagate",false
-"Logitech","logitech","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/logitech",false
-"GoPro","gopro","Technology","Greenhouse","mid","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/gopro",false
-"Garmin","garmin","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/garmin",false
-"Fitbit","fitbit","Technology","Internal (Google proprietary)","mid","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/fitbit",false
-"Roku","roku","Technology","Greenhouse","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/roku",false
-"Sonos","sonos","Technology","Greenhouse","mid","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/sonos",false
+"Texas Instruments","texas-instruments","Semiconductors","Oracle Cloud HCM","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/texas-instruments",true
+"Qualcomm","qualcomm","Semiconductors","Workday","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/qualcomm",true
+"Broadcom","broadcom","Semiconductors","Workday","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/broadcom",true
+"AMD","amd","Semiconductors","iCIMS","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/amd",true
+"Micron","micron","Semiconductors","Eightfold","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/micron",true
+"Applied Materials","applied-materials","Semiconductors","Workday","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/applied-materials",true
+"KLA","kla","Semiconductors","Workday","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/kla",true
+"Lam Research","lam-research","Semiconductors","Eightfold","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/lam-research",true
+"ASML","asml","Semiconductors","Workday","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/asml",true
+"TSMC","tsmc","Semiconductors","Taleo","high","hardware-engineer|electrical-engineer|asic-design-engineer","https://withresumeai.com/ats-checker/tsmc",true
+"Samsung","samsung","Technology","Workday","mega","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/samsung",true
+"LG Electronics","lg-electronics","Technology","Taleo","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/lg-electronics",true
+"Sony","sony","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/sony",true
+"Panasonic","panasonic","Technology","iCIMS","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/panasonic",true
+"Sharp","sharp","Technology","iCIMS","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/sharp",true
+"Hitachi","hitachi","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/hitachi",true
+"Fujitsu","fujitsu","Technology","Taleo","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/fujitsu",true
+"Lenovo","lenovo","Technology","Avature","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/lenovo",true
+"Dell Technologies","dell-technologies","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/dell-technologies",true
+"HP Inc.","hp-inc","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/hp-inc",true
+"HPE","hpe","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/hpe",true
+"NetApp","netapp","Technology","Eightfold","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/netapp",true
+"Pure Storage","pure-storage","Technology","Greenhouse","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/pure-storage",true
+"Western Digital","western-digital","Technology","Taleo","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/western-digital",true
+"Seagate","seagate","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/seagate",true
+"Logitech","logitech","Technology","Workday","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/logitech",true
+"GoPro","gopro","Technology","Greenhouse","mid","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/gopro",true
+"Garmin","garmin","Technology","iCIMS","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/garmin",true
+"Fitbit","fitbit","Technology","Internal ATS","mid","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/fitbit",true
+"Roku","roku","Technology","Greenhouse","high","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/roku",true
+"Sonos","sonos","Technology","Workday","mid","software-engineer|product-manager|data-analyst","https://withresumeai.com/ats-checker/sonos",true

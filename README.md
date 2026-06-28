@@ -8,10 +8,10 @@
 
 The 743-employer Applicant Tracking System dataset from the
 [**State of ATS 2026** report](https://withresumeai.com/reports/state-of-ats-2026).
-Across the **337 employers verified against their live careers portals**,
-Workday leads at **40.9%** — common, but well short of a majority — and the
-market is far more fragmented than usually claimed: Greenhouse 16.9%, SAP
-SuccessFactors 7.1%, Oracle 6.8%, then a long tail of iCIMS, Eightfold, Taleo,
+Across the **713 employers verified against their live careers portals**,
+Workday leads at **38.6%** — common, but well short of a majority — and the
+market is far more fragmented than usually claimed: Greenhouse 13.3%, SAP
+SuccessFactors 8.1%, Oracle 6.3%, then a long tail of iCIMS, Eightfold, Taleo,
 SmartRecruiters, Avature, Lever, and Ashby. Published as a CSV + typed
 TypeScript wrapper so you can drop it into a notebook, a SQL warehouse, or your
 job board without any scraping.
@@ -21,10 +21,10 @@ job board without any scraping.
 > "hand-verified" methodology. That was wrong: the original ATS attributions
 > were **compiled with AI from public information and were not individually
 > verified**. A portal-verification audit found them only ~52% accurate (the
-> model defaulted to "Workday" when unsure). We have since re-checked **337 of
+> model defaulted to "Workday" when unsure). We have since re-checked **713 of
 > the 743** employers against their live careers-portal apply-URL hosts. Those
 > rows now carry **`verified: true`** and the numbers above reflect ONLY that
-> verified subset. The remaining ~406 rows are `verified: false` — unconfirmed
+> verified subset. The remaining ~30 rows are `verified: false` — unconfirmed
 > prior estimates; treat them as leads, not facts. **For analysis, filter to
 > `verified === true`.**
 
@@ -32,24 +32,24 @@ job board without any scraping.
 
 ## Headline numbers
 
-Share of the **337 portal-verified employers** (`verified === true`):
+Share of the **713 portal-verified employers** (`verified === true`):
 
 | ATS vendor        | Companies | Share (verified) |
 | ----------------- | --------: | ---------------: |
-| Workday           |       138 |        **40.9%** |
-| Greenhouse        |        57 |        **16.9%** |
-| SAP SuccessFactors|        24 |             7.1% |
-| Oracle Cloud HCM  |        23 |             6.8% |
-| Internal / proprietary | 18  |             5.3% |
-| iCIMS             |        15 |             4.5% |
-| Eightfold         |        14 |             4.2% |
-| Taleo             |        14 |             4.2% |
-| SmartRecruiters   |        11 |             3.3% |
-| Avature           |         8 |             2.4% |
-| Lever             |         7 |             2.1% |
-| Ashby             |         7 |             2.1% |
+| Workday           |       275 |        **38.6%** |
+| Greenhouse        |        95 |        **13.3%** |
+| SAP SuccessFactors|        58 |             8.1% |
+| Oracle Cloud HCM  |        45 |             6.3% |
+| iCIMS             |        45 |             6.3% |
+| Taleo             |        39 |             5.5% |
+| Internal / proprietary | 29  |             4.1% |
+| Eightfold         |        25 |             3.5% |
+| SmartRecruiters   |        20 |             2.8% |
+| Avature           |        18 |             2.5% |
+| Lever             |        11 |             1.5% |
+| Ashby             |        10 |             1.4% |
 
-> **The top 3 vendors (Workday + Greenhouse + SuccessFactors) cover ~65%** of
+> **The top 3 vendors (Workday + Greenhouse + SuccessFactors) cover ~60%** of
 > verified employers — not the "triopoly" often claimed. ~14 distinct ATS
 > vendors appear across the verified set, plus proprietary internal systems
 > (Amazon, Meta, Google, Microsoft run their own).
