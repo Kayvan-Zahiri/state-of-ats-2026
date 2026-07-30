@@ -8,8 +8,8 @@
 
 The 743-employer Applicant Tracking System dataset from the
 [**State of ATS 2026** report](https://withresumeai.com/reports/state-of-ats-2026).
-Across the **713 employers verified against their live careers portals**,
-Workday leads at **38.6%** — common, but well short of a majority — and the
+Across the **707 employers verified against their live careers portals**,
+Workday leads at **38.0%** — common, but well short of a majority — and the
 market is far more fragmented than usually claimed: Greenhouse 13.3%, SAP
 SuccessFactors 8.1%, Oracle 6.3%, then a long tail of iCIMS, Eightfold, Taleo,
 SmartRecruiters, Avature, Lever, and Ashby. Published as a CSV + typed
@@ -21,7 +21,7 @@ job board without any scraping.
 > "hand-verified" methodology. That was wrong: the original ATS attributions
 > were **compiled with AI from public information and were not individually
 > verified**. A portal-verification audit found them only ~52% accurate (the
-> model defaulted to "Workday" when unsure). We have since re-checked **713 of
+> model defaulted to "Workday" when unsure). We have since re-checked **707 of
 > the 743** employers against their live careers-portal apply-URL hosts. Those
 > rows now carry **`verified: true`** and the numbers above reflect ONLY that
 > verified subset. The remaining ~30 rows are `verified: false` — unconfirmed
@@ -32,25 +32,25 @@ job board without any scraping.
 
 ## Headline numbers
 
-Share of the **713 portal-verified employers** (`verified === true`):
+Share of the **707 portal-verified employers** (`verified === true`):
 
 | ATS vendor        | Companies | Share (verified) |
 | ----------------- | --------: | ---------------: |
-| Workday           |       275 |        **38.6%** |
-| Greenhouse        |        95 |        **13.3%** |
-| SAP SuccessFactors|        58 |             8.1% |
-| Oracle Cloud HCM  |        45 |             6.3% |
-| iCIMS             |        45 |             6.3% |
-| Taleo             |        39 |             5.5% |
-| Internal / proprietary | 29  |             4.1% |
-| Eightfold         |        25 |             3.5% |
-| SmartRecruiters   |        20 |             2.8% |
-| Avature           |        18 |             2.5% |
-| Lever             |        11 |             1.5% |
-| Ashby             |        10 |             1.4% |
+| Workday           |       269 |        **38.0%** |
+| Greenhouse        |        89 |        **12.6%** |
+| SAP SuccessFactors|        68 |             9.6% |
+| Oracle Cloud HCM  |        49 |             6.9% |
+| iCIMS             |        39 |             5.5% |
+| Internal / proprietary|        30 |             4.2% |
+| Avature           |        26 |             3.7% |
+| Eightfold         |        24 |             3.4% |
+| SmartRecruiters   |        19 |             2.7% |
+| Taleo             |        18 |             2.5% |
+| Ashby             |        15 |             2.1% |
+| USAJobs           |        10 |             1.4% |
 
 > **The top 3 vendors (Workday + Greenhouse + SuccessFactors) cover ~60%** of
-> verified employers — not the "triopoly" often claimed. ~14 distinct ATS
+> verified employers — not the "triopoly" often claimed. 36 distinct ATS
 > vendors appear across the verified set, plus proprietary internal systems
 > (Amazon, Meta, Google, Microsoft run their own).
 
@@ -79,7 +79,7 @@ import {
 } from "@withresumeai/ats-data";
 
 console.log(companies.length);          // 743 (all rows)
-console.log(verifiedCompanies.length);  // 713 (verified === true)
+console.log(verifiedCompanies.length);  // 707 (verified === true)
 
 getATSForCompany("apple");
 // → { company: "Apple", slug: "apple", atsSystem: "Internal ATS", industry: "Technology", sourceUrl: "..." }
@@ -146,7 +146,7 @@ Each row is one employer with seven fields:
 | `source_url`          | `https://withresumeai.com/ats-checker/apple` |
 | `verified`            | `true` (confirmed vs live portal) · `false` (unconfirmed) |
 
-743 rows in total — **713 with `verified=true`** (confirmed against the live
+743 rows in total — **707 with `verified=true`** (confirmed against the live
 careers portal in June 2026) and 406 with `verified=false` (unconfirmed prior
 estimates, pending re-verification). Coverage spans the Fortune 500, the Global
 2000, and a curated set of high-growth private companies (Series C and later,
@@ -164,7 +164,7 @@ than headline market cap.
 guess for each were **compiled with AI from public information** — fast, but
 not individually checked. That first pass was wrong often enough to matter (a
 later audit measured ~52% accuracy; it over-assigned "Workday" whenever the
-model was unsure). So in **June 2026 we re-verified 713 of the 743** employers
+model was unsure). So in **June 2026 we verified 713 of the 743, and in July 2026 a full re-verification pass corrected the drift (acquisitions, renames, silent migrations) to **707 verified**** employers
 the right way:
 
 - Open the employer's official careers/apply page and read the **apply-URL
