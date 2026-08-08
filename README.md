@@ -93,7 +93,7 @@ atsDistribution();
 // → { Workday: 138, Greenhouse: 57, SuccessFactors: 24, "Oracle Cloud HCM": 23, "Internal ATS": 18, iCIMS: 15, ... }
 
 atsShare();
-// → { Workday: 38.57, Greenhouse: 13.32, SuccessFactors: 8.13, ... }
+// → { Workday: 38.05, Greenhouse: 12.59, SuccessFactors: 9.62, ... }
 
 atsShare({ all: true }); // include unconfirmed rows (not recommended for analysis)
 ```
