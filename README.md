@@ -165,7 +165,7 @@ than headline market cap.
 guess for each were **compiled with AI from public information** — fast, but
 not individually checked. That first pass was wrong often enough to matter (a
 later audit measured ~52% accuracy; it over-assigned "Workday" whenever the
-model was unsure). So in **June 2026 we verified 713 of the 743, and in July 2026 a full re-verification pass corrected the drift (acquisitions, renames, silent migrations) to **707 verified**** employers
+model was unsure). So in June 2026 we verified 713 of the 743 employers, and in July 2026 a full re-verification pass re-checked every record and corrected the drift (acquisitions, renames, silent vendor migrations) to the current **707 verified**
 the right way:
 
 - Open the employer's official careers/apply page and read the **apply-URL
