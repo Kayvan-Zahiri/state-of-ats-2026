@@ -10,11 +10,12 @@ The 743-employer Applicant Tracking System dataset from the
 [**State of ATS 2026** report](https://withresumeai.com/reports/state-of-ats-2026).
 Across the **707 employers verified against their live careers portals**,
 Workday leads at **38.0%** — common, but well short of a majority — and the
-market is far more fragmented than usually claimed: Greenhouse 13.3%, SAP
-SuccessFactors 8.1%, Oracle 6.3%, then a long tail of iCIMS, Eightfold, Taleo,
-SmartRecruiters, Avature, Lever, and Ashby. Published as a CSV + typed
-TypeScript wrapper so you can drop it into a notebook, a SQL warehouse, or your
-job board without any scraping.
+market is far more fragmented than usually claimed: Greenhouse 12.6%, SAP
+SuccessFactors 9.6%, Oracle Cloud HCM 6.9%, then a long tail of iCIMS,
+Avature, Eightfold, SmartRecruiters, Taleo, and Ashby. The top three vendors together
+cover 60.3% — not the "triopoly" often claimed — and 36 distinct platforms are in
+active use. Published as a CSV + typed TypeScript wrapper so you can drop it into
+a notebook, a SQL warehouse, or your job board without any scraping.
 
 > ### ⚠️ Accuracy notice (June 2026)
 > An earlier version of this dataset reported Workday at 75.4% with a
