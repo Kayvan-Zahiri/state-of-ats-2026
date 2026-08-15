@@ -1,7 +1,7 @@
 /**
  * Type definitions for the State of ATS 2026 dataset.
  *
- * The dataset covers 743 large employers (Fortune 500, Global 2000, and a
+ * The dataset covers 738 large employers (Fortune 500, Global 2000, and a
  * curated set of late-stage private companies) and the Applicant Tracking
  * System each one uses on their public careers portal.
  */

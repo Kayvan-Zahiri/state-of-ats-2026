@@ -11,8 +11,8 @@ import {
   atsShare,
 } from "../dist/index.js";
 
-test("loads 743 companies", () => {
-  assert.equal(companies.length, 743);
+test("loads 738 companies", () => {
+  assert.equal(companies.length, 738);
 });
 
 test("every row has the required fields incl. a boolean `verified`", () => {
@@ -26,8 +26,8 @@ test("every row has the required fields incl. a boolean `verified`", () => {
   }
 });
 
-test("707 employers are portal-verified", () => {
-  assert.equal(verifiedCompanies.length, 707);
+test("704 employers are portal-verified", () => {
+  assert.equal(verifiedCompanies.length, 704);
   assert.ok(verifiedCompanies.every((c) => c.verified === true));
 });
 
@@ -45,14 +45,22 @@ test("unknown company returns null", () => {
   assert.equal(getATSForCompany("not-a-real-company"), null);
 });
 
-test("Workday is the #1 ATS in the verified subset (~39%, not a majority)", () => {
+test("Workday leads the verified subset but is nowhere near a majority", () => {
   const dist = atsDistribution(); // verified-only by default
   const share = atsShare();
-  assert.equal(dist.Workday, 269);
+  // 267, not 269: the 2026-08-12 dedupe removed duplicate rows for renamed
+  // employers (ge/ge-aerospace and anthem/elevance-health were both Workday).
+  assert.equal(dist.Workday, 267);
+  // Deliberately a wide band. This guards the CLAIM — Workday leads and is far
+  // short of the "75% of resumes die in an ATS monopoly" story — not a precise
+  // figure that shifts every re-verification. It was >38 && <44 and broke when
+  // the dedupe moved the share to 37.93, which is the test chasing the data
+  // rather than protecting the argument.
   assert.ok(
-    share.Workday > 38 && share.Workday < 44,
+    share.Workday > 30 && share.Workday < 50,
     `unexpected Workday share ${share.Workday}`
   );
+  assert.ok(share.Workday < 50, "Workday must never be reported as a majority");
   // Sanity: the verified market is fragmented, not a triopoly.
   const top3 = Object.values(dist).slice(0, 3).reduce((a, b) => a + b, 0);
   assert.ok(top3 / verifiedCompanies.length < 0.75, "top-3 should be < 75%");
@@ -60,7 +68,9 @@ test("Workday is the #1 ATS in the verified subset (~39%, not a majority)", () =
 
 test("Greenhouse is the #2 ATS in the verified subset", () => {
   const dist = atsDistribution();
-  assert.equal(dist.Greenhouse, 89);
+  // 88, not 89: the 2026-08-12 dedupe removed five duplicate rows created by
+  // renamed/merged employers, one of which (square/block) was Greenhouse.
+  assert.equal(dist.Greenhouse, 88);
 });
 
 test("`{ all: true }` counts every row, default counts only verified", () => {

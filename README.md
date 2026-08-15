@@ -6,14 +6,14 @@
 [![CI](https://github.com/Kayvan-Zahiri/state-of-ats-2026/actions/workflows/test.yml/badge.svg)](https://github.com/Kayvan-Zahiri/state-of-ats-2026/actions/workflows/test.yml)
 [![Maintained by ResumeAI](https://img.shields.io/badge/maintained%20by-ResumeAI-blue)](https://withresumeai.com)
 
-The 743-employer Applicant Tracking System dataset from the
+The 738-employer Applicant Tracking System dataset from the
 [**State of ATS 2026** report](https://withresumeai.com/reports/state-of-ats-2026).
-Across the **707 employers verified against their live careers portals**,
-Workday leads at **38.0%** — common, but well short of a majority — and the
-market is far more fragmented than usually claimed: Greenhouse 12.6%, SAP
-SuccessFactors 9.6%, Oracle Cloud HCM 6.9%, then a long tail of iCIMS,
+Across the **704 employers verified against their live careers portals**,
+Workday leads at **37.9%** — common, but well short of a majority — and the
+market is far more fragmented than usually claimed: Greenhouse 12.5%, SAP
+SuccessFactors 9.7%, Oracle Cloud HCM 7.0%, then a long tail of iCIMS,
 Avature, Eightfold, SmartRecruiters, Taleo, and Ashby. The top three vendors together
-cover 60.3% — not the "triopoly" often claimed — and 36 distinct platforms are in
+cover 60.1% — not the "triopoly" often claimed — and 36 distinct platforms are in
 active use. Published as a CSV + typed TypeScript wrapper so you can drop it into
 a notebook, a SQL warehouse, or your job board without any scraping.
 
@@ -22,8 +22,8 @@ a notebook, a SQL warehouse, or your job board without any scraping.
 > "hand-verified" methodology. That was wrong: the original ATS attributions
 > were **compiled with AI from public information and were not individually
 > verified**. A portal-verification audit found them only ~52% accurate (the
-> model defaulted to "Workday" when unsure). We have since re-checked **707 of
-> the 743** employers against their live careers-portal apply-URL hosts. Those
+> model defaulted to "Workday" when unsure). We have since re-checked **704 of
+> the 738** employers against their live careers-portal apply-URL hosts. Those
 > rows now carry **`verified: true`** and the numbers above reflect ONLY that
 > verified subset. The remaining ~30 rows are `verified: false` — unconfirmed
 > prior estimates; treat them as leads, not facts. **For analysis, filter to
@@ -33,20 +33,20 @@ a notebook, a SQL warehouse, or your job board without any scraping.
 
 ## Headline numbers
 
-Share of the **707 portal-verified employers** (`verified === true`):
+Share of the **704 portal-verified employers** (`verified === true`):
 
 | ATS vendor        | Companies | Share (verified) |
 | ----------------- | --------: | ---------------: |
-| Workday           |       269 |        **38.0%** |
-| Greenhouse        |        89 |        **12.6%** |
-| SAP SuccessFactors|        68 |             9.6% |
-| Oracle Cloud HCM  |        49 |             6.9% |
+| Workday           |       267 |        **37.9%** |
+| Greenhouse        |        88 |        **12.5%** |
+| SAP SuccessFactors|        68 |             9.7% |
+| Oracle Cloud HCM  |        49 |             7.0% |
 | iCIMS             |        39 |             5.5% |
-| Internal / proprietary|        30 |             4.2% |
+| Internal / proprietary|        30 |             4.3% |
 | Avature           |        26 |             3.7% |
 | Eightfold         |        24 |             3.4% |
 | SmartRecruiters   |        19 |             2.7% |
-| Taleo             |        18 |             2.5% |
+| Taleo             |        17 |             2.4% |
 | Ashby             |        15 |             2.1% |
 | USAJobs           |        10 |             1.4% |
 
@@ -79,8 +79,8 @@ import {
   atsShare,
 } from "@withresumeai/ats-data";
 
-console.log(companies.length);          // 743 (all rows)
-console.log(verifiedCompanies.length);  // 707 (verified === true)
+console.log(companies.length);          // 738 (all rows)
+console.log(verifiedCompanies.length);  // 704 (verified === true)
 
 getATSForCompany("apple");
 // → { company: "Apple", slug: "apple", atsSystem: "Internal ATS", industry: "Technology", sourceUrl: "..." }
@@ -147,7 +147,7 @@ Each row is one employer with seven fields:
 | `source_url`          | `https://withresumeai.com/ats-checker/apple` |
 | `verified`            | `true` (confirmed vs live portal) · `false` (unconfirmed) |
 
-743 rows in total — **707 with `verified=true`** (confirmed against the live
+738 rows in total — **704 with `verified=true`** (confirmed against the live
 careers portal in June 2026) and 406 with `verified=false` (unconfirmed prior
 estimates, pending re-verification). Coverage spans the Fortune 500, the Global
 2000, and a curated set of high-growth private companies (Series C and later,
@@ -157,7 +157,7 @@ $1B+ valuation).
 
 ## Methodology
 
-The dataset covers 743 large employers selected to maximize coverage of
+The dataset covers 738 large employers selected to maximize coverage of
 where U.S. and global job seekers actually apply — by hiring volume rather
 than headline market cap.
 
@@ -165,7 +165,7 @@ than headline market cap.
 guess for each were **compiled with AI from public information** — fast, but
 not individually checked. That first pass was wrong often enough to matter (a
 later audit measured ~52% accuracy; it over-assigned "Workday" whenever the
-model was unsure). So in June 2026 we verified 713 of the 743 employers, and in July 2026 a full re-verification pass re-checked every record and corrected the drift (acquisitions, renames, silent vendor migrations) to the current **707 verified**
+model was unsure). So in June 2026 we verified 704 of the 738 employers, and in July 2026 a full re-verification pass re-checked every record and corrected the drift (acquisitions, renames, silent vendor migrations) to the current **704 verified**
 the right way:
 
 - Open the employer's official careers/apply page and read the **apply-URL
@@ -203,7 +203,7 @@ If you use the dataset in journalism, research, or a downstream product,
 please cite as:
 
 > Zahiri, K. (2026). *State of ATS 2026: Applicant Tracking Systems used
-> by 743 large employers.* ResumeAI.
+> by 738 large employers.* ResumeAI.
 > <https://withresumeai.com/reports/state-of-ats-2026>
 
 BibTeX:
@@ -211,7 +211,7 @@ BibTeX:
 ```bibtex
 @misc{zahiri2026stateofats,
   author       = {Zahiri, Kayvan},
-  title        = {State of ATS 2026: Applicant Tracking Systems used by 743 large employers},
+  title        = {State of ATS 2026: Applicant Tracking Systems used by 738 large employers},
   year         = {2026},
   publisher    = {ResumeAI},
   howpublished = {\url{https://withresumeai.com/reports/state-of-ats-2026}},
