@@ -90,10 +90,10 @@ companies.find((c) => c.slug === "apple")?.verified; // true
 
 // atsDistribution()/atsShare() count the VERIFIED subset by default:
 atsDistribution();
-// → { Workday: 138, Greenhouse: 57, SuccessFactors: 24, "Oracle Cloud HCM": 23, "Internal ATS": 18, iCIMS: 15, ... }
+// → { Workday: 267, Greenhouse: 88, SuccessFactors: 68, "Oracle Cloud HCM": 49, iCIMS: 39, "Internal ATS": 30, ... }
 
 atsShare();
-// → { Workday: 38.05, Greenhouse: 12.59, SuccessFactors: 9.62, ... }
+// → { Workday: 37.93, Greenhouse: 12.5, SuccessFactors: 9.66, ... }
 
 atsShare({ all: true }); // include unconfirmed rows (not recommended for analysis)
 ```
@@ -147,9 +147,11 @@ Each row is one employer with seven fields:
 | `source_url`          | `https://withresumeai.com/ats-checker/apple` |
 | `verified`            | `true` (confirmed vs live portal) · `false` (unconfirmed) |
 
-738 rows in total — **704 with `verified=true`** (confirmed against the live
-careers portal in June 2026) and 406 with `verified=false` (unconfirmed prior
-estimates, pending re-verification). Coverage spans the Fortune 500, the Global
+738 rows in total — **704 with `verified=true`** and 34 with `verified=false`
+(unconfirmed, flagged as such). Of the verified rows, 548 publish a recorded
+apply host you can open in a browser; the remaining 156 rest on the June 2026
+audit with no per-company artifact published, which is the weakest part of the
+set and worth knowing before you lean on it. Coverage spans the Fortune 500, the Global
 2000, and a curated set of high-growth private companies (Series C and later,
 $1B+ valuation).
 
@@ -165,7 +167,7 @@ than headline market cap.
 guess for each were **compiled with AI from public information** — fast, but
 not individually checked. That first pass was wrong often enough to matter (a
 later audit measured ~52% accuracy; it over-assigned "Workday" whenever the
-model was unsure). So in June 2026 we verified 704 of the 738 employers, and in July 2026 a full re-verification pass re-checked every record and corrected the drift (acquisitions, renames, silent vendor migrations) to the current **704 verified**
+model was unsure). So in June 2026 we re-checked the roster against live portals, and in July 2026 a review of the 485 rows without an automated weekly probe corrected 115 of them for drift (acquisitions, renames, silent vendor migrations), bringing it to the current **704 verified of 738**. Automated apply-host sweeps have run since, roughly a pass a week; the last one reconfirmed 309 of the 462 employers whose vendor exposes a probeable endpoint
 the right way:
 
 - Open the employer's official careers/apply page and read the **apply-URL
@@ -184,8 +186,12 @@ Each company is also tagged with **industry**, a **hiring volume tier** (mega:
 100k+ employees; high: Fortune 500 / major hirer; mid: mid-cap / growth-stage),
 and **top hiring roles** (1–3 role slugs that map to the dominant openings).
 
-**Limitations.** (1) Only ~45% of rows are verified so far — the rest are
-estimates, flagged as such; filter to `verified` for anything load-bearing.
+**Limitations.** (1) 704 of 738 rows are flagged verified, but only 548 of
+those publish a recorded apply host. The other 156 carry no per-company
+artifact, so `verified` is doing more work on those rows than the evidence
+shows. Filter on the evidence host, not just the flag, for anything
+load-bearing. Provenance is mixed and stated per row: most apply hosts came
+from automated portal and vendor probes, 47 were recorded by a person.
 (2) Point-in-time snapshot — mid-market employers change ATSes often, and some
 will have migrated since June 2026. (3) "Internal ATS" is an umbrella for
 proprietary systems with no third-party vendor host (e.g. Amazon, Meta, Apple,
