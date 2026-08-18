@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+title: "State of ATS 2026: employer-to-applicant-tracking-system attribution"
+abstract: >-
+  Which applicant tracking system runs the careers portal of each of 738 large
+  employers, verified against the live portal rather than inferred from page
+  markup. 704 rows verified; 551 publish the apply host that applications land
+  on, so any row can be checked in a browser. Provenance is recorded per row.
+type: dataset
+license: MIT
+authors:
+  - family-names: Zahiri
+    given-names: Kayvan
+    website: "https://withresumeai.com"
+repository-code: "https://github.com/Kayvan-Zahiri/state-of-ats-2026"
+url: "https://withresumeai.com/reports/state-of-ats-2026"
+keywords:
+  - applicant tracking system
+  - ATS
+  - recruiting
+  - hr-tech
+  - technographics
+  - open data
+  - labour market

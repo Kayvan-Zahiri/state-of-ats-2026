@@ -128,7 +128,7 @@ df[df["verified"]]["ats_system"].value_counts().head(12)  # verified rows only
 
 - **GitHub:** [`data/companies.csv`](./data/companies.csv)
 - **Canonical URL:** <https://withresumeai.com/api/reports/state-of-ats-2026/csv>
-- **Schema:** `name, slug, industry, ats_system, hiring_volume_tier, top_roles, source_url, verified`
+- **Schema:** `name, slug, industry, ats_system, verified, apply_host, evidence_method, checked_at, hq_country, hq_country_code, hq_region, hiring_volume_tier, top_roles, source_url`
 
 ---
 
@@ -146,6 +146,24 @@ Each row is one employer with seven fields:
 | `top_roles`           | `software-engineer\|product-manager\|data-analyst` |
 | `source_url`          | `https://withresumeai.com/ats-checker/apple` |
 | `verified`            | `true` (confirmed vs live portal) · `false` (unconfirmed) |
+| `apply_host`          | `schneiderele.taleo.net` — the host an application actually lands on. Open it. |
+| `evidence_method`     | how the row was established (see below); blank means no artifact published |
+| `checked_at`          | `2026-08-13` — when that evidence was last observed |
+| `hq_country`          | `France` &middot; also `hq_country_code`, `hq_region` |
+
+**`evidence_method` — provenance is per row, because it is mixed.**
+
+| value | rows | what it means |
+| --- | ---: | --- |
+| `Careers-portal apply host` | 237 | automated probe opened the careers page and recorded where Apply goes |
+| `Workday tenant probe` | 157 | vendor-side probe of the Workday tenant |
+| `vendor board API` | 89 | the vendor's own public board API |
+| `recorded portal URL` | 47 | recorded by a person working through the apply flow |
+| `iCIMS tenant probe` | 21 | vendor-side iCIMS probe |
+| *(blank)* | 187 | no evidence artifact — `verified` rests on the June 2026 audit alone |
+
+Filter on `apply_host`, not on `verified`, for anything load-bearing: 156 of the
+187 rows without evidence are still flagged verified.
 
 738 rows in total — **704 with `verified=true`** and 34 with `verified=false`
 (unconfirmed, flagged as such). Of the verified rows, 548 publish a recorded
