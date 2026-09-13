@@ -4,66 +4,17 @@
  * The CSV is the canonical source of truth. We parse it once at module
  * import time and cache the result so consumers pay the cost only once.
  *
- * We deliberately avoid pulling in a CSV-parser dependency — the file is
- * well-formed and our parser handles the only quoting rule used (RFC 4180
- * double-quoted fields with escaped inner quotes).
+ * We deliberately avoid pulling in a CSV-parser dependency. The bundled
+ * file has one record per line, with double-quoted fields and escaped
+ * inner quotes where needed.
  */
 
 import { readFileSync } from "node:fs";
-import { dirname, resolve } from "node:path";
+import { resolve } from "node:path";
 
 import type { Company, ATSSystem, HiringVolumeTier } from "./types.js";
 
-/**
- * Resolves the bundled CSV path whether running from src/, dist/, examples/,
- * or as a transitive dep deep inside another project's node_modules.
- *
- * We use require.resolve("../package.json") (works in CJS) or fall back to a
- * cwd-walk so this stays portable across both ESM and CJS without depending
- * on `import.meta.url` (which tsup can't polyfill for CJS).
- */
-function resolveCsvPath(): string {
-  const candidates: string[] = [];
-
-  // 1) If we're running under CommonJS (or tsup's CJS shim), use require.resolve
-  //    to find our own package.json — that's the most reliable anchor when
-  //    consumed as a node_module.
-  const req: NodeRequire | undefined =
-    typeof require === "function" ? require : undefined;
-  if (req) {
-    try {
-      const pkgPath = req.resolve("@withresumeai/ats-data/package.json");
-      candidates.push(resolve(dirname(pkgPath), "data/companies.csv"));
-    } catch {
-      // Not installed under that name — we're running from source.
-    }
-  }
-
-  // 2) Walk up from cwd. Handles `npm test`, `node examples/quickstart.mjs`,
-  //    and consumers who haven't installed via npm yet.
-  let dir = process.cwd();
-  for (let i = 0; i < 8; i++) {
-    candidates.push(resolve(dir, "data/companies.csv"));
-    candidates.push(
-      resolve(dir, "node_modules/@withresumeai/ats-data/data/companies.csv")
-    );
-    dir = resolve(dir, "..");
-  }
-
-  for (const p of candidates) {
-    try {
-      readFileSync(p);
-      return p;
-    } catch {
-      // try next
-    }
-  }
-  throw new Error(
-    "@withresumeai/ats-data: could not locate data/companies.csv on disk."
-  );
-}
-
-/** Minimal RFC-4180 CSV row parser. */
+/** Parses a single-line CSV record from the bundled dataset. */
 function parseCsvRow(line: string): string[] {
   const out: string[] = [];
   let cur = "";
@@ -104,7 +55,9 @@ let cached: Company[] | null = null;
 export function loadCompanies(): Company[] {
   if (cached) return cached;
 
-  const raw = readFileSync(resolveCsvPath(), "utf8");
+  // tsup supplies __dirname from import.meta.url in the ESM build.
+  // Anchor to this module so a consumer's working directory cannot select data.
+  const raw = readFileSync(resolve(__dirname, "../data/companies.csv"), "utf8");
   const lines = raw.split(/\r?\n/);
 
   // Skip leading "# ..." metadata comments + blank lines.
@@ -127,6 +80,12 @@ export function loadCompanies(): Company[] {
   const iRoles = col("top_roles");
   const iSrc = col("source_url");
   const iVerified = col("verified");
+  const iApplyHost = col("apply_host");
+  const iEvidenceMethod = col("evidence_method");
+  const iCheckedAt = col("checked_at");
+  const iHqCountry = col("hq_country");
+  const iHqCountryCode = col("hq_country_code");
+  const iHqRegion = col("hq_region");
 
   const rows: Company[] = [];
   for (let i = headerIdx + 1; i < lines.length; i++) {
@@ -146,6 +105,12 @@ export function loadCompanies(): Company[] {
       // verified column added 2026-06-15. Default older/missing values to false
       // so a consumer never mistakes an unconfirmed row for a verified one.
       verified: iVerified >= 0 ? cells[iVerified] === "true" : false,
+      applyHost: cells[iApplyHost] || undefined,
+      evidenceMethod: cells[iEvidenceMethod] || undefined,
+      checkedAt: cells[iCheckedAt] || undefined,
+      hqCountry: cells[iHqCountry] || undefined,
+      hqCountryCode: cells[iHqCountryCode] || undefined,
+      hqRegion: cells[iHqRegion] || undefined,
       hiringVolumeTier: isTier(tier) ? tier : undefined,
       topRoles: rolesRaw ? rolesRaw.split("|").filter(Boolean) : [],
       sourceUrl: cells[iSrc],

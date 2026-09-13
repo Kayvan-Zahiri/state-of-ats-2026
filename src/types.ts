@@ -3,7 +3,7 @@
  *
  * The dataset covers 738 large employers (Fortune 500, Global 2000, and a
  * curated set of late-stage private companies) and the Applicant Tracking
- * System each one uses on their public careers portal.
+ * System attributed to each one's public careers portal in this snapshot.
  */
 
 /**
@@ -43,15 +43,26 @@ export interface Company {
   slug: string;
   /** Industry label (e.g. "Technology", "Investment Banking"). */
   industry: string;
-  /** ATS vendor used on this company's public careers portal as of 2026. */
+  /** ATS vendor attributed to this company's public careers portal. */
   atsSystem: ATSSystem;
   /**
-   * True when `atsSystem` was confirmed by inspecting the company's LIVE
-   * careers-portal apply-URL host in the June 2026 verification audit. When
-   * false, the attribution is an unconfirmed prior estimate — treat it as a
-   * lead, not a fact, and prefer filtering to `verified === true` for analysis.
+   * Attribution marked verified in the source dataset. This may rest on the
+   * original June 2026 audit and does not guarantee a published apply host or
+   * observation date. Inspect the optional evidence fields for row provenance.
    */
   verified: boolean;
+  /** Recorded apply host, when the source publishes one. */
+  applyHost?: string;
+  /** Method used to collect the published evidence, when available. */
+  evidenceMethod?: string;
+  /** Per-row observation date (YYYY-MM-DD), when published; not release time. */
+  checkedAt?: string;
+  /** Headquarters country label, when available. */
+  hqCountry?: string;
+  /** Headquarters country code, when available. */
+  hqCountryCode?: string;
+  /** Headquarters region label, when available. */
+  hqRegion?: string;
   /** mega = 100k+ employees; high = Fortune 500 / major hirer; mid = mid-cap. */
   hiringVolumeTier?: HiringVolumeTier;
   /** Up to 3 dominant hiring roles (slug form, e.g. "software-engineer"). */

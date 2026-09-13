@@ -2,266 +2,133 @@
 
 [![npm version](https://img.shields.io/npm/v/@withresumeai/ats-data.svg)](https://www.npmjs.com/package/@withresumeai/ats-data)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/Kayvan-Zahiri/state-of-ats-2026?style=social)](https://github.com/Kayvan-Zahiri/state-of-ats-2026)
-[![CI](https://github.com/Kayvan-Zahiri/state-of-ats-2026/actions/workflows/test.yml/badge.svg)](https://github.com/Kayvan-Zahiri/state-of-ats-2026/actions/workflows/test.yml)
-[![Maintained by ResumeAI](https://img.shields.io/badge/maintained%20by-ResumeAI-blue)](https://withresumeai.com)
 
-The 738-employer Applicant Tracking System dataset from the
-[**State of ATS 2026** report](https://withresumeai.com/reports/state-of-ats-2026).
-Across the **704 employers verified against their live careers portals**,
-Workday leads at **37.9%** — common, but well short of a majority — and the
-market is far more fragmented than usually claimed: Greenhouse 12.5%, SAP
-SuccessFactors 9.7%, Oracle Cloud HCM 7.0%, then a long tail of iCIMS,
-Avature, Eightfold, SmartRecruiters, Taleo, and Ashby. The top three vendors together
-cover 60.1% — not the "triopoly" often claimed — and 36 distinct platforms are in
-active use. Published as a CSV + typed TypeScript wrapper so you can drop it into
-a notebook, a SQL warehouse, or your job board without any scraping.
+A selected employer dataset of ATS attributions and published careers-portal evidence, with a CSV and a typed, dependency-free Node.js API. Published by [ResumeAI](https://withresumeai.com) alongside the [State of ATS 2026 report](https://withresumeai.com/reports/state-of-ats-2026).
 
-> ### ⚠️ Accuracy notice (June 2026)
-> An earlier version of this dataset reported Workday at 75.4% with a
-> "hand-verified" methodology. That was wrong: the original ATS attributions
-> were **compiled with AI from public information and were not individually
-> verified**. A portal-verification audit found them only ~52% accurate (the
-> model defaulted to "Workday" when unsure). We have since re-checked **704 of
-> the 738** employers against their live careers-portal apply-URL hosts. Those
-> rows now carry **`verified: true`** and the numbers above reflect ONLY that
-> verified subset. The remaining ~30 rows are `verified: false` — unconfirmed
-> prior estimates; treat them as leads, not facts. **For analysis, filter to
-> `verified === true`.**
+<!-- dataset-stats:start -->
+This snapshot contains **738 employers**, with **704 rows marked `verified=true`** and **551 rows containing a recorded `apply_host`**. These are different measures. The latest nonempty per-row `checked_at` is **2026-08-13**; a package release does not re-verify the employers.
 
----
+The table counts only rows marked `verified=true` in this selected snapshot. It is not an estimate of industry-wide market share or current employer configurations.
 
-## Headline numbers
+| ATS vendor | Records | Share of flagged subset |
+| --- | ---: | ---: |
+| Workday | 267 | 37.9% |
+| Greenhouse | 88 | 12.5% |
+| SAP SuccessFactors | 68 | 9.7% |
+| Oracle Cloud HCM | 49 | 7.0% |
+| iCIMS | 39 | 5.5% |
+| Internal / proprietary | 30 | 4.3% |
+| Avature | 26 | 3.7% |
+| Eightfold | 24 | 3.4% |
+| SmartRecruiters | 19 | 2.7% |
+| Taleo | 17 | 2.4% |
+| Ashby | 15 | 2.1% |
+| USAJobs | 10 | 1.4% |
+<!-- dataset-stats:end -->
 
-Share of the **704 portal-verified employers** (`verified === true`):
+Version **2.0.0** copies the canonical export for the September 2026 release. A package release or copy date is not a revalidation date: the latest nonempty `checked_at` in this snapshot is **2026-08-13**, and individual rows may have earlier dates or no date. The verification flag and a published evidence host are different measures.
 
-| ATS vendor        | Companies | Share (verified) |
-| ----------------- | --------: | ---------------: |
-| Workday           |       267 |        **37.9%** |
-| Greenhouse        |        88 |        **12.5%** |
-| SAP SuccessFactors|        68 |             9.7% |
-| Oracle Cloud HCM  |        49 |             7.0% |
-| iCIMS             |        39 |             5.5% |
-| Internal / proprietary|        30 |             4.3% |
-| Avature           |        26 |             3.7% |
-| Eightfold         |        24 |             3.4% |
-| SmartRecruiters   |        19 |             2.7% |
-| Taleo             |        17 |             2.4% |
-| Ashby             |        15 |             2.1% |
-| USAJobs           |        10 |             1.4% |
+## Install and use
 
-> **The top 3 vendors (Workday + Greenhouse + SuccessFactors) cover ~60%** of
-> verified employers — not the "triopoly" often claimed. 36 distinct ATS
-> vendors appear across the verified set, plus proprietary internal systems
-> (Amazon, Meta, Google, Microsoft run their own).
+Requires Node.js 18 or later. Pin the package version for reproducible work:
 
-> **Job seeker?** The practical takeaway: the same resume is parsed
-> differently by each ATS, so it scores differently in Workday vs Greenhouse
-> vs Lever. The free [ResumeAI ATS checker](https://withresumeai.com/ats-checker)
-> scores yours against the specific parser your target employer uses.
-
----
-
-## Install
-
-```bash
-npm install @withresumeai/ats-data
+```sh
+npm install --save-exact @withresumeai/ats-data@2.0.0
 ```
 
-```ts
-import {
-  companies,
-  verifiedCompanies,
-  getATSForCompany,
-  getCompaniesByATS,
-  getCompaniesByIndustry,
-  atsDistribution,
-  atsShare,
-} from "@withresumeai/ats-data";
-
-console.log(companies.length);          // 738 (all rows)
-console.log(verifiedCompanies.length);  // 704 (verified === true)
-
-getATSForCompany("apple");
-// → { company: "Apple", slug: "apple", atsSystem: "Internal ATS", industry: "Technology", sourceUrl: "..." }
-
-// Each row carries a `verified` flag — filter to it before trusting an attribution:
-companies.find((c) => c.slug === "apple")?.verified; // true
-
-// atsDistribution()/atsShare() count the VERIFIED subset by default:
-atsDistribution();
-// → { Workday: 267, Greenhouse: 88, SuccessFactors: 68, "Oracle Cloud HCM": 49, iCIMS: 39, "Internal ATS": 30, ... }
-
-atsShare();
-// → { Workday: 37.93, Greenhouse: 12.5, SuccessFactors: 9.66, ... }
-
-atsShare({ all: true }); // include unconfirmed rows (not recommended for analysis)
-```
-
-Works the same in CommonJS:
+ES modules (`.mjs`, or a project with `"type": "module"`):
 
 ```js
-const { getATSForCompany } = require("@withresumeai/ats-data");
+import { companies, verifiedCompanies, getATSForCompany } from "@withresumeai/ats-data";
+
+console.log(companies.length, verifiedCompanies.length);
+console.log(getATSForCompany("apple")); // Snapshot attribution; null if absent.
+const recordedHostRows = companies.filter((company) => company.applyHost);
+console.log(recordedHostRows.length);
 ```
 
-### Python (pandas)
+CommonJS (`.cjs`):
 
-The CSV is shipped inside the npm tarball, but you can also grab it
-directly from this repo or from the live API:
+```js
+const { companies, getATSForCompany } = require("@withresumeai/ats-data");
+console.log(companies.length, getATSForCompany("apple"));
+```
+
+Both module formats load the package's own bundled CSV, regardless of the caller's working directory. A caller's `data/companies.csv` does not override it.
+
+`companies` contains all rows; `verifiedCompanies` filters the dataset's `verified` flag. `getATSForCompany(nameOrSlug)` performs a case-insensitive lookup and returns only `{ company, slug, atsSystem, industry, sourceUrl }`, or `null`. Find a row in `companies` when you need its verification or evidence fields. `getCompaniesByATS(name)` and `getCompaniesByIndustry(name)` return matching rows, including unconfirmed ones.
+
+`atsDistribution()` returns counts and `atsShare()` returns percentages within the rows marked verified. Both accept `{ all: true }` to include unconfirmed rows. Their results describe this selected sample, not industry-wide market share. For an evidence-host subset, filter `companies` by `applyHost` before computing your own counts.
+
+### Python / pandas
+
+After installing the npm package and pandas (`pip install pandas`), run this from the directory containing `node_modules`:
 
 ```python
 import pandas as pd
 
-# Option A: install the npm package, then load from node_modules
-df = pd.read_csv("node_modules/@withresumeai/ats-data/data/companies.csv", comment="#")
-
-# Option B: download the canonical CSV from the published report
 df = pd.read_csv(
-    "https://withresumeai.com/api/reports/state-of-ats-2026/csv",
-    comment="#",
+    "node_modules/@withresumeai/ats-data/data/companies.csv",
+    keep_default_na=False,
 )
-
-df[df["verified"]]["ats_system"].value_counts().head(12)  # verified rows only
+verified = df.loc[df["verified"]]
+recorded_host_rows = df.loc[df["apply_host"].ne("")]
+print(df.shape)
+print(verified["ats_system"].value_counts().head(5))
 ```
 
-### Raw CSV download
+The CSV starts with its header; no `comment="#"` option is needed. `keep_default_na=False` preserves empty CSV fields as empty strings. Download the [repository CSV](https://github.com/Kayvan-Zahiri/state-of-ats-2026/blob/main/data/companies.csv) or [canonical export](https://withresumeai.com/api/reports/state-of-ats-2026/csv) separately if preferred; those URLs may change independently of an installed package version.
 
-- **GitHub:** [`data/companies.csv`](./data/companies.csv)
-- **Canonical URL:** <https://withresumeai.com/api/reports/state-of-ats-2026/csv>
-- **Schema:** `name, slug, industry, ats_system, verified, apply_host, evidence_method, checked_at, hq_country, hq_country_code, hq_region, hiring_volume_tier, top_roles, source_url`
+Runnable repository examples are in [`examples/quickstart.mjs`](https://github.com/Kayvan-Zahiri/state-of-ats-2026/blob/main/examples/quickstart.mjs) and [`examples/python.py`](https://github.com/Kayvan-Zahiri/state-of-ats-2026/blob/main/examples/python.py).
 
----
+## CSV and TypeScript schema
 
-## What's in the dataset
+The CSV has 14 columns in the order below. Blank evidence and geography strings become `undefined` in the JavaScript API. An empty `top_roles` value becomes an empty array.
 
-Each row is one employer with seven fields:
+| CSV column | `Company` property | Meaning / JavaScript type |
+| --- | --- | --- |
+| `name` | `name` | Employer name; `string`. |
+| `slug` | `slug` | Company-guide identifier; `string`. |
+| `industry` | `industry` | Assigned industry label; `string`. |
+| `ats_system` | `atsSystem` | Recorded ATS attribution; `ATSSystem`. |
+| `verified` | `verified` | Dataset verification flag; `boolean`. |
+| `apply_host` | `applyHost` | Published careers/apply host; optional `string`. |
+| `evidence_method` | `evidenceMethod` | Published evidence method; optional `string`. |
+| `checked_at` | `checkedAt` | Per-row evidence date (`YYYY-MM-DD`); optional `string`. |
+| `hq_country` | `hqCountry` | Assigned headquarters country; optional `string`. |
+| `hq_country_code` | `hqCountryCode` | Assigned headquarters country code; optional `string`. |
+| `hq_region` | `hqRegion` | Assigned headquarters region; optional `string`. |
+| `hiring_volume_tier` | `hiringVolumeTier` | Editorial tier: `mega`, `high`, or `mid`; optional `HiringVolumeTier`. |
+| `top_roles` | `topRoles` | Pipe-separated role slugs in CSV; optional `string[]` in JavaScript. |
+| `source_url` | `sourceUrl` | ResumeAI company-guide URL; `string`. |
 
-| Column                | Example                                  |
-| --------------------- | ---------------------------------------- |
-| `name`                | `Apple`                                  |
-| `slug`                | `apple`                                  |
-| `industry`            | `Technology`                             |
-| `ats_system`          | `Workday`                                |
-| `hiring_volume_tier`  | `mega` &middot; `high` &middot; `mid`    |
-| `top_roles`           | `software-engineer\|product-manager\|data-analyst` |
-| `source_url`          | `https://withresumeai.com/ats-checker/apple` |
-| `verified`            | `true` (confirmed vs live portal) · `false` (unconfirmed) |
-| `apply_host`          | `schneiderele.taleo.net` — the host an application actually lands on. Open it. |
-| `evidence_method`     | how the row was established (see below); blank means no artifact published |
-| `checked_at`          | `2026-08-13` — when that evidence was last observed |
-| `hq_country`          | `France` &middot; also `hq_country_code`, `hq_region` |
+`source_url` points to `https://withresumeai.com/ats-checker/{slug}`, not an independent employer evidence page. Hiring tiers and role labels are descriptive metadata, not measured current vacancy counts or live job listings. Types `Company`, `ATSInfo`, `ATSSystem`, and `HiringVolumeTier` are exported.
 
-**`evidence_method` — provenance is per row, because it is mixed.**
+## Upgrading from 1.3.0
 
-| value | rows | what it means |
-| --- | ---: | --- |
-| `Careers-portal apply host` | 237 | automated probe opened the careers page and recorded where Apply goes |
-| `Workday tenant probe` | 157 | vendor-side probe of the Workday tenant |
-| `vendor board API` | 89 | the vendor's own public board API |
-| `recorded portal URL` | 47 | recorded by a person working through the apply flow |
-| `iCIMS tenant probe` | 21 | vendor-side iCIMS probe |
-| *(blank)* | 187 | no evidence artifact — `verified` rests on the June 2026 audit alone |
+**Version 2 is a breaking CSV schema update:** the published npm 1.3.0 snapshot had 743 rows and 8 columns; this release has 738 rows and 14 columns. The six evidence/headquarters columns were added, `verified` moved to fifth, and `source_url` is now last. The prose preamble was removed. Update positional readers, skipped-line settings, row-count assertions, and schema checks; prefer named columns.
 
-Filter on `apply_host`, not on `verified`, for anything load-bearing: 156 of the
-187 rows without evidence are still flagged verified.
+The JavaScript helpers retain their signatures and the narrow `getATSForCompany` result. Full `Company` rows now expose the six optional evidence/headquarters properties above. Dataset contents and lookup availability have changed between snapshots.
 
-738 rows in total — **704 with `verified=true`** and 34 with `verified=false`
-(unconfirmed, flagged as such). Of the verified rows, 548 publish a recorded
-apply host you can open in a browser; the remaining 156 rest on the June 2026
-audit with no per-company artifact published, which is the weakest part of the
-set and worth knowing before you lean on it. Coverage spans the Fortune 500, the Global
-2000, and a curated set of high-growth private companies (Series C and later,
-$1B+ valuation).
+Five former duplicate record slugs are absent: `anthem`, `ge`, `k12`, `smurfit-kappa`, and `square`. In the [recorded deduplication](https://github.com/Kayvan-Zahiri/state-of-ats-2026/commit/6f667a20d3e488d9a37a127ae5be90e77e35eec9), their retained counterparts are `elevance-health`, `ge-aerospace`, `stride`, `westrock`, and `block`, respectively. These are historical record aliases, not automatic lookup redirects or claims about current corporate relationships.
 
----
+Keep the old package snapshot when a migration is not yet possible:
 
-## Methodology
-
-The dataset covers 738 large employers selected to maximize coverage of
-where U.S. and global job seekers actually apply — by hiring volume rather
-than headline market cap.
-
-**Two-stage provenance (read this).** The company list and an initial ATS
-guess for each were **compiled with AI from public information** — fast, but
-not individually checked. That first pass was wrong often enough to matter (a
-later audit measured ~52% accuracy; it over-assigned "Workday" whenever the
-model was unsure). So in June 2026 we re-checked the roster against live portals, and in July 2026 a review of the 485 rows without an automated weekly probe corrected 115 of them for drift (acquisitions, renames, silent vendor migrations), bringing it to the current **704 verified of 738**. Automated apply-host sweeps have run since, roughly a pass a week; the last one reconfirmed 309 of the 462 employers whose vendor exposes a probeable endpoint
-the right way:
-
-- Open the employer's official careers/apply page and read the **apply-URL
-  host** — the ground truth. `*.myworkdayjobs.com` → Workday,
-  `boards.greenhouse.io` → Greenhouse, `jobs.lever.co` → Lever,
-  `*.icims.com` → iCIMS, `*.oraclecloud.com/hcmUI` → Oracle, `*.successfactors.*`
-  → SuccessFactors, `*.avature.net` → Avature, `jobs.ashbyhq.com` → Ashby,
-  proprietary host (e.g. `jobs.apple.com`) → Internal.
-
-Rows that passed that check have **`verified: true`**; the rest keep their
-unconfirmed first-pass estimate with **`verified: false`**. Every market-share
-number in this README and in `atsShare()` is computed over the verified subset
-only.
-
-Each company is also tagged with **industry**, a **hiring volume tier** (mega:
-100k+ employees; high: Fortune 500 / major hirer; mid: mid-cap / growth-stage),
-and **top hiring roles** (1–3 role slugs that map to the dominant openings).
-
-**Limitations.** (1) 704 of 738 rows are flagged verified, but only 548 of
-those publish a recorded apply host. The other 156 carry no per-company
-artifact, so `verified` is doing more work on those rows than the evidence
-shows. Filter on the evidence host, not just the flag, for anything
-load-bearing. Provenance is mixed and stated per row: most apply hosts came
-from automated portal and vendor probes, 47 were recorded by a person.
-(2) Point-in-time snapshot — mid-market employers change ATSes often, and some
-will have migrated since June 2026. (3) "Internal ATS" is an umbrella for
-proprietary systems with no third-party vendor host (e.g. Amazon, Meta, Apple,
-Google, Microsoft).
-
-The full methodology, vendor-by-vendor commentary, and cross-tabs by
-industry and seniority are in the
-[**State of ATS 2026** report](https://withresumeai.com/reports/state-of-ats-2026).
-
----
-
-## Citation
-
-If you use the dataset in journalism, research, or a downstream product,
-please cite as:
-
-> Zahiri, K. (2026). *State of ATS 2026: Applicant Tracking Systems used
-> by 738 large employers.* ResumeAI.
-> <https://withresumeai.com/reports/state-of-ats-2026>
-
-BibTeX:
-
-```bibtex
-@misc{zahiri2026stateofats,
-  author       = {Zahiri, Kayvan},
-  title        = {State of ATS 2026: Applicant Tracking Systems used by 738 large employers},
-  year         = {2026},
-  publisher    = {ResumeAI},
-  howpublished = {\url{https://withresumeai.com/reports/state-of-ats-2026}},
-  note         = {Dataset available at \url{https://github.com/Kayvan-Zahiri/state-of-ats-2026}}
-}
+```sh
+npm install --save-exact @withresumeai/ats-data@1.3.0
 ```
 
----
+## Provenance and limits
 
-## Contributing
+Initial ATS attributions were compiled with AI from public information and were not individually checked. Subsequent evidence combines automated portal/vendor probes with manually recorded portal URLs. Read the [report methodology](https://withresumeai.com/reports/state-of-ats-2026#methodology) and the per-row fields before interpreting a count.
 
-PRs welcome — additions, corrections, ATS migrations. See
-[CONTRIBUTING.md](./CONTRIBUTING.md) for the schema, the review process,
-and what we will / won't merge.
+- `verified=true` alone may rest on the original June 2026 audit. Filter for a nonempty `apply_host` when you require recorded host evidence, then examine its method and date. Neither the flag nor that filter establishes current use.
+- Blank host, method, or date fields mean the corresponding evidence detail is not published here. Rows marked `verified=false` remain unconfirmed attributions. Missing evidence does not establish that an employer has no ATS.
+- A careers host does not reveal private screening rules, resume parser behavior, or every configuration across jobs, regions, and subsidiaries.
+- The employer list is a selected sample, not a representative survey. Attributions can change after their recorded checks; this release makes no guarantee of a recurring refresh schedule.
 
----
+## Contributing, citation, and license
 
-## Related
+See [CONTRIBUTING.md](https://github.com/Kayvan-Zahiri/state-of-ats-2026/blob/main/CONTRIBUTING.md) for evidence and schema requirements. Citation is appreciated: Kayvan Zahiri / ResumeAI (2026), *State of ATS 2026*. Include the package version or repository revision used. Machine-readable metadata is in [CITATION.cff](./CITATION.cff).
 
-- **State of ATS 2026** full report &mdash; <https://withresumeai.com/reports/state-of-ats-2026>
-- **ATS checker** (per-company pages backed by this dataset) &mdash; <https://withresumeai.com/ats-checker>
-- **ResumeAI** &mdash; the resume builder this dataset powers &mdash; <https://withresumeai.com>
-
-## License
-
-MIT. See [LICENSE](./LICENSE).
-
-Built and maintained by [Kayvan Zahiri](https://github.com/Kayvan-Zahiri) /
-[ResumeAI](https://withresumeai.com).
+MIT; see [LICENSE](./LICENSE). Retain its copyright and permission notices when distributing copies or substantial portions. A scholarly or journalistic citation is optional; [NOTICE.md](./NOTICE.md) explains that distinction.

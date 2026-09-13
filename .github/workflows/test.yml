@@ -26,6 +26,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Check published snapshot statistics
+        run: npm run stats:check
+
       - name: Test
         run: npm test
 
