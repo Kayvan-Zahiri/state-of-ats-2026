@@ -1,5 +1,10 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { spawnSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
 
 import {
   companies,
@@ -26,7 +31,7 @@ test("every row has the required fields incl. a boolean `verified`", () => {
   }
 });
 
-test("704 employers are portal-verified", () => {
+test("704 employers are marked verified in the dataset", () => {
   assert.equal(verifiedCompanies.length, 704);
   assert.ok(verifiedCompanies.every((c) => c.verified === true));
 });
@@ -38,8 +43,77 @@ test("Apple lookup resolves to its proprietary internal ATS (verified)", () => {
   assert.equal(bySlug.company, "Apple");
   assert.equal(bySlug.atsSystem, "Internal ATS");
   assert.deepEqual(bySlug, byName);
+  assert.deepEqual(Object.keys(bySlug).sort(), [
+    "atsSystem", "company", "industry", "slug", "sourceUrl",
+  ]);
   assert.equal(companies.find((c) => c.slug === "apple")?.verified, true);
 });
+
+test("published evidence and geography fields are available without changing dates", () => {
+  const apple = companies.find((c) => c.slug === "apple");
+  assert.equal(apple.applyHost, "jobs.apple.com");
+  assert.equal(apple.evidenceMethod, "Careers-portal apply host");
+  assert.equal(apple.checkedAt, "2026-08-13");
+  assert.equal(apple.hqCountry, "United States");
+  assert.equal(apple.hqCountryCode, "US");
+  assert.equal(apple.hqRegion, "North America");
+});
+
+test("a verified flag does not invent missing evidence", () => {
+  const company = companies.find((c) => c.slug === "ab-inbev");
+  assert.equal(company.verified, true);
+  assert.equal(company.applyHost, undefined);
+  assert.equal(company.evidenceMethod, undefined);
+  assert.equal(company.checkedAt, undefined);
+  assert.equal(company.hqCountry, "Belgium");
+});
+
+test("the public objects preserve every field and record in the bundled CSV", () => {
+  const csv = readFileSync(new URL("../data/companies.csv", import.meta.url), "utf8");
+  const lines = csv.trimEnd().split(/\r?\n/);
+  assert.equal(lines.shift(), [
+    "name", "slug", "industry", "ats_system", "verified", "apply_host",
+    "evidence_method", "checked_at", "hq_country", "hq_country_code", "hq_region",
+    "hiring_volume_tier", "top_roles", "source_url",
+  ].join(","));
+  const escape = (value) => {
+    const text = String(value ?? "");
+    return /[",\r\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
+  };
+  const serialized = companies.map((c) => [
+    c.name, c.slug, c.industry, c.atsSystem, c.verified, c.applyHost,
+    c.evidenceMethod, c.checkedAt, c.hqCountry, c.hqCountryCode, c.hqRegion,
+    c.hiringVolumeTier, c.topRoles?.join("|"), c.sourceUrl,
+  ].map(escape).join(","));
+  assert.deepEqual(serialized, lines);
+});
+
+for (const format of ["esm", "cjs"]) {
+  for (const decoy of [false, true]) {
+    test(`${format} loads its own data from an unrelated working directory${decoy ? " with a decoy CSV" : ""}`, (t) => {
+      const cwd = mkdtempSync(join(tmpdir(), "ats-data-consumer-"));
+      t.after(() => rmSync(cwd, { recursive: true, force: true }));
+      if (decoy) {
+        mkdirSync(join(cwd, "data"));
+        writeFileSync(join(cwd, "data/companies.csv"), [
+          "name,slug,industry,ats_system,verified,hiring_volume_tier,top_roles,source_url",
+          "Decoy,decoy,Test,Test,false,mid,,https://example.com/decoy",
+          "",
+        ].join("\n"));
+      }
+      const moduleUrl = new URL(`../dist/index.${format === "esm" ? "js" : "cjs"}`, import.meta.url);
+      const load = format === "esm"
+        ? `import { companies } from ${JSON.stringify(moduleUrl.href)};`
+        : `const { companies } = require(${JSON.stringify(fileURLToPath(moduleUrl))});`;
+      const result = spawnSync(process.execPath, [
+        `--input-type=${format === "esm" ? "module" : "commonjs"}`,
+        "--eval", `${load} process.stdout.write(JSON.stringify(companies));`,
+      ], { cwd, encoding: "utf8", maxBuffer: 2 * 1024 * 1024 });
+      assert.equal(result.status, 0, result.stderr || result.error?.message);
+      assert.deepEqual(JSON.parse(result.stdout), JSON.parse(JSON.stringify(companies)));
+    });
+  }
+}
 
 test("unknown company returns null", () => {
   assert.equal(getATSForCompany("not-a-real-company"), null);

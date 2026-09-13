@@ -1,28 +1,11 @@
-# Attribution
+# License notices and optional citation
 
-The LICENSE file is the unmodified MIT text, deliberately. It used to carry an
-attribution paragraph and the word "Software" swapped for "Materials", which
-read as friendlier but had a cost: GitHub's licence detector fell below its
-match threshold and reported `NOASSERTION`, so every aggregator, dataset index
-and model that reads the licence API saw "unknown licence" on a dataset whose
-entire pitch is that it is MIT and free. The request below is what that
-paragraph was for.
+This project is distributed under the [MIT License](./LICENSE). It permits use, copying, modification, redistribution, and commercial use, subject to its terms. **Copies or substantial portions must retain the copyright notice and permission notice.** The license also includes its warranty disclaimer.
 
-**The licence asks nothing of you.** Use, copy, modify, redistribute, sell —
-including commercially, including without credit.
+A separate citation in an article, research paper, or analysis is appreciated, but is not an additional license condition:
 
-**What is appreciated, not required:** if you republish statistics from this
-dataset in journalism or research, cite it as
+> Kayvan Zahiri / ResumeAI (2026), *State of ATS 2026*. https://withresumeai.com/reports/state-of-ats-2026
 
-> ResumeAI, *State of ATS 2026*. https://withresumeai.com/reports/state-of-ats-2026
+Include the package version or repository revision used so readers can identify the snapshot. Machine-readable citation metadata is in [CITATION.cff](./CITATION.cff).
 
-Machine-readable citation metadata is in [`CITATION.cff`](CITATION.cff), and
-GitHub renders it under "Cite this repository" in the sidebar.
-
-**One thing worth knowing before you cite a number.** Provenance in this
-dataset is mixed and stated per row in `evidence_method`. 551 of 738 rows
-publish an `apply_host` you can open in a browser to check the row yourself;
-187 carry no evidence artifact at all, and 156 of those are still flagged
-`verified` on the strength of the June 2026 audit. That is the softest part of
-the data. Filter on `apply_host` rather than on `verified` for anything
-load-bearing.
+Before citing a statistic, state the subset counted. Evidence methods are mixed; a `verified` flag alone can rest on the June 2026 audit without a published host artifact. For recorded-host analysis, filter on a nonempty `apply_host` and inspect the row's `evidence_method` and `checked_at`. Counts describe the selected employer sample, not industry-wide market share. A release date is not a new observation date.

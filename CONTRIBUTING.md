@@ -1,53 +1,48 @@
 # Contributing
 
-Thanks for considering a contribution! This dataset is open-sourced so that
-the resume / hiring / ATS community can keep it accurate over time.
+Corrections, documented additions, and improvements to the package are welcome. Keep changes focused and explain the evidence behind each changed attribution.
 
-## What we accept
+## Dataset changes
 
-- **Company additions** — append a row to `data/companies.csv` with the same
-  schema. Please include a source link in the PR description that backs up
-  the ATS attribution (a screenshot of the apply portal, the apply URL,
-  etc.).
-- **ATS corrections** — if a company migrated ATSes since June 2026, open a
-  PR with the new attribution and a source link.
-- **New helper functions** in `src/index.ts` — keep them small, typed,
-  documented with a JSDoc block, and covered by a smoke test.
-- **Doc fixes** — README typos, broken links, clarifications. Always
-  welcome.
+Edit `data/companies.csv` using its 14-column header and order below. The header must be the first record: do not add prose/comment rows. Use standard CSV quoting for commas and quotes. The current package reader requires one physical line per record; embedded newlines are not supported. Keep `slug` unique and check for existing names or historical aliases before adding an employer.
 
-## What we won't merge
+For every attribution correction or addition, include the employer's official careers/apply URL, the observed host or vendor evidence, the collection method, and the observation date in the PR description. A ResumeAI company-guide `source_url` is not independent evidence. Label automated probes and manually recorded observations accurately. Do not infer a private screening setup from a public host or set `verified=true` merely because a prior row used that flag.
 
-- New dependencies in the published package (we keep this dependency-free
-  on purpose). Dev-deps are fine.
-- Bulk regenerations of the dataset without per-row sourcing — quality of
-  attribution is the whole product.
-- Changes to the CSV schema (column rename/removal) without prior
-  discussion in an issue — it would be a breaking change for downstream
-  pandas / R / SQL consumers.
+Leave evidence fields blank when the corresponding detail is unavailable. Do not fill missing dates with the PR or release date, fabricate hosts, or regenerate attributions in bulk without per-row sourcing. Check the [methodology and limitations](https://withresumeai.com/reports/state-of-ats-2026#methodology) before changing verification status.
+
+## Schema
+
+| CSV column, in order | Format | Notes |
+| --- | --- | --- |
+| `name` | string | Employer name. |
+| `slug` | string | Unique URL-safe company-guide identifier. |
+| `industry` | string | Assigned industry label. |
+| `ats_system` | string | Recorded ATS attribution. |
+| `verified` | `true` or `false` | Dataset verification status; does not guarantee a published host. |
+| `apply_host` | string or blank | Recorded careers/apply host. |
+| `evidence_method` | string or blank | Method used to collect the published evidence. |
+| `checked_at` | `YYYY-MM-DD` or blank | Date of that row's evidence, not the release date. |
+| `hq_country` | string or blank | Assigned headquarters country name. |
+| `hq_country_code` | string or blank | Assigned headquarters country code. |
+| `hq_region` | string or blank | Assigned headquarters region. |
+| `hiring_volume_tier` | `mega`, `high`, `mid`, or blank | Editorial tier; not a vacancy count. |
+| `top_roles` | pipe-separated slugs or blank | Role labels; blank values parse to an empty JavaScript array. |
+| `source_url` | URL | ResumeAI company guide at `/ats-checker/{slug}`. |
+
+The JavaScript `Company` mapping is documented in [README.md](./README.md). Discuss column additions, removals, renames, or reordering in an issue before implementation: downstream CSV readers may depend on the exact schema. Document removals and changed slugs so consumers can migrate.
+
+## Package and documentation changes
+
+Keep the published package free of runtime dependencies. Helpers should remain small and typed, with documentation and tests for meaningful behavior. Preserve loading of the package's bundled CSV in both ESM and CommonJS from any working directory. Do not add a caller-local CSV override.
+
+Statistics in the README are generated from the bundled CSV. Edit neither the values inside the dataset-stats marker block nor the source data just to make an expected statistic pass.
 
 ## Workflow
 
-1. Fork the repo and create a feature branch.
-2. Make your changes. If editing the CSV, double-check column order.
-3. `npm install && npm run build && npm test` — must pass.
-4. Open a PR. CI runs on Node 18 / 20 / 22.
+1. Fork the repository and create a feature branch.
+2. Make the change and document its evidence or consumer impact.
+3. Run `npm install`, `npm run stats`, `npm run stats:check`, `npm run build`, and `npm test`.
+4. Run `node examples/quickstart.mjs`. For Python example changes, install pandas and run `python examples/python.py`.
+5. Open a PR with the change and validation results. CI currently covers Node.js 18, 20, and 22.
 
-## Schema reference
-
-| Column                | Type     | Notes                                                |
-| --------------------- | -------- | ---------------------------------------------------- |
-| `name`                | string   | Human-readable company name.                         |
-| `slug`                | string   | URL-safe. Maps to /ats-checker/[slug].               |
-| `industry`            | string   | Free-form (e.g. "Technology", "Investment Banking"). |
-| `ats_system`          | string   | Vendor name as it appears in the report.             |
-| `hiring_volume_tier`  | enum     | `mega`, `high`, or `mid`. Optional.                  |
-| `top_roles`           | string   | Pipe-delimited list of role slugs. Optional.         |
-| `source_url`          | URL      | Canonical ResumeAI page for the company.             |
-
-## Code of conduct
-
-Be kind. Disagreements about data are fine; personal attacks are not.
-
-— Maintained by [Kayvan Zahiri](https://github.com/Kayvan-Zahiri) for
-[ResumeAI](https://withresumeai.com).
+Be kind and keep disagreements focused on evidence. Contributions are distributed under the repository's [MIT License](./LICENSE).

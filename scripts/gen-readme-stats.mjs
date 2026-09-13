@@ -1,119 +1,83 @@
 #!/usr/bin/env node
-/**
- * Regenerates the README's statistics from data/companies.csv — the single
- * source of truth — so the prose lede can never drift from the table again.
- *
- * Why this exists: on 2026-08-08 an audit found the README prose claiming
- * "Greenhouse 13.3%, SuccessFactors 8.1%, Oracle 6.3%" while its own table
- * three sections below said 12.6% / 9.6% / 6.9%. AI answer engines lift the
- * LEDE, so they were quoting stale figures back at us — on the one channel
- * that has produced a full-price sale.
- *
- * Usage:
- *   node scripts/gen-readme-stats.mjs           # rewrite README from data
- *   node scripts/gen-readme-stats.mjs --check   # CI: exit 1 on drift
- */
+// Generate the README's bounded snapshot summary from the bundled CSV.
 import { readFileSync, writeFileSync } from "node:fs";
 
-const csvPath = new URL("../data/companies.csv", import.meta.url);
-const csv = readFileSync(csvPath, "utf-8");
-const lines = csv.split("\n").filter((l) => l.trim() && !l.startsWith("#"));
-const header = lines.shift().split(",").map((h) => h.replace(/"/g, "").trim());
-const vi = header.indexOf("verified");
-const ai = header.indexOf("ats_system");
-if (vi < 0 || ai < 0) throw new Error("CSV missing verified/ats_system columns");
+const csv = readFileSync(new URL("../data/companies.csv", import.meta.url), "utf8");
+const lines = csv.split(/\r?\n/).filter((line) => line.trim() && !line.startsWith("#"));
 
-/** Split a CSV line honoring quoted fields. */
 function cells(line) {
   const out = [];
-  let cur = "";
-  let inQ = false;
+  let value = "";
+  let quoted = false;
   for (let i = 0; i < line.length; i++) {
-    const ch = line[i];
-    if (ch === '"') inQ = !inQ;
-    else if (ch === "," && !inQ) { out.push(cur); cur = ""; }
-    else cur += ch;
+    const char = line[i];
+    if (char === '"' && quoted && line[i + 1] === '"') {
+      value += '"';
+      i++;
+    } else if (char === '"') quoted = !quoted;
+    else if (char === "," && !quoted) {
+      out.push(value);
+      value = "";
+    } else value += char;
   }
-  out.push(cur);
+  if (quoted) throw new Error("Unclosed CSV field in snapshot");
+  out.push(value);
   return out;
 }
 
-const counts = {};
-let verified = 0;
-for (const line of lines) {
-  const c = cells(line);
-  if ((c[vi] || "").trim() !== "true") continue;
-  verified++;
-  const ats = (c[ai] || "").trim();
-  counts[ats] = (counts[ats] || 0) + 1;
+const header = cells(lines.shift());
+const indices = Object.fromEntries(
+  ["verified", "ats_system", "apply_host", "checked_at"].map((column) => {
+    const index = header.indexOf(column);
+    if (index < 0) throw new Error(`CSV missing ${column}`);
+    return [column, index];
+  }),
+);
+const rows = lines.map((line) => {
+  const row = cells(line);
+  if (row.length !== header.length) throw new Error("CSV row does not match header");
+  return row;
+});
+const verified = rows.filter((row) => row[indices.verified] === "true");
+if (!verified.length) throw new Error("Snapshot has no verified rows to summarize");
+const counts = new Map();
+for (const row of verified) {
+  const ats = row[indices.ats_system];
+  counts.set(ats, (counts.get(ats) ?? 0) + 1);
 }
-const total = lines.length;
-const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
-const pct = (n) => ((n / verified) * 100).toFixed(1);
-const top3 = sorted.slice(0, 3).reduce((s, [, n]) => s + n, 0);
-const top3pct = ((top3 / verified) * 100).toFixed(1);
+const sorted = [...counts].sort((a, b) => b[1] - a[1]);
+const withHost = rows.filter((row) => row[indices.apply_host]).length;
+const dates = rows.map((row) => row[indices.checked_at]).filter(Boolean).sort();
+const latest = dates.at(-1) ?? "not published";
+const labels = { SuccessFactors: "SAP SuccessFactors", "Internal ATS": "Internal / proprietary" };
+const table = sorted.slice(0, 12).map(([ats, count]) =>
+  `| ${labels[ats] ?? ats} | ${count} | ${(count / verified.length * 100).toFixed(1)}% |`,
+).join("\n");
+const summary = `This snapshot contains **${rows.length} employers**, with **${verified.length} rows marked \`verified=true\`** and **${withHost} rows containing a recorded \`apply_host\`**. These are different measures. The latest nonempty per-row \`checked_at\` is **${latest}**; a package release does not re-verify the employers.
 
-const LABEL = { SuccessFactors: "SAP SuccessFactors", "Internal ATS": "Internal / proprietary" };
+The table counts only rows marked \`verified=true\` in this selected snapshot. It is not an estimate of industry-wide market share or current employer configurations.
 
-const lede = `Across the **${verified} employers verified against their live careers portals**,
-Workday leads at **${pct(counts.Workday)}%** — common, but well short of a majority — and the
-market is far more fragmented than usually claimed: Greenhouse ${pct(counts.Greenhouse)}%, SAP
-SuccessFactors ${pct(counts.SuccessFactors)}%, Oracle Cloud HCM ${pct(counts["Oracle Cloud HCM"])}%, then a long tail of iCIMS,
-Avature, Eightfold, SmartRecruiters, Taleo, and Ashby. The top three vendors together
-cover ${top3pct}% — not the "triopoly" often claimed — and ${sorted.length} distinct platforms are in
-active use. Published as a CSV + typed TypeScript wrapper so you can drop it into
-a notebook, a SQL warehouse, or your job board without any scraping.`;
-
-const table =
-  "| ATS vendor        | Companies | Share (verified) |\n" +
-  "| ----------------- | --------: | ---------------: |\n" +
-  sorted
-    .slice(0, 12)
-    .map(([k, n], i) => {
-      const label = (LABEL[k] || k).padEnd(18);
-      const share = i < 2 ? `**${pct(n)}%**` : `${pct(n)}%`;
-      return `| ${label}| ${String(n).padStart(9)} | ${share.padStart(16)} |`;
-    })
-    .join("\n");
+| ATS vendor | Records | Share of flagged subset |
+| --- | ---: | ---: |
+${table}`;
 
 const path = new URL("../README.md", import.meta.url);
-const before = readFileSync(path, "utf-8");
-let readme = before;
-
-readme = readme.replace(
-  /Across the \*\*\d+ employers verified[\s\S]*?without any scraping\./,
-  lede
-);
-readme = readme.replace(
-  /\| ATS vendor\s+\| Companies \| Share \(verified\) \|\n\|[-\s|:]+\|\n(?:\|.*\|\n)+/,
-  table + "\n"
-);
-readme = readme.replace(
-  /Share of the \*\*\d+ portal-verified employers\*\*/,
-  `Share of the **${verified} portal-verified employers**`
-);
-readme = readme.replace(
-  /\*\*\d+ with `verified=true`\*\*/,
-  `**${verified} with \`verified=true\`**`
-);
-readme = readme.replace(/\/\/ \d+ \(verified === true\)/, `// ${verified} (verified === true)`);
-readme = readme.replace(/re-checked \*\*\d+ of/, `re-checked **${verified} of`);
-
-const summary = `${verified}/${total} verified · Workday ${pct(counts.Workday)}% · Greenhouse ${pct(
-  counts.Greenhouse
-)}% · SAP ${pct(counts.SuccessFactors)}% · top-3 ${top3pct}% · ${sorted.length} platforms`;
-
+const before = readFileSync(path, "utf8");
+const start = "<!-- dataset-stats:start -->";
+const end = "<!-- dataset-stats:end -->";
+if (before.split(start).length !== 2 || before.split(end).length !== 2 || before.indexOf(start) > before.indexOf(end)) {
+  throw new Error("README must contain exactly one ordered dataset-stats block");
+}
+const after = before.slice(0, before.indexOf(start) + start.length)
+  + `\n${summary}\n`
+  + before.slice(before.indexOf(end));
 if (process.argv.includes("--check")) {
-  if (readme !== before) {
-    console.error(
-      "✗ README statistics have DRIFTED from data/companies.csv.\n" +
-        "  Run: node scripts/gen-readme-stats.mjs\n" +
-        `  Canonical: ${summary}`
-    );
+  if (before !== after) {
+    console.error("README snapshot statistics drifted. Run npm run stats.");
     process.exit(1);
   }
-  console.log(`✓ README stats in sync — ${summary}`);
+  console.log(`README snapshot statistics match ${rows.length} rows.`);
 } else {
-  writeFileSync(path, readme);
-  console.log(`✓ README regenerated — ${summary}`);
+  writeFileSync(path, after);
+  console.log(`Updated README snapshot statistics from ${rows.length} rows.`);
 }

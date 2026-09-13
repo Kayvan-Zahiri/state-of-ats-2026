@@ -2,8 +2,8 @@
  * @withresumeai/ats-data
  *
  * 738 Fortune-500 / Global-2000 / late-stage-private employers and the
- * Applicant Tracking System (ATS) each one uses on their public careers
- * portal as of 2026.
+ * Applicant Tracking System (ATS) attributed to each one's public careers
+ * portal in this snapshot.
  *
  * Published as part of the ResumeAI State of ATS 2026 report:
  *   https://withresumeai.com/reports/state-of-ats-2026
@@ -18,9 +18,9 @@ export type { Company, ATSInfo, ATSSystem, HiringVolumeTier } from "./types.js";
 export const companies: Company[] = loadCompanies();
 
 /**
- * The subset whose ATS was confirmed against the company's LIVE careers portal
- * in the June 2026 audit, re-verified July 2026 (704 of 738). Prefer this for any market-share
- * analysis — the unverified remainder are unconfirmed prior estimates.
+ * Rows marked verified in the source dataset (704 of 738). This flag does not
+ * guarantee a published apply host or observation date; inspect each row's
+ * optional evidence fields for provenance.
  */
 export const verifiedCompanies: Company[] = companies.filter((c) => c.verified);
 
@@ -56,10 +56,8 @@ export function getCompaniesByIndustry(industry: string): Company[] {
 /**
  * Returns the absolute count of companies per ATS vendor, sorted descending.
  *
- * Counts the PORTAL-VERIFIED subset by default (the honest basis for shares).
+ * Counts the rows marked verified by default.
  * Pass `{ all: true }` to count all 738 rows including unconfirmed estimates.
- *
- * Verified example: `{ Workday: 138, Greenhouse: 57, SuccessFactors: 24, ... }`
  */
 export function atsDistribution(opts: { all?: boolean } = {}): Record<string, number> {
   const rows = opts.all ? companies : verifiedCompanies;
@@ -75,8 +73,7 @@ export function atsDistribution(opts: { all?: boolean } = {}): Record<string, nu
 
 /**
  * Convenience: ATS share as a percentage, sorted descending. Computed over the
- * PORTAL-VERIFIED subset by default. Pass `{ all: true }` for all 738 rows.
- * Verified example: `{ Workday: 38.05, Greenhouse: 12.59, SuccessFactors: 9.62, ... }`.
+ * rows marked verified by default. Pass `{ all: true }` for all 738 rows.
  */
 export function atsShare(opts: { all?: boolean } = {}): Record<string, number> {
   const dist = atsDistribution(opts);

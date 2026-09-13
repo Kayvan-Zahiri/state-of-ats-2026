@@ -2,10 +2,12 @@ cff-version: 1.2.0
 message: "If you use this dataset, please cite it as below."
 title: "State of ATS 2026: employer-to-applicant-tracking-system attribution"
 abstract: >-
-  Which applicant tracking system runs the careers portal of each of 738 large
-  employers, verified against the live portal rather than inferred from page
-  markup. 704 rows verified; 551 publish the apply host that applications land
-  on, so any row can be checked in a browser. Provenance is recorded per row.
+  A selected sample of 738 employers with recorded ATS attributions and mixed
+  automated and manual careers-portal evidence. 704 rows are marked verified;
+  551 publish an apply host. A verification flag alone can rest on the original
+  June 2026 audit without a published host artifact. Evidence dates are per row;
+  a package release is not revalidation. Counts describe this selected sample,
+  and observed hosts do not establish private screening configurations.
 type: dataset
 license: MIT
 authors:
