@@ -53,7 +53,7 @@ const labels = { SuccessFactors: "SAP SuccessFactors", "Internal ATS": "Internal
 const table = sorted.slice(0, 12).map(([ats, count]) =>
   `| ${labels[ats] ?? ats} | ${count} | ${(count / verified.length * 100).toFixed(1)}% |`,
 ).join("\n");
-const summary = `This snapshot contains **${rows.length} employers**, with **${verified.length} rows marked \`verified=true\`** and **${withHost} rows containing a recorded \`apply_host\`**. These are different measures. The latest nonempty per-row \`checked_at\` is **${latest}**; a package release does not re-verify the employers.
+const summary = `This snapshot contains **${rows.length} employers**, with **${verified.length} rows marked \`verified=true\`** and **${withHost} rows containing a recorded \`apply_host\`**. These are different measures. The latest nonempty per-row \`checked_at\` is **${latest}**.
 
 The table counts only rows marked \`verified=true\` in this selected snapshot. It is not an estimate of industry-wide market share or current employer configurations.
 

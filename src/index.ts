@@ -18,9 +18,10 @@ export type { Company, ATSInfo, ATSSystem, HiringVolumeTier } from "./types.js";
 export const companies: Company[] = loadCompanies();
 
 /**
- * Rows marked verified in the source dataset (704 of 738). This flag does not
- * guarantee a published apply host or observation date; inspect each row's
- * optional evidence fields for provenance.
+ * Rows re-verified with live evidence on 2026-10-09 (421 of 738).
+ * `verified === false` means the row is labeled not re-verified in Oct 2026.
+ * The recorded attribution on those rows is historical. It is not a finding
+ * that the vendor was wrong. Inspect each row's evidence fields.
  */
 export const verifiedCompanies: Company[] = companies.filter((c) => c.verified);
 
@@ -56,8 +57,9 @@ export function getCompaniesByIndustry(industry: string): Company[] {
 /**
  * Returns the absolute count of companies per ATS vendor, sorted descending.
  *
- * Counts the rows marked verified by default.
- * Pass `{ all: true }` to count all 738 rows including unconfirmed estimates.
+ * Counts the rows re-verified on 2026-10-09 by default.
+ * Pass `{ all: true }` to count all 738 rows, including rows labeled not
+ * re-verified in Oct 2026.
  */
 export function atsDistribution(opts: { all?: boolean } = {}): Record<string, number> {
   const rows = opts.all ? companies : verifiedCompanies;
@@ -73,7 +75,9 @@ export function atsDistribution(opts: { all?: boolean } = {}): Record<string, nu
 
 /**
  * Convenience: ATS share as a percentage, sorted descending. Computed over the
- * rows marked verified by default. Pass `{ all: true }` for all 738 rows.
+ * rows re-verified on 2026-10-09 by default. Pass `{ all: true }` for all 738
+ * rows, including rows labeled not re-verified in Oct 2026. Shares of the
+ * default subset over-represent vendors with public job APIs.
  */
 export function atsShare(opts: { all?: boolean } = {}): Record<string, number> {
   const dist = atsDistribution(opts);

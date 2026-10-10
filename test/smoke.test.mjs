@@ -31,9 +31,10 @@ test("every row has the required fields incl. a boolean `verified`", () => {
   }
 });
 
-test("704 employers are marked verified in the dataset", () => {
-  assert.equal(verifiedCompanies.length, 704);
+test("421 employers are re-verified in the October 2026 snapshot", () => {
+  assert.equal(verifiedCompanies.length, 421);
   assert.ok(verifiedCompanies.every((c) => c.verified === true));
+  assert.ok(verifiedCompanies.every((c) => c.checkedAt === "2026-10-09"));
 });
 
 test("Apple lookup resolves to its proprietary internal ATS (verified)", () => {
@@ -49,23 +50,42 @@ test("Apple lookup resolves to its proprietary internal ATS (verified)", () => {
   assert.equal(companies.find((c) => c.slug === "apple")?.verified, true);
 });
 
-test("published evidence and geography fields are available without changing dates", () => {
+test("Apple was re-verified as Internal ATS on 2026-10-09", () => {
   const apple = companies.find((c) => c.slug === "apple");
-  assert.equal(apple.applyHost, "jobs.apple.com");
-  assert.equal(apple.evidenceMethod, "Careers-portal apply host");
-  assert.equal(apple.checkedAt, "2026-08-13");
+  assert.equal(apple.applyHost, "www.apple.com");
+  assert.equal(apple.evidenceMethod, "Careers-portal fetch (vendor signature in URL/HTML)");
+  assert.equal(apple.checkedAt, "2026-10-09");
   assert.equal(apple.hqCountry, "United States");
   assert.equal(apple.hqCountryCode, "US");
   assert.equal(apple.hqRegion, "North America");
 });
 
-test("a verified flag does not invent missing evidence", () => {
-  const company = companies.find((c) => c.slug === "ab-inbev");
-  assert.equal(company.verified, true);
-  assert.equal(company.applyHost, undefined);
-  assert.equal(company.evidenceMethod, undefined);
-  assert.equal(company.checkedAt, undefined);
-  assert.equal(company.hqCountry, "Belgium");
+test("rows not re-verified in Oct 2026 keep historical attribution", () => {
+  const microsoft = companies.find((c) => c.slug === "microsoft");
+  assert.equal(microsoft.verified, false);
+  assert.equal(microsoft.atsSystem, "Eightfold");
+  assert.equal(microsoft.applyHost, "apply.careers.microsoft.com");
+  assert.equal(microsoft.evidenceMethod, "Careers-portal apply host");
+  assert.equal(microsoft.checkedAt, "2026-08-13");
+
+  const schwab = companies.find((c) => c.slug === "charles-schwab");
+  assert.equal(schwab.verified, false);
+  assert.equal(schwab.atsSystem, "iCIMS");
+  assert.equal(schwab.applyHost, undefined);
+
+  const abInbev = companies.find((c) => c.slug === "ab-inbev");
+  assert.equal(abInbev.verified, false);
+  assert.equal(abInbev.atsSystem, "SmartRecruiters");
+  assert.equal(abInbev.applyHost, undefined);
+  assert.equal(abInbev.evidenceMethod, undefined);
+  assert.equal(abInbev.checkedAt, undefined);
+  assert.equal(abInbev.hqCountry, "Belgium");
+
+  const rocket = companies.find((c) => c.slug === "rocket-lab");
+  assert.equal(rocket.verified, true);
+  assert.equal(rocket.atsSystem, "Greenhouse");
+  assert.equal(rocket.applyHost, "job-boards.greenhouse.io");
+  assert.equal(rocket.checkedAt, "2026-10-09");
 });
 
 test("the public objects preserve every field and record in the bundled CSV", () => {
@@ -122,9 +142,9 @@ test("unknown company returns null", () => {
 test("Workday leads the verified subset but is nowhere near a majority", () => {
   const dist = atsDistribution(); // verified-only by default
   const share = atsShare();
-  // 267, not 269: the 2026-08-12 dedupe removed duplicate rows for renamed
-  // employers (ge/ge-aerospace and anthem/elevance-health were both Workday).
-  assert.equal(dist.Workday, 267);
+  // 203 of the 421 rows re-verified on 2026-10-09. The prior verified base
+  // counted 267 before rows that could not be re-proved were dropped.
+  assert.equal(dist.Workday, 203);
   // Deliberately a wide band. This guards the CLAIM — Workday leads and is far
   // short of the "75% of resumes die in an ATS monopoly" story — not a precise
   // figure that shifts every re-verification. It was >38 && <44 and broke when
@@ -142,9 +162,8 @@ test("Workday leads the verified subset but is nowhere near a majority", () => {
 
 test("Greenhouse is the #2 ATS in the verified subset", () => {
   const dist = atsDistribution();
-  // 88, not 89: the 2026-08-12 dedupe removed five duplicate rows created by
-  // renamed/merged employers, one of which (square/block) was Greenhouse.
-  assert.equal(dist.Greenhouse, 88);
+  // 65 of the 421 rows re-verified on 2026-10-09.
+  assert.equal(dist.Greenhouse, 65);
 });
 
 test("`{ all: true }` counts every row, default counts only verified", () => {
@@ -161,4 +180,63 @@ test("`{ all: true }` counts every row, default counts only verified", () => {
 test("getCompaniesByIndustry returns matches", () => {
   const tech = getCompaniesByIndustry("Technology");
   assert.ok(tech.length > 10, `expected many Technology companies, got ${tech.length}`);
+});
+
+function parseCsv(text) {
+  const lines = text.replace(/\r\n/g, "\n").replace(/\n$/, "").split("\n");
+  function cells(line) {
+    const out = [];
+    let value = "";
+    let quoted = false;
+    for (let i = 0; i < line.length; i++) {
+      const char = line[i];
+      if (char === '"' && quoted && line[i + 1] === '"') {
+        value += '"';
+        i++;
+      } else if (char === '"') quoted = !quoted;
+      else if (char === "," && !quoted) {
+        out.push(value);
+        value = "";
+      } else value += char;
+    }
+    if (quoted) throw new Error("Unclosed CSV field");
+    out.push(value);
+    return out;
+  }
+  const header = cells(lines[0]);
+  return lines.slice(1).filter(Boolean).map((line) => {
+    const row = cells(line);
+    assert.equal(row.length, header.length);
+    return Object.fromEntries(header.map((name, index) => [name, row[index]]));
+  });
+}
+
+test("unverifiable audit rows stay not re-verified in Oct 2026 and keep their vendor", () => {
+  const audit = parseCsv(readFileSync(new URL("../data/verification-2026-10.csv", import.meta.url), "utf8"));
+  assert.equal(audit.length, 738);
+  const counts = { confirmed: 0, changed: 0, unverifiable: 0 };
+  const changed = [];
+  for (const row of audit) {
+    counts[row.status] += 1;
+    const company = companies.find((item) => item.slug === row.slug);
+    assert.ok(company, row.slug);
+    if (row.status === "unverifiable") {
+      assert.equal(company.verified, false, `${row.slug} was relabeled`);
+      assert.equal(company.atsSystem, row.old_vendor, row.slug);
+      assert.equal(company.applyHost ?? "", row.old_apply_host, row.slug);
+      assert.equal(company.checkedAt ?? "", row.old_checked_at, row.slug);
+      assert.notEqual(company.checkedAt, "2026-10-09", row.slug);
+    } else {
+      assert.ok(row.status === "confirmed" || row.status === "changed", row.status);
+      assert.equal(company.verified, true, row.slug);
+      assert.equal(company.atsSystem, row.new_vendor, row.slug);
+      assert.equal(company.checkedAt, "2026-10-09", row.slug);
+      assert.equal(company.evidenceMethod, row.evidence_method, row.slug);
+      assert.equal(company.applyHost, new URL(row.evidence_url).host, row.slug);
+      if (row.status === "changed") changed.push(row.slug);
+    }
+  }
+  assert.deepEqual(counts, { confirmed: 420, changed: 1, unverifiable: 317 });
+  assert.deepEqual(changed, ["rocket-lab"]);
+  assert.equal(audit.filter((row) => row.review_flag).length, 31);
 });

@@ -10,7 +10,8 @@
  * The named ATS systems observed in the dataset.
  *
  * `"Internal ATS"` is an umbrella for proprietary systems we could not
- * attribute to a named vendor (e.g. Amazon, Meta).
+ * attribute to a named vendor. Re-verified examples on 2026-10-09 include
+ * Amazon and Apple.
  */
 export type ATSSystem =
   | "Workday"
@@ -46,9 +47,10 @@ export interface Company {
   /** ATS vendor attributed to this company's public careers portal. */
   atsSystem: ATSSystem;
   /**
-   * Attribution marked verified in the source dataset. This may rest on the
-   * original June 2026 audit and does not guarantee a published apply host or
-   * observation date. Inspect the optional evidence fields for row provenance.
+   * `true` when this row was re-verified with live evidence on 2026-10-09.
+   * `false` means the row is labeled not re-verified in Oct 2026: the recorded
+   * vendor, host, method, and date stay as historical attribution. That flag
+   * is not a judgment that the recorded vendor was wrong.
    */
   verified: boolean;
   /** Recorded apply host, when the source publishes one. */
