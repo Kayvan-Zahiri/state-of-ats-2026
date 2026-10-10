@@ -1,6 +1,6 @@
 {
   "name": "@withresumeai/ats-data",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "738 large employers (Fortune 500, Global 2000, late-stage private) and the ATS systems they use. Data from the State of ATS 2026 report.",
   "main": "dist/index.cjs",
   "module": "dist/index.js",

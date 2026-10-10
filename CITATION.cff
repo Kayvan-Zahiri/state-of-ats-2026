@@ -1,13 +1,18 @@
 cff-version: 1.2.0
 message: "If you use this dataset, please cite it as below."
 title: "State of ATS 2026: employer-to-applicant-tracking-system attribution"
+version: 2.1.0
+date-released: 2026-10-09
 abstract: >-
-  A selected sample of 738 employers with recorded ATS attributions and mixed
-  automated and manual careers-portal evidence. 704 rows are marked verified;
-  551 publish an apply host. A verification flag alone can rest on the original
-  June 2026 audit without a published host artifact. Evidence dates are per row;
-  a package release is not revalidation. Counts describe this selected sample,
-  and observed hosts do not establish private screening configurations.
+  A selected sample of 738 employers with recorded ATS attributions. On
+  2026-10-09, 421 rows were re-verified with live evidence (420 confirmed and
+  1 vendor change), down from 704 previously marked verified, because only
+  rows with live hard evidence stayed in the headline base. 317 rows are
+  labeled not re-verified in Oct 2026; their earlier vendor, host, method, and
+  date are kept and are not treated as wrong. Shares describe the re-verified
+  subset only. That subset skews toward vendors with public job APIs and is
+  not an estimate of market share. Observed hosts do not establish private
+  screening configurations.
 type: dataset
 license: MIT
 authors:

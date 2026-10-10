@@ -8,7 +8,9 @@ Edit `data/companies.csv` using its 14-column header and order below. The header
 
 For every attribution correction or addition, include the employer's official careers/apply URL, the observed host or vendor evidence, the collection method, and the observation date in the PR description. A ResumeAI company-guide `source_url` is not independent evidence. Label automated probes and manually recorded observations accurately. Do not infer a private screening setup from a public host or set `verified=true` merely because a prior row used that flag.
 
-Leave evidence fields blank when the corresponding detail is unavailable. Do not fill missing dates with the PR or release date, fabricate hosts, or regenerate attributions in bulk without per-row sourcing. Check the [methodology and limitations](https://withresumeai.com/reports/state-of-ats-2026#methodology) before changing verification status.
+Leave evidence fields blank when the corresponding detail is unavailable. Do not fill missing dates with the PR or release date, fabricate hosts, or regenerate attributions in bulk without per-row sourcing. Check the [methodology and limitations](https://withresumeai.com/reports/state-of-ats-2026#methodology) and the October 2026 evidence rules in [README.md](./README.md) before changing verification status.
+
+The 2026-10-09 re-verification set `verified=true` only for rows with live hard evidence on that date. Rows that missed that bar are labeled **not re-verified in Oct 2026**: keep the recorded vendor, host, method, and date, and leave `verified=false`. Do not replace those vendors from a review-flag lead. A review-flag board on a different vendor stays under review until a human accepts it.
 
 ## Schema
 
