@@ -31,10 +31,10 @@ test("every row has the required fields incl. a boolean `verified`", () => {
   }
 });
 
-test("421 employers are re-verified in the October 2026 snapshot", () => {
-  assert.equal(verifiedCompanies.length, 421);
+test("436 employers are re-verified in the November 2026 snapshot", () => {
+  assert.equal(verifiedCompanies.length, 436);
   assert.ok(verifiedCompanies.every((c) => c.verified === true));
-  assert.ok(verifiedCompanies.every((c) => c.checkedAt === "2026-10-09"));
+  assert.ok(verifiedCompanies.every((c) => c.checkedAt === "2026-11-09"));
 });
 
 test("Apple lookup resolves to its proprietary internal ATS (verified)", () => {
@@ -50,23 +50,23 @@ test("Apple lookup resolves to its proprietary internal ATS (verified)", () => {
   assert.equal(companies.find((c) => c.slug === "apple")?.verified, true);
 });
 
-test("Apple was re-verified as Internal ATS on 2026-10-09", () => {
+test("Apple was re-verified as Internal ATS on 2026-11-09", () => {
   const apple = companies.find((c) => c.slug === "apple");
   assert.equal(apple.applyHost, "www.apple.com");
   assert.equal(apple.evidenceMethod, "Careers-portal fetch (vendor signature in URL/HTML)");
-  assert.equal(apple.checkedAt, "2026-10-09");
+  assert.equal(apple.checkedAt, "2026-11-09");
   assert.equal(apple.hqCountry, "United States");
   assert.equal(apple.hqCountryCode, "US");
   assert.equal(apple.hqRegion, "North America");
 });
 
-test("rows not re-verified in Oct 2026 keep historical attribution", () => {
-  const microsoft = companies.find((c) => c.slug === "microsoft");
-  assert.equal(microsoft.verified, false);
-  assert.equal(microsoft.atsSystem, "Eightfold");
-  assert.equal(microsoft.applyHost, "apply.careers.microsoft.com");
-  assert.equal(microsoft.evidenceMethod, "Careers-portal apply host");
-  assert.equal(microsoft.checkedAt, "2026-08-13");
+test("rows not re-verified in Nov 2026 keep historical attribution", () => {
+  // Verified in October, not re-proven on 2026-11-09: October evidence kept.
+  const confluent = companies.find((c) => c.slug === "confluent");
+  assert.equal(confluent.verified, false);
+  assert.equal(confluent.atsSystem, "Ashby");
+  assert.equal(confluent.applyHost, "jobs.ashbyhq.com");
+  assert.equal(confluent.checkedAt, "2026-10-09");
 
   const schwab = companies.find((c) => c.slug === "charles-schwab");
   assert.equal(schwab.verified, false);
@@ -85,7 +85,25 @@ test("rows not re-verified in Oct 2026 keep historical attribution", () => {
   assert.equal(rocket.verified, true);
   assert.equal(rocket.atsSystem, "Greenhouse");
   assert.equal(rocket.applyHost, "job-boards.greenhouse.io");
-  assert.equal(rocket.checkedAt, "2026-10-09");
+  assert.equal(rocket.checkedAt, "2026-11-09");
+});
+
+test("Nov 2026 vendor changes and recoveries are recorded", () => {
+  const lockheed = companies.find((c) => c.slug === "lockheed-martin");
+  assert.equal(lockheed.verified, true);
+  assert.equal(lockheed.atsSystem, "Eightfold");
+  assert.equal(lockheed.applyHost, "lockheedmartin.eightfold.ai");
+
+  const kayak = companies.find((c) => c.slug === "kayak");
+  assert.equal(kayak.verified, true);
+  assert.equal(kayak.atsSystem, "Ashby");
+  assert.equal(kayak.applyHost, "jobs.ashbyhq.com");
+
+  const microsoft = companies.find((c) => c.slug === "microsoft");
+  assert.equal(microsoft.verified, true);
+  assert.equal(microsoft.atsSystem, "Eightfold");
+  assert.equal(microsoft.applyHost, "apply.careers.microsoft.com");
+  assert.equal(microsoft.checkedAt, "2026-11-09");
 });
 
 test("the public objects preserve every field and record in the bundled CSV", () => {
@@ -142,9 +160,9 @@ test("unknown company returns null", () => {
 test("Workday leads the verified subset but is nowhere near a majority", () => {
   const dist = atsDistribution(); // verified-only by default
   const share = atsShare();
-  // 203 of the 421 rows re-verified on 2026-10-09. The prior verified base
-  // counted 267 before rows that could not be re-proved were dropped.
-  assert.equal(dist.Workday, 203);
+  // 207 of the 436 rows re-verified on 2026-11-09 (203 of 421 in October).
+  // The pre-October verified base counted 267.
+  assert.equal(dist.Workday, 207);
   // Deliberately a wide band. This guards the CLAIM — Workday leads and is far
   // short of the "75% of resumes die in an ATS monopoly" story — not a precise
   // figure that shifts every re-verification. It was >38 && <44 and broke when
@@ -162,7 +180,7 @@ test("Workday leads the verified subset but is nowhere near a majority", () => {
 
 test("Greenhouse is the #2 ATS in the verified subset", () => {
   const dist = atsDistribution();
-  // 65 of the 421 rows re-verified on 2026-10-09.
+  // 65 of the 436 rows re-verified on 2026-11-09.
   assert.equal(dist.Greenhouse, 65);
 });
 
@@ -211,8 +229,8 @@ function parseCsv(text) {
   });
 }
 
-test("unverifiable audit rows stay not re-verified in Oct 2026 and keep their vendor", () => {
-  const audit = parseCsv(readFileSync(new URL("../data/verification-2026-10.csv", import.meta.url), "utf8"));
+test("unverifiable audit rows stay not re-verified in Nov 2026 and keep their vendor", () => {
+  const audit = parseCsv(readFileSync(new URL("../data/verification-2026-11.csv", import.meta.url), "utf8"));
   assert.equal(audit.length, 738);
   const counts = { confirmed: 0, changed: 0, unverifiable: 0 };
   const changed = [];
@@ -225,18 +243,19 @@ test("unverifiable audit rows stay not re-verified in Oct 2026 and keep their ve
       assert.equal(company.atsSystem, row.old_vendor, row.slug);
       assert.equal(company.applyHost ?? "", row.old_apply_host, row.slug);
       assert.equal(company.checkedAt ?? "", row.old_checked_at, row.slug);
-      assert.notEqual(company.checkedAt, "2026-10-09", row.slug);
+      assert.notEqual(company.checkedAt, "2026-11-09", row.slug);
     } else {
       assert.ok(row.status === "confirmed" || row.status === "changed", row.status);
       assert.equal(company.verified, true, row.slug);
       assert.equal(company.atsSystem, row.new_vendor, row.slug);
-      assert.equal(company.checkedAt, "2026-10-09", row.slug);
+      assert.equal(company.checkedAt, "2026-11-09", row.slug);
       assert.equal(company.evidenceMethod, row.evidence_method, row.slug);
       assert.equal(company.applyHost, new URL(row.evidence_url).host, row.slug);
       if (row.status === "changed") changed.push(row.slug);
     }
   }
-  assert.deepEqual(counts, { confirmed: 420, changed: 1, unverifiable: 317 });
-  assert.deepEqual(changed, ["rocket-lab"]);
-  assert.equal(audit.filter((row) => row.review_flag).length, 31);
+  assert.deepEqual(counts, { confirmed: 434, changed: 2, unverifiable: 302 });
+  assert.deepEqual(changed, ["lockheed-martin", "kayak"]);
+  assert.equal(audit.filter((row) => row.review_flag).length, 30);
+  assert.equal(audit.filter((row) => row.recovered === "yes").length, 22);
 });
