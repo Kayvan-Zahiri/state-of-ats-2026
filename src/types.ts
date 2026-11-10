@@ -10,7 +10,7 @@
  * The named ATS systems observed in the dataset.
  *
  * `"Internal ATS"` is an umbrella for proprietary systems we could not
- * attribute to a named vendor. Re-verified examples on 2026-10-09 include
+ * attribute to a named vendor. Re-verified examples on 2026-11-09 include
  * Amazon and Apple.
  */
 export type ATSSystem =
@@ -47,8 +47,8 @@ export interface Company {
   /** ATS vendor attributed to this company's public careers portal. */
   atsSystem: ATSSystem;
   /**
-   * `true` when this row was re-verified with live evidence on 2026-10-09.
-   * `false` means the row is labeled not re-verified in Oct 2026: the recorded
+   * `true` when this row was re-verified with live evidence on 2026-11-09.
+   * `false` means the row is labeled not re-verified in Nov 2026: the recorded
    * vendor, host, method, and date stay as historical attribution. That flag
    * is not a judgment that the recorded vendor was wrong.
    */
